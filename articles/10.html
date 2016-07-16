@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keyword"  content="xsstomy, xsstomy blog,  xsstomy的博客,egret,egret 教程,egret 引擎,HTML5,swift, h5游戏,HTML5 游戏">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ECMAScript 2015新特性 - xsstomy</title>
+
+    <link rel="canonical" href="http://xsstomy/articles/10.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Hux add tongji.baidu -->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?927847cdebb6617d0945219f8ded1a83";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+    <meta name="google-site-verification" content="5x4fn8u-ngaY6n46Uy4NQQYg1TyGhDeFrQoCeN1Dap0" />
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">xsstomy</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+                <li>
+                    <a href="/about.html">About</a>
+                </li>
+                
+                <li>
+                    <a href="/game.html">Game</a>
+                </li>
+                
+                <li>
+                    <a href="/tags.html">Tags</a>
+                </li>
+                
+
+                <!-- Hux customized -->
+
+
+                <!-- Hux end -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/home-bg.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags.html#ES2015" title="ES2015">ES2015</a>
+                        
+                        <a class="tag" href="/tags.html#ES6" title="ES6">ES6</a>
+                        
+                    </div>
+                    <h1>ECMAScript 2015新特性</h1>
+                    
+                    
+                    <h2 class="subheading"></h2>
+                    
+                    <span class="meta">Posted by xsstomy on December 20, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+
+				<h2 id="section">缘由</h2>
+<p>继上一篇翻译的文章<a href="http://xsstomy.com/articles/9.html">使用TypeScript开发React</a>之后，对翻译文章有点上瘾了。最近也在研究ES2015,找到一篇不错的文章，于是又开始翻译起来了，就有了这篇博客。<a href="https://github.com/lukehoban/es6features#readme">原文链接</a>。下面正式翻译了，翻译并不是全文对比翻译的，也加了部分自己查找到资料的整理。</p>
+
+<h2 id="ecmascript6">ECMAScript6</h2>
+
+<h3 id="section-1">简介</h3>
+<p>ECMAScript 6,又名ECMAScript 2015,是ECMAScript 标准的最新版本。ES6是一个重要的更新对于JavaScript，并且这次更新是ES5在2009更新之后的首次更新。这些功能的正在集成在大部分<a href="http://kangax.github.io/es5-compat-table/es6/">JavaScript引擎</a>中。</p>
+
+<p>查看<a href="http://www.ecma-international.org/ecma-262/6.0/">ES6 标准</a>都在这篇详细的说明书中。</p>
+
+<p>ES6 包含以下新的功能点:<br />
+- <a href="#箭头操作符">箭头操作符</a><br />
+- <a href="#类的支持">类的支持</a><br />
+- <a href="#增强的对象字面量">增强的对象字面量</a><br />
+- <a href="#字符串模板">字符串模板</a><br />
+- <a href="#解构">解构</a><br />
+- <a href="#参数默认值，剩余参数，拓展参数">参数默认值，剩余参数，拓展参数</a><br />
+- <a href="#let与const关键字">let与const 关键字</a><br />
+- <a href="#迭代器，for..of">迭代器，for..of</a><br />
+- <a href="#generator">generator</a><br />
+- <a href="#字符编码标准">字符编码标准</a><br />
+- <a href="#模块">模块</a><br />
+- <a href="#模块装载">模块装载</a><br />
+- <a href="#Map,Set和WeekMap,WeakSet">Map，Set 和 WeakMap，WeakSet</a><br />
+- <a href="#Proxies">Proxies</a><br />
+- <a href="#Symbols类型">Symbols类型</a><br />
+- <a href="#子类内置">子类内置</a><br />
+- <a href="#Promises">Promises</a><br />
+- <a href="#Math，Number，String，Object的新API">Math，Number，String，Object 的新API</a><br />
+- <a href="#二进制和八进制">二进制和八进制</a><br />
+- <a href="#反射API">反射API</a><br />
+- <a href="#递归调用">递归调用</a></p>
+
+<h2 id="ecmascript6-">ECMAScript6 新特性</h2>
+
+<h3 id="section-2">箭头操作符</h3>
+<p>箭头操作符是函数简写的一种表现行式。它在语法结构上比较像C#,Java8和CoffeeScript里面的功能。它同时支持两种使用方式，表达式方式和声明方式。与function申明方式不同的地方是，箭头操作符号能够在相同的代码编辑模块中保留相同的<code>this</code>。</p>
+
+<pre><code>// 表达式方式
+var odds = evens.map(v =&gt; v + 1);
+var nums = evens.map((v, i) =&gt; v + i);
+var pairs = evens.map(v =&gt; ({even: v, odd: v + 1}));
+
+// 申明方式
+nums.forEach(v =&gt; {
+  if (v % 5 === 0)
+    fives.push(v);
+});
+
+// 词汇 this
+var bob = {
+  _name: "Bob",
+  _friends: [],
+  printFriends() {
+    this._friends.forEach(f =&gt;
+      console.log(this._name + " knows " + f));
+  }
+}
+</code></pre>
+
+<h3 id="section-3">类的支持</h3>
+<p>ES6 类是一个语法糖通过对JS原型模式的包装来实现。有一个简单类型申明形式使得类模式更加方便使用。类支持原型为基础的继承，super调用，实例和静态方法和构造函数。</p>
+
+<pre><code>class SkinnedMesh extends THREE.Mesh {
+  constructor(geometry, materials) {
+    super(geometry, materials);
+
+    this.idMatrix = SkinnedMesh.defaultMatrix();
+    this.bones = [];
+    this.boneMatrices = [];
+    //...
+  }
+  update(camera) {
+    //...
+    super.update();
+  }
+  get boneCount() {
+    return this.bones.length;
+  }
+  set matrixType(matrixType) {
+    this.idMatrix = SkinnedMesh[matrixType]();
+  }
+  static defaultMatrix() {
+    return new THREE.Matrix4();
+  }
+}
+</code></pre>
+
+<h2 id="section-4">增强的对象字面量</h2>
+<p>对象字面量扩展到支持设置背景原型，简写为Foo Foo作业：定义方法，使super调用，和计算属性名称和表达式。另外，这些也给对象的文字和类声明更紧密的结合在一起，让对象设计受益于一些相同的便利</p>
+
+<pre><code>var obj = {
+    // __proto__
+    __proto__: theProtoObj,
+    // Shorthand for ‘handler: handler’
+    handler,
+    // Methods
+    toString() {
+     // Super calls
+     return "d " + super.toString();
+    },
+    // Computed (dynamic) property names
+    [ 'prop_' + (() =&gt; 42)() ]: 42
+};
+</code></pre>
+
+<h2 id="section-5">字符串模板</h2>
+<p>字符串模板提供构造字符串语法糖,这个类似在Perl,Python和更多的字符串插值功能。可选的，可以添加一个标记，以允许字符串结构来进行定制，避免从字符串内容里注入攻击或构造更高级别的数据结构。</p>
+
+<pre><code>// 基础的字符串
+`In JavaScript '\n' is a line-feed.`
+
+// 多行字符串
+`In JavaScript this is
+ not legal.""`""
+
+// String interpolation
+"var name = "Bob", time = "today";
+`Hello ${name}, how are you ${time}?`"
+
+// Construct an HTTP request prefix is used to interpret the replacements and construction
+POST`http://foo.org/bar?a=${a}&amp;b=${b}
+     Content-Type: application/json
+     X-Credentials: ${credentials}
+     { "foo": ${foo},
+       "bar": ${bar}}`(myOnReadyStateChangeHandler);
+</code></pre>
+
+<h2 id="section-6">解构</h2>
+<p>解构允许结合使用模式匹配，与匹配的数组和对象的支持。解构是错误弱化，类似于标准的对象查找foo[“bar”] ，使用解构赋值访问对象中未定义的属性，将会得到undifined。更详细的用法点击<a href="http://www.csdn.net/article/2015-07-07/2825149-es6-in-depth-destructuring">这里</a></p>
+
+<pre><code>// 数组匹配
+var [a, , b] = [1,2,3];
+
+// 对象匹配
+var { op: a, lhs: { op: b }, rhs: c }
+       = getASTNode()
+
+// object matching shorthand
+// binds `op`, `lhs` and `rhs` in scope
+var {op, lhs, rhs} = getASTNode()
+
+// Can be used in parameter position
+function g({name: x}) {
+  console.log(x);
+}
+g({name: 5})
+
+// Fail-soft destructuring
+var [a] = [];
+a === undefined;
+
+// Fail-soft destructuring with defaults
+var [a = 1] = [];
+a === 1;
+
+</code></pre>
+
+<h2 id="section-7">参数默认值，剩余参数，拓展参数</h2>
+<p>被评估的默认参数值。在函数调用中，将数组转换为连续的参数。将…参数绑定到数组。剩余参数省略必要的<code>arguments</code>而且在一般情况更适用。</p>
+
+<pre><code>function f(x, y=12) {
+  // y is 12 if not passed (or passed as undefined)
+  return x + y;
+}
+f(3) == 15
+function f(x, ...y) {
+  // y is an Array
+  return x * y.length;
+}
+f(3, "hello", true) == 6
+function f(x, y, z) {
+  return x + y + z;
+}
+// Pass each elem of array as argument
+f(...[1,2,3]) == 6
+</code></pre>
+
+<h2 id="letconst-">let与const 关键字</h2>
+<p>可以把let看成var，只是它定义的变量被限定在了特定范围内才能使用，而离开这个范围则无效。const则很直观，用来定义常量，即无法被更改值的变量。</p>
+
+<pre><code>function f() {
+  {
+    let x;
+    {
+      // okay, block scoped name
+      const x = "sneaky";
+      // error, const
+      x = "foo";
+    }
+    // error, already declared in block
+    let x = "inner";
+  }
+}
+</code></pre>
+<p>## 迭代器，for..of<br />
+迭代器对象能够像CLR的IEnumerable或Java 的Iterable。一般化的for..in定制基于迭代器的迭代与for..of。不要求实现一个数组，使懒惰的设计模式，如LINQ。ES6中新引入的for of循环功能相似，不同的是每次循环它提供的不是序号而是值。for-of循环不仅仅是为遍历数组而设计的。基本上所有类数组对象都适用，比如DOM NodeListS，也能用在字符串上。更多详细的用法可以点击<a href="http://www.csdn.net/article/2015-06-15/2824965-es6-in-depth-iterators-and-the-for-of-loop">这里查看</a>。</p>
+
+<p>iterator:它是这么一个对象，拥有一个next方法，这个方法返回一个对象{done,value}，这个对象包含两个属性，一个布尔类型的done和包含任意值的value<br />
+iterable: 这是这么一个对象，拥有一个obj[@@iterator]方法，这个方法返回一个iterator<br />
+generator: 它是一种特殊的iterator。反的next方法可以接收一个参数并且返回值取决与它的构造函数（generator function）。generator同时拥有一个throw方法<br />
+generator 函数: 即generator的构造函数。此函数内可以使用yield关键字。在yield出现的地方可以通过generator的next或throw方法向外界传递值。generator 函数是通过function*来声明的<br />
+yield 关键字：它可以暂停函数的执行，随后可以再进进入函数继续执行</p>
+
+<pre><code>let fibonacci = {
+  [Symbol.iterator]() {
+    let pre = 0, cur = 1;
+    return {
+      next() {
+        [pre, cur] = [cur, pre + cur];
+        return { done: false, value: cur }
+      }
+    }
+  }
+}
+
+for (var n of fibonacci) {
+  // truncate the sequence at 1000
+  if (n &gt; 1000)
+    break;
+  console.log(n);
+}
+</code></pre>
+<p>迭代是基于这些duck类型接口(使用TypeScript 类型的语法来阐述)</p>
+
+<pre><code>interface IteratorResult {
+  done: boolean;
+  value: any;
+}
+interface Iterator {
+  next(): IteratorResult;
+}
+interface Iterable {
+  [Symbol.iterator](): Iterator
+}
+</code></pre>
+
+<h2 id="generator">generator</h2>
+<p>generator简化重复使用 <code>function*</code>和<code>yield</code>。声明为<code>function*</code>函数返回一个generator实例。generator是迭代器的子类图包含一些扩展<code>next</code>和<code>throw</code>,这些能够使用的值将会返回到generator，因此<code>yield</code>是一个关键字，如果return，返回一个value或者throws。<a href="http://www.csdn.net/article/2015-06-15/2824967-es6-in-depth-generators">更多的内容</a><br />
+注：也可用于启用“ await’般的异步编程，又见ES7等待提案。<br />
+生成器函数最大的特点是可以中断自己，但普通函数不可以。<br />
+```<br />
+var fibonacci = {<br />
+  [Symbol.iterator]: function*() {<br />
+    var pre = 0, cur = 1;<br />
+    for (;;) {<br />
+      var temp = pre;<br />
+      pre = cur;<br />
+      cur += temp;<br />
+      yield cur;<br />
+    }<br />
+  }<br />
+}</p>
+
+<p>for (var n of fibonacci) {<br />
+  // truncate the sequence at 1000<br />
+  if (n &gt; 1000)<br />
+    break;<br />
+  console.log(n);<br />
+}<br />
+```</p>
+
+<p>generator接口是 (使用TypeScript 类型的语法来阐述)</p>
+
+<pre><code>interface Generator extends Iterator {
+    next(value?: any): IteratorResult;
+    throw(exception: any);
+}
+</code></pre>
+
+<h2 id="section-8">字符编码标准</h2>
+<p>非断补充，支持完整的Unicode ，包括串新的Unicode文本形式和新的RegExp ú模式来处理代码点，以及新的API来处理在21位的代码点水平的字符串。这些增加支持JavaScript的建立全球的应用程序。</p>
+
+<pre><code>// same as ES5.1
+"𠮷".length == 2
+
+// new RegExp behaviour, opt-in ‘u’
+"𠮷".match(/./u)[0].length == 2
+
+// new form
+"\u{20BB7}"=="𠮷"=="\uD842\uDFB7"
+
+// new String ops
+"𠮷".codePointAt(0) == 0x20BB7
+
+// for-of iterates code points
+for(var c of "𠮷") {
+  console.log(c);
+}
+</code></pre>
+
+<h2 id="section-9">模块</h2>
+<p>对于模块组件定义语言级的支持。将从流行的JavaScript模块装载机模式（AMD，CommonJS）。将不同功能的代码分别写在不同文件中，各模块只需导出公共接口部分，然后通过模块的导入的方式可以在其他地方使用。</p>
+
+<pre><code>// lib/math.js
+export function sum(x, y) {
+  return x + y;
+}
+export var pi = 3.141593;
+// app.js
+import * as math from "lib/math";
+alert("2π = " + math.sum(math.pi, math.pi));
+// otherApp.js
+import {sum, pi} from "lib/math";
+alert("2π = " + sum(pi, pi));
+</code></pre>
+<p>一些附加功能包括<code>export default</code>和<code>export *</code>:</p>
+
+<pre><code>// lib/mathplusplus.js
+export * from "lib/math";
+export var e = 2.71828182846;
+export default function(x) {
+    return Math.log(x);
+}
+// app.js
+import ln, {pi, e} from "lib/mathplusplus";
+alert("2π = " + ln(e)*pi*2);
+</code></pre>
+
+<h2 id="section-10">模块装载机模式</h2>
+<p>模块装载机支持:<br />
+- 动态加载<br />
+- 状态隔离<br />
+- 全局命名空间隔离<br />
+- 编译钩<br />
+- 嵌套虚拟化</p>
+
+<p>可以配置默认模块加载程序,新的加载程序可以构造来评估并且在分离或约束的情况下加载代码。</p>
+
+<pre><code>// Dynamic loading – ‘System’ is default loader
+System.import('lib/math').then(function(m) {
+  alert("2π = " + m.sum(m.pi, m.pi));
+});
+
+// Create execution sandboxes – new Loaders
+var loader = new Loader({
+  global: fixup(window) // replace ‘console.log’
+});
+loader.eval("console.log('hello world!');");
+
+// Directly manipulate module cache
+System.get('jquery');
+System.set('jquery', Module({$: $})); // WARNING: not yet finalized
+</code></pre>
+<p>## Map，Set 和 WeakMap，WeakSet<br />
+这些是新加的集合类型，提供了更加方便的获取属性值的方法，不用像以前一样用hasOwnProperty来检查某个属性是属于原型链上的呢还是当前对象的。同时，在进行属性值添加与获取时有专门的get，set 方法。有时候我们会把对象作为一个对象的键用来存放属性值，普通集合类型比如简单对象会阻止垃圾回收器对这些作为属性键存在的对象的回收，有造成内存泄漏的危险。而WeakMap,WeakSet则更加安全些，这些作为属性键的对象如果没有别的变量在引用它们，则会被回收释放掉。</p>
+
+<pre><code>// Sets
+var s = new Set();
+s.add("hello").add("goodbye").add("hello");
+s.size === 2;
+s.has("hello") === true;
+
+// Maps
+var m = new Map();
+m.set("hello", 42);
+m.set(s, 34);
+m.get(s) == 34;
+
+// Weak Maps
+var wm = new WeakMap();
+wm.set(s, { extra: 42 });
+wm.size === undefined
+
+// Weak Sets
+var ws = new WeakSet();
+ws.add({ data: 42 });
+// Because the added object has no other references, it will not be held in the set
+</code></pre>
+
+<h2 id="proxies">Proxies</h2>
+<p>Proxy可以监听对象身上发生了什么事情，并在这些事情发生后执行一些相应的操作。一下子让我们对一个对象有了很强的追踪能力，同时在数据绑定方面也很有用处。</p>
+
+<pre><code>// Proxying a normal object
+var target = {};
+var handler = {
+  get: function (receiver, name) {
+    return `Hello, ${name}!`;
+  }
+};
+
+var p = new Proxy(target, handler);
+p.world === 'Hello, world!';
+// Proxying a function object
+var target = function () { return 'I am the target'; };
+var handler = {
+  apply: function (receiver, ...args) {
+    return 'I am the proxy';
+  }
+};
+
+var p = new Proxy(target, handler);
+p() === 'I am the proxy';
+</code></pre>
+<p>有陷阱可用于所有的运行时级元操作。</p>
+
+<pre><code>var handler =
+{
+  get:...,
+  set:...,
+  has:...,
+  deleteProperty:...,
+  apply:...,
+  construct:...,
+  getOwnPropertyDescriptor:...,
+  defineProperty:...,
+  getPrototypeOf:...,
+  setPrototypeOf:...,
+  enumerate:...,
+  ownKeys:...,
+  preventExtensions:...,
+  isExtensible:...
+}
+</code></pre>
+<p>## Symbols类型<br />
+符号启用对象状态访问控制。元件使性能受到任何字符串（如ES5 ）或符号来键入。符号是一个新的基本类型。用于调试的可选参数的说明 - 而不是身份的一部分。符号是唯一的（像gensym ），但不专用，因为它们是经由像Object.getOwnPropertySymbols反射功能暴露。</p>
+
+<pre><code>var MyClass = (function() {
+
+  // module scoped symbol
+  var key = Symbol("key");
+
+  function MyClass(privateData) {
+    this[key] = privateData;
+  }
+
+  MyClass.prototype = {
+    doStuff: function() {
+      ... this[key] ...
+    }
+  };
+
+  return MyClass;
+})();
+
+var c = new MyClass("hello")
+c["key"] === undefined
+</code></pre>
+<p>## 子类内置</p>
+
+<p>在ES6中，像<code>Array</code>,<code>Date</code> 和DOM <code>Element</code>元素都可以被继承。</p>
+
+<pre><code>// 数组的伪代码
+class Array {
+    constructor(...args) { /* ... */ }
+    static [Symbol.create]() {
+        // Install special [[DefineOwnProperty]]
+        // to magically update 'length'
+    }
+}
+
+// 用户继承的子类
+class MyArray extends Array {
+    constructor(...args) { super(...args); }
+}
+
+// Two-phase 'new':
+// 1) Call @@create to allocate object
+// 2) Invoke constructor on new instance
+var arr = new MyArray();
+arr[1] = 12;
+arr.length == 2
+</code></pre>
+
+<h2 id="promises">Promises</h2>
+<p>Promises 是一个异步编程库。Promises 是可以在未来提供价值的一个类。Promises 是用在许多现有的JavaScript库。</p>
+
+<pre><code>function timeout(duration = 0) {
+    return new Promise((resolve, reject) =&gt; {
+        setTimeout(resolve, duration);
+    })
+}
+
+var p = timeout(1000).then(() =&gt; {
+    return timeout(2000);
+}).then(() =&gt; {
+    throw new Error("hmm");
+}).catch(err =&gt; {
+    return Promise.all([timeout(100), timeout(200)]);
+})
+</code></pre>
+
+<h2 id="mathnumberstringobject-api">Math，Number，String，Object 的新API</h2>
+<p>对Math,Number,String还有Object等添加了许多新的API。以下对这些新API进行了简单展示。</p>
+
+<pre><code>Number.EPSILON
+Number.isInteger(Infinity) // false
+Number.isNaN("NaN") // false
+
+Math.acosh(3) // 1.762747174039086
+Math.hypot(3, 4) // 5
+Math.imul(Math.pow(2, 32) - 1, Math.pow(2, 32) - 2) // 2
+
+"abcde".includes("cd") // true
+"abc".repeat(3) // "abcabcabc"
+
+Array.from(document.querySelectorAll('*')) // 返回一个数组
+Array.of(1, 2, 3) // 类似 new Array(...), 但是没有特别的一个参数
+[0, 0, 0].fill(7, 1) // [0,7,7]
+[1, 2, 3].find(x =&gt; x == 3) // 3
+[1, 2, 3].findIndex(x =&gt; x == 2) // 1
+[1, 2, 3, 4, 5].copyWithin(3, 0) // [1, 2, 3, 1, 2]
+["a", "b", "c"].entries() // iterator [0, "a"], [1,"b"], [2,"c"]
+["a", "b", "c"].keys() // iterator 0, 1, 2
+["a", "b", "c"].values() // iterator "a", "b", "c"
+
+Object.assign(Point, { origin: new Point(0,0) })
+</code></pre>
+
+<h2 id="section-11">二进制和八进制</h2>
+<p>两个新的数字文字形式添加二进制（B）、八进制（O）。<br />
+<code>
+0b111110111 === 503 // true
+0o767 === 503 // true
+</code><br />
+## 反射API<br />
+全部反射API暴露运行级别元的操作的对象。这是有效地代理API的反射，并且允许使得对应于相同的元的操作作为代理陷阱呼叫。尤其适用于实现代理。</p>
+
+<pre><code>暂时没有demo
+</code></pre>
+<p>## 递归调用<br />
+在递归调用堆栈不保证不增长。确保在无限制的的输入情况下递归算法的安全。</p>
+
+<pre><code>function factorial(n, acc = 1) {
+    'use strict';
+    if (n &lt;= 1) return acc;
+    return factorial(n - 1, n * acc);
+}
+
+// 在大多数实现中的堆栈溢出
+// 但是在ES6中对于任意的输入都是安全的
+factorial(100000)
+</code></pre>
+<p>## 总结<br />
+总结就是一句话，前后端差异越来越小了。</p>
+
+<p><img src="/uploads/mypictures/xsstomyzhifubao.png" alt="" /></p>
+
+
+                <hr>
+
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="10" data-title="ECMAScript 2015新特性"
+                    data-images="http://xsstomy/img/home-bg.jpg"
+                    data-content="缘由
+继上一篇翻译的文章使用TypeScript开发React之后，对翻译文章有点上瘾了。最近也在研究ES2015,找到一篇不错的文章，于是又开始翻译起来... | @xsstomy 的个人博客"
+                    data-url="http://xsstomy/articles/10.html">
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多少 Share end-->
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/articles/9.html" data-toggle="tooltip" data-placement="top" title="使用TypeScript编写React">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/articles/11.html" data-toggle="tooltip" data-placement="top" title="2016计划">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread" data-thread-key="10" data-title="ECMAScript 2015新特性" data-url="http://xsstomy/articles/10.html"></div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                <!-- friends -->
+                
+                <div class="sidebar-container">
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline" style="
+                        margin-bottom: 0;
+                    ">
+                        
+                            <li><a href="http://featherj.org/">FeatherJ</a></li>
+                        
+                            <li><a href="http://www.idom.me/">Dom</a></li>
+                        
+                            <li><a href="http://xzper.com/">纸片儿</a></li>
+                        
+                            <li><a href="http://city-10.com/">城市拓荒者</a></li>
+                        
+                            <li><a href="http://yjtxlib.com/">Yjtx</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xsstomy"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/han-mu-71">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/xsstomy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; xsstomy 2014-2016
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- Highlight.js -->
+<script>
+    async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js",function(){
+        hljs.initHighlightingOnLoad();
+    })
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+
+
+<!-- Image to hack wechat -->
+<!--<img src="/img/icon_wechat.png" width="0" height="0" />-->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<!-- Tencent QQ Analysis -->
+<!--<script type="text/javascript" src="http://tajs.qq.com/stats?sId=43623438" charset="UTF-8"></script>-->
+</body>
+
+</html>

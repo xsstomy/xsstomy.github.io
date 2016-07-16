@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keyword"  content="xsstomy, xsstomy blog,  xsstomy的博客,egret,egret 教程,egret 引擎,HTML5,swift, h5游戏,HTML5 游戏">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>使用TypeScript编写React - xsstomy</title>
+
+    <link rel="canonical" href="http://xsstomy/articles/9.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Hux add tongji.baidu -->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?927847cdebb6617d0945219f8ded1a83";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+    <meta name="google-site-verification" content="5x4fn8u-ngaY6n46Uy4NQQYg1TyGhDeFrQoCeN1Dap0" />
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">xsstomy</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+                <li>
+                    <a href="/about.html">About</a>
+                </li>
+                
+                <li>
+                    <a href="/game.html">Game</a>
+                </li>
+                
+                <li>
+                    <a href="/tags.html">Tags</a>
+                </li>
+                
+
+                <!-- Hux customized -->
+
+
+                <!-- Hux end -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/home-bg.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags.html#React" title="React">React</a>
+                        
+                        <a class="tag" href="/tags.html#TypeScript" title="TypeScript">TypeScript</a>
+                        
+                    </div>
+                    <h1>使用TypeScript编写React</h1>
+                    
+                    
+                    <h2 class="subheading"></h2>
+                    
+                    <span class="meta">Posted by xsstomy on December 18, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+
+				<h2 id="section">缘由</h2>
+<p>最近在业余学习React，本身接触的egret一年多了，接触TypeScript时间还算有段时间，非常喜欢TypeScript。学习了TypeScript 就再也不想写JavaScript了。看了找了好些教程都是直接用JavaScript来写React,比较痛苦。今天找到了一篇比较好的教程。于是就想翻译一下，这里是<a href="http://blog.wolksoftware.com/working-with-react-and-typescript">原始博客链接</a>，于是就有了这篇博客。</p>
+
+<p>简单的介绍使用TypeScript 和 Atom 来开发 React 应用。</p>
+
+<p>我们准备从 TodoMVC 项目开始，使用React 和 TypeScript 来开发著名的TODO App.<br />
+<img src="/uploads/2015/12/17/9/7yjwysnxnekg_retina.png" alt="" /></p>
+
+<p>在这篇文章中你将学习到如下内容：</p>
+
+<ul>
+  <li>1.搭建开发环境</li>
+  <li>2.设置项目</li>
+  <li>3.React 基础组件</li>
+  <li>4.使用TypeScript 开发 React组件</li>
+  <li>5.编译应用</li>
+  <li>6.运行应用</li>
+</ul>
+
+<h2 id="section-1">搭建开发环境</h2>
+<p>我们将开始搭建开发环境</p>
+
+<ul>
+  <li>下载并安装node.js <a href="https://nodejs.org/en/">https://nodejs.org/en/</a></li>
+  <li>使用npm 安装 TypeScript</li>
+</ul>
+
+<p><code>$ npm install -g typescript tsd</code></p>
+
+<blockquote>
+  <p>说明:如果你使用的是OSX系统，请在命令行前面加上 sudo</p>
+</blockquote>
+
+<ul>
+  <li>下载并安装 Atom <a href="https://atom.io/">https://atom.io/</a></li>
+</ul>
+
+<p><img src="/uploads/2015/12/17/9/poybtywe40rjbq_retina.png" alt="" /></p>
+
+<ul>
+  <li>为Atom安装 atom-typescript插件</li>
+</ul>
+
+<p><code>$ apm install atom-typescript</code></p>
+
+<p>这个插件有一些很酷的功能，如HTML 转换成 TSX：</p>
+
+<p><img src="/uploads/2015/12/17/9/livogugozhshlq_retina.gif" alt="" /></p>
+
+<p>或依赖视图：</p>
+
+<p><img src="/uploads/2015/12/17/9/bontsmxoxxadda_retina.png" alt="" /></p>
+
+<p>如果你感兴趣，请到<a href="https://github.com/TypeStrong/atom-typescript">project’s page on Github</a>查看该插件更多的功能。</p>
+
+<ul>
+  <li>安装<a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en">React的谷歌开发插件</a></li>
+</ul>
+
+<p>这个插件方便我们调试React应用 可以查看属性值和所选组件的状态。</p>
+
+<p><img src="/uploads/2015/12/17/9/td99h20vs5yzq_retina.png" alt="" /></p>
+
+<h2 id="section-2">设置项目</h2>
+<p>到本教程结束时，该项目的结构类似下面的一个：</p>
+
+<p><img src="/uploads/2015/12/17/9/1.png" alt="" /></p>
+
+<p>让我们从创建应用的根目录开始</p>
+
+<pre><code>$ mkdir typescript-react
+$ cd typescript-react
+</code></pre>
+
+<p>然后在项目的根目录里面创建 <code>package.json</code> 文件</p>
+
+<pre><code>{
+	private: true,
+  	dependencies: {
+    director: "^1.2.0",
+    react: "^0.13.3",
+    todomvc-app-css: "^2.0.0"
+  }
+}
+</code></pre>
+
+<p>再然后你可以使用npm来安装项目所依赖的文件</p>
+
+<pre><code>// 在项目的根目录文件
+$ npm install
+</code></pre>
+
+<p>这个命令会在项目的根目录生成一个<code>node_modules</code>文件夹，在<code>node_modules</code>文件夹下会包含有三个文件，分别是<code>director</code>,<code>react</code>和<code>todomvc-app-css</code>。</p>
+
+<p>我们现在开始安装一些TypeScript类型定义文件</p>
+
+<p>类型定义文件通常用于定义公用的第三方库文件API接口，比如React。在一些IDE中使用TypeScript开发应用，IDE可以通过这些接口提供一些代码提示，方便项目的开发。</p>
+
+<p>类型定义文件也用于编译器来确保我们正确地使用第三方库。</p>
+
+<p>我们现在需要React 的类型定义文件，我们可以通过下面的命令来创建他们。</p>
+
+<pre><code>//在应用的根目录
+$ tsd init
+$ tsd install react --save
+</code></pre>
+
+<p>以上命令会在应用的根目录创建一个	<code>tsd.json</code>文件和 <code>typings</code>文件夹，在<code>typings</code>文件夹中包含<code>react</code>文件夹</p>
+
+<p>我们也需要<a href="https://raw.githubusercontent.com/borisyankov/DefinitelyTyped/master/react/react-global.d.ts">下载</a>然后取名为<code>global.d.ts</code>保存到<code>typings/react</code>文件夹下。</p>
+
+<p><img src="/uploads/2015/12/17/9/2.png" alt="" /></p>
+
+<p>我们现在到应用根目录创建<code>index.html</code>文件</p>
+
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang="en" data-framework="typescript"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;React • TodoMVC&lt;/title&gt;
+    &lt;link rel="stylesheet" 
+          href="node_modules/todomvc-common/base.css"&gt;
+    &lt;link rel="stylesheet" 
+          href="node_modules/todomvc-app-css/index.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;section class="todoapp"&gt;&lt;/section&gt;
+    &lt;footer class="info"&gt;
+      &lt;p&gt;Double-click to edit a todo&lt;/p&gt;
+      &lt;p&gt;
+        Created by 
+        &lt;a href="http://github.com/remojansen/"&gt;Remo H. Jansen&lt;/a&gt;
+      &lt;/p&gt;
+      &lt;p&gt;Part of &lt;a href="http://todomvc.com"&gt;TodoMVC&lt;/a&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+    &lt;script type="text/javascript" 
+            src="node_modules/react/dist/react-with-addons.js"&gt;
+    &lt;/script&gt;
+    &lt;script type="text/javascript" 
+            src="node_modules/director/build/director.js"&gt;
+    &lt;/script&gt;
+    &lt;script type="text/javascript" src="js/constants.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="js/utils.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="js/todoModel.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="js/todoItem.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="js/footer.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="js/app.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>此时，你的应用目录结构应该是这样的</p>
+
+<p><img src="/uploads/2015/12/17/9/3.png" alt="" /></p>
+
+<p>你可能注意到在<code>index.html</code>文件中有些JavaScript文件是缺少的，我们接下来将解决这个问题。</p>
+
+<h2 id="react-">React 基础组件</h2>
+
+<p>组件是React的主要应用程序块，一个组件表示一个自包含的用户界面，组件通常会显示一些数据，并且能够处理一些用户交互。</p>
+
+<p>组件可以包含子组件。我们即将开发的应用程序是非常小的，所以我们只会开发一个顶级组件取名TodoApp。</p>
+
+<p>TodoApp 组件将有多个组件组成，包含一个TodoFooter组件和一些TodoItem组件。</p>
+
+<p><img src="/uploads/2015/12/17/9/plmlol7n2cfq_retina.png" alt="" /></p>
+
+<p>组件区分不同的数据集：<strong>属性和状态</strong>。</p>
+
+<h4 id="section-3">属性</h4>
+<blockquote>
+  <p>属性（短的属性）是一个组件的配置，它的选项，如果你可以。它们是从上面接收到的，并且是不可改变的，因为接收它们的组件是有关的。</p>
+</blockquote>
+
+<blockquote>
+  <p>组件不能更改其属性，但它负责将其子组件的属性放在一起。</p>
+</blockquote>
+
+<h4 id="section-4">状态</h4>
+
+<blockquote>
+  <p>该状态从一个组件安装时开始，并在时间（主要是用户事件产生的情况下）遭受突变。这是一个序列化表示在时间快照一点</p>
+</blockquote>
+
+<blockquote>
+  <p>组件管理其自己的内部，除了设置初始状态与它的孩子的状态不改。你可以说内部是私有的。</p>
+</blockquote>
+
+<p>当我们使用TypeScript定义一个新的React组件的时候，我们必须申明接口的属性和状态，如下:</p>
+
+<pre><code>class SomeComponent extends React.Component&lt;ISomeComponentProps, ISomeComponentState&gt; {
+  // ...
+}
+
+</code></pre>
+<p>现在，我们有我们的项目结构的地方，我们知道的基本知识，现在开始开发我们的组件。</p>
+
+<h2 id="typescript--react">使用TypeScript 开发 React组件</h2>
+
+<p>我们在应用根目录下创建一个名为js的文件夹，然后我们将创建如下图的目录结构文件</p>
+
+<p><img src="/uploads/2015/12/17/9/4.png" alt="" /></p>
+
+<p>当我们创建完成之后，我们可以随意的修改它们。</p>
+
+<h4 id="interfacesdts">interfaces.d.ts</h4>
+
+<p>我们将把我们应用中的所有接口都定义在此文件中。我们使用的扩展。d.ts（这也是由类型定义文件使用）代替。TS因为这个文件不会编译成为JavaScript文件。在我们编程过程中，此文件不会被编译，因为TypeScript接口不会编译成JavaScript。</p>
+
+<pre><code>// Defines the interface of the structure of a task
+interface ITodo {
+  id: string,
+  title: string,
+  completed: boolean
+}
+
+
+// Defines the interface of the properties of the TodoItem component
+interface ITodoItemProps {
+  key : string,
+  todo : ITodo;
+  editing? : boolean;
+  onSave: (val: any) =&gt; void;
+  onDestroy: () =&gt; void;
+  onEdit: ()  =&gt; void;
+  onCancel: (event : any) =&gt; void;
+  onToggle: () =&gt; void;
+}
+
+
+// Defines the interface of the state of the TodoItem component
+interface ITodoItemState {
+  editText : string
+}
+
+
+// Defines the interface of the properties of the Footer component
+interface ITodoFooterProps {
+  completedCount : number;
+  onClearCompleted : any;
+  nowShowing : string;
+  count : number;
+}
+
+// Defines the TodoModel interface
+interface ITodoModel {
+  key : any;
+  todos : Array&lt;ITodo&gt;;
+  onChanges : Array&lt;any&gt;;
+  subscribe(onChange);
+  inform();
+  addTodo(title : string);
+  toggleAll(checked);
+  toggle(todoToToggle);
+  destroy(todo);
+  save(todoToSave, text);
+  clearCompleted();
+}
+
+// Defines the interface of the properties of the App component
+interface IAppProps {
+  model : ITodoModel;
+}
+
+// Defines the interface of the state of the App component
+interface IAppState {
+  editing? : string;
+  nowShowing? : string
+}
+</code></pre>
+
+<h4 id="section-5">常量</h4>
+
+<p>这个文件用于定义一些常量。通常用于保存一些键盘的常量和一些事件。</p>
+
+<p>我们也可以用一些值来区分一些任务的当前状态:</p>
+
+<ul>
+  <li>COMPLETED_TODOS 用于完成任务时</li>
+  <li>ACTIVE_TODOS 用于没有完成任务时</li>
+  <li>ALL_TODOS 用于显示所有任务时使用</li>
+</ul>
+
+<pre><code>namespace app.constants {
+  export var ALL_TODOS = 'all';
+  export var ACTIVE_TODOS = 'active';
+  export var COMPLETED_TODOS = 'completed';
+  export var ENTER_KEY = 13;
+  export var ESCAPE_KEY = 27;
+}
+</code></pre>
+
+<h4 id="section-6">实用工具</h4>
+
+<p>这个文件包含一个叫<code>Utils</code>的类。这个类不仅仅包含是一些静态方法。</p>
+
+<pre><code>namespace app.miscelanious {
+
+  export class Utils {
+
+    // generates a new Universally unique identify (UUID) 
+    // the UUID is used to identify each of the tasks
+    public static uuid() : string {
+      /*jshint bitwise:false */
+      var i, random;
+      var uuid = '';
+
+      for (i = 0; i &lt; 32; i++) {
+        random = Math.random() * 16 | 0;
+        if (i === 8 || i === 12 || i === 16 || i === 20) {
+          uuid += '-';
+        }
+        uuid += (i === 12 ? 4 : (i === 16 ? (random &amp; 3 | 8) : random))
+          .toString(16);
+      }
+
+      return uuid;
+    }
+
+    // adds 's' to the end of a given world when count &gt; 1
+    public static pluralize(count, word) {
+      return count === 1 ? word : word + 's';
+    }
+
+    // stores data using the localStorage API
+    public static store(namespace, data?) {
+      if (data) {
+        return localStorage.setItem(namespace, JSON.stringify(data));
+      }
+
+      var store = localStorage.getItem(namespace);
+      return (store &amp;&amp; JSON.parse(store)) || [];
+    }
+
+    // just a helper for inheritance
+    public static extend(...objs : any[]) : any {
+      var newObj = {};
+      for (var i = 0; i &lt; objs.length; i++) {
+        var obj = objs[i];
+        for (var key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+      return newObj;
+    }
+
+  }
+}
+</code></pre>
+
+<h4 id="section-7">模型</h4>
+
+<p>TodoModel 是一个通用 “model” 对象。由于这个应用程序是非常小的，它甚至可能不值得把这个逻辑分开，但我们这样做是为了演示一种方式来分离你的应用程序的部分。</p>
+
+<pre><code>/// &lt;reference path="../typings/react/react-global.d.ts" /&gt;
+/// &lt;reference path="./interfaces.d.ts"/&gt;
+
+namespace app.models {
+
+  export class TodoModel implements ITodoModel {
+
+    public key : string;            // key used for local storage
+    public todos : Array&lt;ITodo&gt;;    // a list of tasks
+    public onChanges : Array&lt;any&gt;;  // a list of events
+
+    constructor(key) {
+      this.key = key;
+      this.todos = app.miscelanious.Utils.store(key);
+      this.onChanges = [];
+    }
+
+    // the following are some methods 
+    // used to manipulate the list of tasks
+
+    public subscribe(onChange) {
+      this.onChanges.push(onChange);
+    }
+
+    public inform() {
+      app.miscelanious.Utils.store(this.key, this.todos);
+      this.onChanges.forEach(function (cb) { cb(); });
+    }
+
+    public addTodo(title : string) {
+      this.todos = this.todos.concat({
+        id: app.miscelanious.Utils.uuid(),
+        title: title,
+        completed: false
+      });
+
+      this.inform();
+    }
+
+    public toggleAll(checked) {
+      // Note: it's usually better to use immutable 
+      // data structures since they're easier to 
+      // reason about and React works very 
+      // well with them. That's why we use 
+      // map() and filter() everywhere instead of 
+      // mutating the array or todo items themselves.
+      this.todos = this.todos.map&lt;ITodo&gt;((todo : ITodo) =&gt; {
+        return app.miscelanious.Utils.extend(
+          {}, todo, {completed: checked}
+        );
+      });
+
+      this.inform();
+    }
+
+    public toggle(todoToToggle) {
+      this.todos = this.todos.map&lt;ITodo&gt;((todo : ITodo) =&gt; {
+        return todo !== todoToToggle ?
+          todo :
+          app.miscelanious.Utils.extend(
+            {}, todo, {completed: !todo.completed}
+          );
+      });
+
+      this.inform();
+    }
+
+    public destroy(todo) {
+      this.todos = this.todos.filter(function (candidate) {
+        return candidate !== todo;
+      });
+
+      this.inform();
+    }
+
+    public save(todoToSave, text) {
+      this.todos = this.todos.map(function (todo) {
+        return todo !== todoToSave ? todo : app.miscelanious.Utils.extend({}, todo, {title: text});
+      });
+
+      this.inform();
+    }
+
+    public clearCompleted() {
+      this.todos = this.todos.filter(function (todo) {
+        return !todo.completed;
+      });
+
+      this.inform();
+    }
+  }
+
+}
+</code></pre>
+
+<h4 id="section-8">页脚</h4>
+
+<p>这个文件使用<code>.tsx</code>扩展代替<code>.ts</code>,因为它包含一些TSX 代码。</p>
+
+<p>TSX 是 JSX的一种超集。我们将使用TSX代替客户端HTML模板因为TSX和JSX是用来生成一个在DOM状态存储。当组件的属性或者状态发生变化时，React会从最有效率的方式去更新DOM状态存储，并且同时把这些改变及时应用于DOM的真实展现。这个过程React非常高效的及时更新DOM内容。</p>
+
+<blockquote>
+  <p>说明：我们需要一些额外的编译选项来编译<code>.tsx</code>文件。我们将在这篇文章结尾介绍更多关于这方面的内容</p>
+</blockquote>
+
+<p>这个页脚组件允许用户去根据状态去删选任务列表和显示一些任务数。这个组件没有状态(注意如何通过将其传递给该接口的状态)但是有一些继承于父亲组件(TodoApp组件)的属性。</p>
+
+<pre><code>/// &lt;reference path="../typings/react/react-global.d.ts" /&gt;
+/// &lt;reference path="./interfaces.d.ts"/&gt;
+
+namespace app.components {
+
+  export class TodoFooter extends React.Component&lt;ITodoFooterProps, {}&gt; {
+
+    public render() {
+      var activeTodoWord = app.miscelanious.Utils.pluralize(this.props.count, 'item');
+      var clearButton = null;
+
+      if (this.props.completedCount &gt; 0) {
+        clearButton = (
+          &lt;button
+            className="clear-completed"
+            onClick={this.props.onClearCompleted}&gt;
+            Clear completed
+          &lt;/button&gt;
+        );
+      }
+
+      // React idiom for shortcutting to `classSet` since it'll be used often
+      var cx = React.addons.classSet;
+      var nowShowing = this.props.nowShowing;
+      return (
+        &lt;footer className="footer"&gt;
+          &lt;span className="todo-count"&gt;
+            &lt;strong&gt;{this.props.count}&lt;/strong&gt; {activeTodoWord} left
+          &lt;/span&gt;
+          &lt;ul className="filters"&gt;
+            &lt;li&gt;
+              &lt;a
+                href="#/"
+                className={cx({selected: nowShowing === app.constants.ALL_TODOS})}&gt;
+                  All
+              &lt;/a&gt;
+            &lt;/li&gt;
+            {' '}
+            &lt;li&gt;
+              &lt;a
+                href="#/active"
+                className={cx({selected: nowShowing === app.constants.ACTIVE_TODOS})}&gt;
+                  Active
+              &lt;/a&gt;
+            &lt;/li&gt;
+            {' '}
+            &lt;li&gt;
+              &lt;a
+                href="#/completed"
+                className={cx({selected: nowShowing === app.constants.COMPLETED_TODOS})}&gt;
+                  Completed
+              &lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+          {clearButton}
+        &lt;/footer&gt;
+      );
+    }
+  }
+
+}
+</code></pre>
+
+<h4 id="todoitem">todoItem</h4>
+
+<p><code>TodoItem</code>组件代表一个任务列表中的一个任务。<br />
+这个组件不仅有属性(<code>ITodoItemProps</code>)而且还有状态(<code>ITodoItemState</code>)。</p>
+
+<p>这个组件初始化状态是在构造函数里面设置同时属性是通过父亲组件传递过来的构造函数的参数来设置组件的(<code>TodoApp</code>组件)</p>
+
+<pre><code>/// &lt;reference path="../typings/react/react-global.d.ts" /&gt;
+/// &lt;reference path="./interfaces.d.ts"/&gt;
+
+namespace app.components {
+
+  export class TodoItem extends React.Component&lt;ITodoItemProps, ITodoItemState&gt; {
+
+    constructor(props : ITodoItemProps){
+      super(props);
+      // set initial state
+      this.state = { editText: this.props.todo.title };
+    }
+
+    public handleSubmit(event) {
+      var val = this.state.editText.trim();
+      if (val) {
+        this.props.onSave(val);
+        this.setState({editText: val});
+      } else {
+        this.props.onDestroy();
+      }
+    }
+
+    public handleEdit() {
+      this.props.onEdit();
+      this.setState({editText: this.props.todo.title});
+    }
+
+    public handleKeyDown(event) {
+      if (event.which === app.constants.ESCAPE_KEY) {
+        this.setState({editText: this.props.todo.title});
+        this.props.onCancel(event);
+      } else if (event.which === app.constants.ENTER_KEY) {
+        this.handleSubmit(event);
+      }
+    }
+
+    public handleChange(event) {
+      this.setState({editText: event.target.value});
+    }
+
+    // This is a completely optional performance enhancement 
+    // that you can implement on any React component. If you 
+    // were to delete this method the app would still work 
+    // correctly (and still be very performant!), we just use it 
+    // as an example of how little code it takes to get an order
+    // of magnitude performance improvement.
+    public shouldComponentUpdate(nextProps, nextState) {
+      return (
+        nextProps.todo !== this.props.todo ||
+        nextProps.editing !== this.props.editing ||
+        nextState.editText !== this.state.editText
+      );
+    }
+
+    // Safely manipulate the DOM after updating the state 
+    // when invoking this.props.onEdit() in the handleEdit
+    // method above. 
+    public componentDidUpdate(prevProps) {
+      if (!prevProps.editing &amp;&amp; this.props.editing) {
+        var node = React.findDOMNode&lt;HTMLInputElement&gt;(this.refs["editField"]);
+        node.focus();
+        node.setSelectionRange(node.value.length, node.value.length);
+      }
+    }
+
+    public render() {
+      return (
+        &lt;li className={React.addons.classSet({
+          completed: this.props.todo.completed,
+          editing: this.props.editing
+        })}&gt;
+          &lt;div className="view"&gt;
+            &lt;input
+              className="toggle"
+              type="checkbox"
+              checked={this.props.todo.completed}
+              onChange={this.props.onToggle}
+            /&gt;
+            &lt;label onDoubleClick={ e =&gt; this.handleEdit() }&gt;
+              {this.props.todo.title}
+            &lt;/label&gt;
+            &lt;button className="destroy" onClick={this.props.onDestroy} /&gt;
+          &lt;/div&gt;
+          &lt;input
+            ref="editField"
+            className="edit"
+            value={this.state.editText}
+            onBlur={ e =&gt; this.handleSubmit(e) }
+            onChange={ e =&gt; this.handleChange(e) }
+            onKeyDown={ e =&gt; this.handleKeyDown(e) }
+          /&gt;
+        &lt;/li&gt;
+      );
+    }
+  }
+
+}
+</code></pre>
+<p>#### app模块</p>
+
+<p>此文件包含应用程序的入口点，这是该应用程序只有顶层组件的todoapp组件声明。</p>
+
+<pre><code>/// &lt;reference path="../typings/react/react-global.d.ts" /&gt;
+/// &lt;reference path="./interfaces.d.ts"/&gt;
+
+// We should have installed a type declaration file but
+// for the director npm package but it is not available
+// so we will use this declaration to avoid compilation 
+// errors for now.
+declare var Router : any;
+
+var TodoModel = app.models.TodoModel;
+var TodoFooter = app.components.TodoFooter;
+var TodoItem = app.components.TodoItem;
+
+namespace app.components {
+
+  export class TodoApp extends React.Component&lt;IAppProps, IAppState&gt; {
+
+    constructor(props : IAppProps) {
+      super(props);
+      this.state = {
+        nowShowing: app.constants.ALL_TODOS,
+        editing: null
+      };
+    }
+
+    public componentDidMount() {
+      var setState = this.setState;
+      // we will configure the Router here
+      // our router is provided by the
+      // director npm module
+      // the router observes changes in the URL and 
+      // triggers some component's event accordingly 
+      var router = Router({
+        '/': setState.bind(this, {nowShowing: app.constants.ALL_TODOS}),
+        '/active': setState.bind(this, {nowShowing: app.constants.ACTIVE_TODOS}),
+        '/completed': setState.bind(this, {nowShowing: app.constants.COMPLETED_TODOS})
+      });
+      router.init('/');
+    }
+
+    public handleNewTodoKeyDown(event) {
+      if (event.keyCode !== app.constants.ENTER_KEY) {
+        return;
+      }
+
+      event.preventDefault();
+
+      var val = React.findDOMNode&lt;HTMLInputElement&gt;(this.refs["newField"]).value.trim();
+
+      if (val) {
+        this.props.model.addTodo(val);
+        React.findDOMNode&lt;HTMLInputElement&gt;(this.refs["newField"]).value = '';
+      }
+    }
+
+    public toggleAll(event) {
+      var checked = event.target.checked;
+      this.props.model.toggleAll(checked);
+    }
+
+    public toggle(todoToToggle) {
+      this.props.model.toggle(todoToToggle);
+    }
+
+    public destroy(todo) {
+      this.props.model.destroy(todo);
+    }
+
+    public edit(todo) {
+      this.setState({editing: todo.id});
+    }
+
+    public save(todoToSave, text) {
+      this.props.model.save(todoToSave, text);
+      this.setState({editing: null});
+    }
+
+    public cancel() {
+      this.setState({editing: null});
+    }
+
+    public clearCompleted() {
+      this.props.model.clearCompleted();
+    }
+
+    // the JSX syntax is quite intuitive but check out
+    // https://facebook.github.io/react/docs/jsx-in-depth.html
+    // if you need additional help
+    public render() {
+      var footer;
+      var main;
+      var todos = this.props.model.todos;
+
+      var shownTodos = todos.filter(function (todo) {
+        switch (this.state.nowShowing) {
+        case app.constants.ACTIVE_TODOS:
+          return !todo.completed;
+        case app.constants.COMPLETED_TODOS:
+          return todo.completed;
+        default:
+          return true;
+        }
+      }, this);
+
+      var todoItems = shownTodos.map(function (todo) {
+        return (
+          &lt;TodoItem
+            key={todo.id}
+            todo={todo}
+            onToggle={this.toggle.bind(this, todo)}
+            onDestroy={this.destroy.bind(this, todo)}
+            onEdit={this.edit.bind(this, todo)}
+            editing={this.state.editing === todo.id}
+            onSave={this.save.bind(this, todo)}
+            onCancel={ e =&gt; this.cancel() }
+          /&gt;
+        );
+      }, this);
+
+      var activeTodoCount = todos.reduce(function (accum, todo) {
+        return todo.completed ? accum : accum + 1;
+      }, 0);
+
+      var completedCount = todos.length - activeTodoCount;
+
+      if (activeTodoCount || completedCount) {
+        footer =
+          &lt;TodoFooter
+            count={activeTodoCount}
+            completedCount={completedCount}
+            nowShowing={this.state.nowShowing}
+            onClearCompleted={ e=&gt; this.clearCompleted() }
+          /&gt;;
+      }
+
+      if (todos.length) {
+        main = (
+          &lt;section className="main"&gt;
+            &lt;input
+              className="toggle-all"
+              type="checkbox"
+              onChange={ e =&gt; this.toggleAll(e) }
+              checked={activeTodoCount === 0}
+            /&gt;
+            &lt;ul className="todo-list"&gt;
+              {todoItems}
+            &lt;/ul&gt;
+          &lt;/section&gt;
+        );
+      }
+
+      return (
+        &lt;div&gt;
+          &lt;header className="header"&gt;
+            &lt;h1&gt;todos&lt;/h1&gt;
+            &lt;input
+              ref="newField"
+              className="new-todo"
+              placeholder="What needs to be done?"
+              onKeyDown={ e =&gt; this.handleNewTodoKeyDown(e) }
+              autoFocus={true}
+            /&gt;
+          &lt;/header&gt;
+          {main}
+          {footer}
+        &lt;/div&gt;
+      );
+    }
+  }
+}
+
+var model = new TodoModel('react-todos');
+var TodoApp = app.components.TodoApp;
+
+function render() {
+  React.render(
+    &lt;TodoApp model={model}/&gt;,
+    document.getElementsByClassName('todoapp')[0]
+  );
+}
+
+model.subscribe(render);
+render();
+</code></pre>
+
+<p>确保其中的 <code>this</code>在所有的时候都指向正确的元素。例如，你应用使用箭头函数：<br />
+<code>onKeyDown = { e =&gt; this.handleNewTodoKeyDown(e) }</code><br />
+代替 <br />
+<code>onKeyDown = { this.handleNewTodoKeyDown }</code></p>
+
+<p>确保<code>this</code>指向<code>handleNewTodoKeyDown</code>函数内部的组件。</p>
+
+<h2 id="section-9">编译应用程序</h2>
+
+<p>为了编译我们的应用程序，我们需要在<code>js</code>文件夹下添加一个<code>tsconfig.json</code>文件。</p>
+
+<pre><code>{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true
+    },
+    "filesGlob": [
+        "**/*.ts",
+        "**/*.tsx",
+        "!node_modules/**"
+    ],
+    "files": [
+        "constants.ts",
+        "interfaces.d.ts",
+        "todoModel.ts",
+        "utils.ts",
+        "app.tsx",
+        "footer.tsx",
+        "todoItem.tsx"
+    ],
+    "exclude": []
+}
+</code></pre>
+<p>如果我们认真阅读了<a href="https://github.com/Microsoft/TypeScript/wiki/Compiler-Options">TypeScript compiler options</a>我们就能够知道该如何使用<code>tsconfig.json</code>文件：<br />
+&gt; 参数<code>--project</code>或者<code>-p</code> 都能用于编译项目在给定的文件下。这个文件需要含有<code>tsconfig.json</code>文件来直接编译。</p>
+
+<p>我们可以编译我们的应用程序通过以下命令：<br />
+<code>
+//在应用程序的根目录
+$ tsc -p js
+</code><br />
+执行这个命令之后，应该会在<code>js</code>文件夹下生成以下JavaScript文件：</p>
+
+<p><img src="/uploads/2015/12/17/9/5.png" alt="" /></p>
+
+<p>这些文件会在我们的<code>index.html</code>文件中引用：</p>
+
+<pre><code>&lt;script type="text/javascript" src="js/constants.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/utils.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/todoModel.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/todoItem.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/footer.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/app.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>接下来我们准备运行我们的应用程序。</p>
+
+<h2 id="section-10">运行应用程序</h2>
+
+<p>为了运行我们的应用程序，我们需要一个web服务器。这里我们通过npm来安装<a href="https://www.npmjs.com/package/http-server">http-server</a>。这里博主推荐使用<a href="anywhere">https://www.npmjs.com/package/anywhere</a>。</p>
+
+<p>我们通过以下命令来安装http-server:</p>
+
+<pre><code>$ npm install -g http-server
+</code></pre>
+
+<blockquote>
+  <p>如果你使用的是OSX系统，请使用sudo权限</p>
+</blockquote>
+
+<p>运用以下命令来运行应用程序：</p>
+
+<pre><code>// 在应用的根目录
+$ http-server
+</code></pre>
+<p>如果你打开浏览器导航到<code>http://127.0.0.1:8080/</code>,你应用可以看到应用程序正在运行：<br />
+<img src="/uploads/2015/12/17/9/7yjwysnxnekg_retina.png" alt="" /></p>
+
+<p>记得打开谷歌浏览器开发者工具去查看一下React 开发者扩展工具 并且查看一下当你与应用程序交互时，如何改变组件的属性和状态的值。<br />
+<img src="/uploads/2015/12/17/9/td99h20vs5yzq_retina.png" alt="" /></p>
+
+<h2 id="section-11">总结</h2>
+
+<p>在这篇博客中我们已经学习了怎么搭建开发环境和怎么使用TypeScript来开发React应用程序。</p>
+
+<p>你可以查看这个项目的<a href="https://github.com/tastejs/todomvc/tree/master/examples/typescript-react">源码</a></p>
+
+<p>如果你想了解更多内容？请查看<a href="http://jaysoo.ca/2015/09/26/typed-react-and-redux/">Type React and Redux</a></p>
+
+<p><img src="/uploads/mypictures/xsstomyzhifubao.png" alt="" /></p>
+
+
+                <hr>
+
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="9" data-title="使用TypeScript编写React"
+                    data-images="http://xsstomy/img/home-bg.jpg"
+                    data-content="缘由
+最近在业余学习React，本身接触的egret一年多了，接触TypeScript时间还算有段时间，非常喜欢TypeScript。学习了TypeScr... | @xsstomy 的个人博客"
+                    data-url="http://xsstomy/articles/9.html">
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多少 Share end-->
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/articles/8.html" data-toggle="tooltip" data-placement="top" title="杂谈Egret引擎之初探">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/articles/10.html" data-toggle="tooltip" data-placement="top" title="ECMAScript 2015新特性">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread" data-thread-key="9" data-title="使用TypeScript编写React" data-url="http://xsstomy/articles/9.html"></div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                <!-- friends -->
+                
+                <div class="sidebar-container">
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline" style="
+                        margin-bottom: 0;
+                    ">
+                        
+                            <li><a href="http://featherj.org/">FeatherJ</a></li>
+                        
+                            <li><a href="http://www.idom.me/">Dom</a></li>
+                        
+                            <li><a href="http://xzper.com/">纸片儿</a></li>
+                        
+                            <li><a href="http://city-10.com/">城市拓荒者</a></li>
+                        
+                            <li><a href="http://yjtxlib.com/">Yjtx</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xsstomy"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/han-mu-71">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/xsstomy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; xsstomy 2014-2016
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- Highlight.js -->
+<script>
+    async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js",function(){
+        hljs.initHighlightingOnLoad();
+    })
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+
+
+<!-- Image to hack wechat -->
+<!--<img src="/img/icon_wechat.png" width="0" height="0" />-->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<!-- Tencent QQ Analysis -->
+<!--<script type="text/javascript" src="http://tajs.qq.com/stats?sId=43623438" charset="UTF-8"></script>-->
+</body>
+
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keyword"  content="xsstomy, xsstomy blog,  xsstomy的博客,egret,egret 教程,egret 引擎,HTML5,swift, h5游戏,HTML5 游戏">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>杂谈Egret引擎之初探 - xsstomy</title>
+
+    <link rel="canonical" href="http://xsstomy/articles/8.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Hux add tongji.baidu -->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?927847cdebb6617d0945219f8ded1a83";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+    <meta name="google-site-verification" content="5x4fn8u-ngaY6n46Uy4NQQYg1TyGhDeFrQoCeN1Dap0" />
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">xsstomy</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+                <li>
+                    <a href="/about.html">About</a>
+                </li>
+                
+                <li>
+                    <a href="/game.html">Game</a>
+                </li>
+                
+                <li>
+                    <a href="/tags.html">Tags</a>
+                </li>
+                
+
+                <!-- Hux customized -->
+
+
+                <!-- Hux end -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/home-bg.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags.html#egret" title="egret">egret</a>
+                        
+                        <a class="tag" href="/tags.html#白鹭引擎" title="白鹭引擎">白鹭引擎</a>
+                        
+                        <a class="tag" href="/tags.html#egret引擎" title="egret引擎">egret引擎</a>
+                        
+                    </div>
+                    <h1>杂谈Egret引擎之初探</h1>
+                    
+                    
+                    <h2 class="subheading"></h2>
+                    
+                    <span class="meta">Posted by xsstomy on December 14, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+
+				<h3 id="section">缘由</h3>
+<p>来egret差不多一年了，还差几天就整整一年了。来之前说要认认真真的看一下引擎源码，结果来了快一年都没有看，年末正在整理这一年的事情，发现还没有写过。然后现在就简单的整理了一下。这中间egret引擎从2.0到2.5是一个大版本的更新，架构也调整了。这里就直接看的是2.5以后的引擎了。</p>
+
+<p>来白鹭之前，是白鹭引擎的忠实用户，那时候公司说要做HTML5游戏，说要用游戏引擎做，那时候第一次知道游戏引擎这个东西，但是一直不了解游戏引擎是什么东西。那时候正好快国庆，在同学学校图书馆借了一本cocos2dx书籍，在租房刷了7天的书，那时候才对游戏引擎有了初步的认识和理解。那时候租房都是没有网络的，学习白鹭引擎，都是把白鹭引擎的官方的教程网页右键保存在本地的。因为不懂，始终都是停留在使用阶段。那时候的教程还是非常少的，现在的完善多了，这里<a href="http://edn.egret.com/cn/docs/">官方地址</a></p>
+
+<p>今天的初探主要是看核心库，从类结构上来，具体的API内容，大家就查看官方的<a href="http://edn.egret.com/cn/apidoc/">API文档</a>了<br />
+其实也就是一张简单的图了<img src="/uploads/2015/12/13/8/egretclass.png" alt="" /></p>
+
+<h3 id="section-1">大概的三块：事件，显示对象，其它</h3>
+<p>这样整体来看，我们大脑就有一个大概的印象，在学习和理解API上，就有一个整体的结构思路或者说是脉络，能够整体的把控引擎。这样对引擎的理解和使用是非常好的。这里推荐一篇博客，讲的是<a href="http://zengrong.net/post/2383.htm">技能掌握程度</a>,还有程序员水平分等级，你属于哪一级？然后初探已经完了，这理主要想说的是大家从结构上来学习东西和理解事情，这样会有一个更全局的认识和理解。好吧，白鹭引擎的初探就到这里了，其实这里更多的是想对自己思索的一些总结。</p>
+
+<h3 id="section-2">多一些探索精神和死磕精神</h3>
+
+<p>说在最后的话。这两天把科技相对论看了几遍，其中的一句话是非常的认同的<strong>找到技术和产品的平衡点</strong>。现在想从个人的理解回答一下知乎上的一个问题，说的是egret引擎为什么要从一开始就搭建周边环境，研发十多款工具。我觉得现在有些理论可以回答这个问题，在真正做一个成功的产品的时候，脱离工具流的引擎，即使非常引擎本身非常优秀，那就是像是一把利刃，缺少合适的握柄，无法把引擎的实力发挥到最大，没有高效的周边开发工具，那是无法成长壮大，那顶多是一个游戏框架，无法独立的成活下去，特别是一个技术型的驱动公司，更应该把握产品和技术的平衡点。</p>
+
+<p><img src="/uploads/mypictures/xsstomyzhifubao.png" alt="" /></p>
+
+
+                <hr>
+
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="8" data-title="杂谈Egret引擎之初探"
+                    data-images="http://xsstomy/img/home-bg.jpg"
+                    data-content="缘由
+来egret差不多一年了，还差几天就整整一年了。来之前说要认认真真的看一下引擎源码，结果来了快一年都没有看，年末正在整理这一年的事情，发现还没有写过... | @xsstomy 的个人博客"
+                    data-url="http://xsstomy/articles/8.html">
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多少 Share end-->
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/articles/7.html" data-toggle="tooltip" data-placement="top" title="Mac OS X 自定义快捷键启动任意软件">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/articles/9.html" data-toggle="tooltip" data-placement="top" title="使用TypeScript编写React">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread" data-thread-key="8" data-title="杂谈Egret引擎之初探" data-url="http://xsstomy/articles/8.html"></div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                <!-- friends -->
+                
+                <div class="sidebar-container">
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline" style="
+                        margin-bottom: 0;
+                    ">
+                        
+                            <li><a href="http://featherj.org/">FeatherJ</a></li>
+                        
+                            <li><a href="http://www.idom.me/">Dom</a></li>
+                        
+                            <li><a href="http://xzper.com/">纸片儿</a></li>
+                        
+                            <li><a href="http://city-10.com/">城市拓荒者</a></li>
+                        
+                            <li><a href="http://yjtxlib.com/">Yjtx</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xsstomy"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/han-mu-71">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/xsstomy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; xsstomy 2014-2016
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- Highlight.js -->
+<script>
+    async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js",function(){
+        hljs.initHighlightingOnLoad();
+    })
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+
+
+<!-- Image to hack wechat -->
+<!--<img src="/img/icon_wechat.png" width="0" height="0" />-->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<!-- Tencent QQ Analysis -->
+<!--<script type="text/javascript" src="http://tajs.qq.com/stats?sId=43623438" charset="UTF-8"></script>-->
+</body>
+
+</html>

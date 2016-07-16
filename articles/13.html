@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keyword"  content="xsstomy, xsstomy blog,  xsstomy的博客,egret,egret 教程,egret 引擎,HTML5,swift, h5游戏,HTML5 游戏">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>egret(前端)＋Node.js(后端)实现跨屏互动教程 - xsstomy</title>
+
+    <link rel="canonical" href="http://xsstomy/articles/13.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Hux add tongji.baidu -->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?927847cdebb6617d0945219f8ded1a83";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+    <meta name="google-site-verification" content="5x4fn8u-ngaY6n46Uy4NQQYg1TyGhDeFrQoCeN1Dap0" />
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">xsstomy</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+                <li>
+                    <a href="/about.html">About</a>
+                </li>
+                
+                <li>
+                    <a href="/game.html">Game</a>
+                </li>
+                
+                <li>
+                    <a href="/tags.html">Tags</a>
+                </li>
+                
+
+                <!-- Hux customized -->
+
+
+                <!-- Hux end -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/home-bg.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags.html#egret" title="egret">egret</a>
+                        
+                        <a class="tag" href="/tags.html#node.js" title="node.js">node.js</a>
+                        
+                        <a class="tag" href="/tags.html#跨屏互动" title="跨屏互动">跨屏互动</a>
+                        
+                    </div>
+                    <h1>egret(前端)＋Node.js(后端)实现跨屏互动教程</h1>
+                    
+                    
+                    <h2 class="subheading"></h2>
+                    
+                    <span class="meta">Posted by xsstomy on January 12, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+
+				<h2 id="section">原理讲解</h2>
+
+<p><img src="/uploads/2016/1/12/13/yuanli.png" alt="" /></p>
+
+<h3 id="section-1">图讲解</h3>
+
+<h4 id="server">server端</h4>
+
+<p>server端主要做信息接收和传递以及一些处理。可以理解为一个中转站。</p>
+
+<h4 id="show">show端</h4>
+
+<p>show端就是一个展示端，比如小霸王游戏机中需要的显示器。</p>
+
+<h4 id="control">control端</h4>
+
+<p>control端就好像小霸王游戏中的手柄，来操作游戏。</p>
+
+<p>通信协议websocket</p>
+
+<h3 id="section-2">流程讲解</h3>
+
+<ol>
+  <li>
+    <p>show端。生成一个随机数(xxx)，作为自己唯一的ID验证。同时连接server服务器并把自己ID传输过去，标记此WebSocket连接为show端。</p>
+  </li>
+  <li>
+    <p>server端，记录步骤1中，连接过来的show端，同时记录ID(xxx)和身份标记show端。</p>
+  </li>
+  <li>
+    <p>手机扫描show端游戏页面的二维码(二维码包含show端生成的随机数ID),打开control端，连接server服务器端。</p>
+  </li>
+  <li>
+    <p>server端，对步骤3连接的WebSocket进行判断，通过ID，把show端和control端连接起来。同时标记此WebSocket为control端。</p>
+  </li>
+  <li>
+    <p>这两个WebSocket连接就连接起来了，就可以进行通信，信息数据交流了。</p>
+  </li>
+</ol>
+
+<p>说明：为什么要有唯一的ID呢，因为这里的demo是一个show端对应一个control端的需求。可以满足多个人，同时打开show端，然后拿起手机扫描二维码，进行游戏操作。(这里如果想做多人控制一个比如，多人同时摇手机，给加油鼓劲。)</p>
+
+<h2 id="section-3">服务端代码</h2>
+
+<pre><code>var controlArr = new Array();//记录所有control端的连接
+var showArr = new Array();//记录所有show端的连接
+
+var ws = require('./node_modules/nodejs-websocket');
+var server = ws.createServer(function (connection) {
+	connection.data = null;
+	connection.type = null;
+	console.log("new connetion");
+	console.log("连接数connection = " + server.connections.length);
+	//接收数据
+	connection.on("text", function (str) {
+		var data = JSON.parse(str);
+		console.log("userid =",data.userid,"type =",data.type);
+		if (connection.data === null) {
+			
+			/**
+			 * 1.判断链接是control端还是show端
+			 * 2.如果是control端，且是第一次发送消息，什么都不做
+			 * 3.如果是control端，不是第一次发送消息，那给所有的show端发送消息请求，游戏开始。
+			 * 4.show端接受消息，对应的唯一show端，做相对应的处理，并返回消息。
+			 * 5.游戏正式开始
+			 */
+
+			if (data.type == "control") {
+				controlArr.push(connection);
+			} else if (data.type == "show") {
+				showArr.push(connection);
+			}
+			
+			connection.userid = data.userid;
+			connection.type = data.type;
+
+
+			//如果是第一次发送消息什么都不做。
+			if (data.event == "HelloWebSocket") {
+				return;
+			}
+			
+			//如果发送消息的是控制端
+			if (data.type == "control") {
+				var msg1 = { userid: connection.userid, type: connection.type, event: data.event, leftOrRight: data.leftOrRight };
+				var sendMsg1 = JSON.stringify(msg1);
+				sendMessageToShow(sendMsg1);
+
+			}
+
+			//如果发送消息的是show端
+			if(data.type == "show")
+			{
+				var msg2 = { userid: connection.userid, type: connection.type, event: data.event, leftOrRight: data.leftOrRight };
+				var sendMsg2 = JSON.stringify(msg2);
+				sendMessageToControl(sendMsg2);
+			}
+
+		} else {
+			broadcast("[" + connection.userid + "] " + connection.userid);
+			console.log("connection.userid = " + connection.userid);
+		}
+
+	});
+
+	connection.on("close", function () {
+		var data = { userid: connection.userid, type: connection.type, event: "leave", leftOrRight: "null" };
+		var str = JSON.stringify(data);
+		broadcast(str);
+		console.log("userid =",data.userid,"type =",data.type," close");
+
+		console.log("连接数connection = " + server.connections.length);
+	});
+
+	connection.on("error", function () {
+		if (connection.type == "control") {
+			var indexControl = controlArr.indexOf(connection);
+			if (indexControl != -1) {
+				controlArr.splice(indexControl, 1);
+
+			}
+		}
+		if (connection.type == "show") {
+			var indexShow = controlArr.indexOf(connection);
+			if (indexShow != -1) {
+				controlArr.splice(indexShow, 1);
+
+			}
+		}
+
+	});
+})
+server.listen(8001);
+/**
+ * 
+ * 发送消息到所有连接
+ */
+function broadcast(str) {
+	server.connections.forEach(function (connection) {
+		connection.sendText(str);
+	})
+}
+/**
+ * 
+ * 发送消息到control(控制)端
+ */
+function sendMessageToControl(str) {
+	server.connections.forEach(function (connection) {
+		if (connection.type == "control") {
+			connection.sendText(str);
+		}
+	})
+}
+/**
+ * 
+ * 发送消息到show(表现)端
+ */
+function sendMessageToShow(str) {
+	server.connections.forEach(function (connection) {
+		if (connection.type == "show") {
+			connection.sendText(str);
+		}
+	})
+}
+
+console.log("服务器启动");
+</code></pre>
+
+<h3 id="section-4">模块介绍</h3>
+
+<p>这里使用的是别人封装好的模块<a href="https://www.npmjs.com/package/nodejs-websocket">nodejs-websocket</a>,点击链接,可以查看详细的API介绍和使用方法的介绍。</p>
+
+<p>这里就只介绍整个操作流程，从创建过程到代码的编写。请先确保电脑已经安装nodejs，如果不会安装请谷歌或者百度,<a href="https://nodejs.org/en/">官网链接</a></p>
+
+<p>安装之后，全局安装nodejs-websocket。在终端执行<code>sudo npm install nodejs-websocket -g</code>。更详细的教程查看<a href="https://github.com/sitegui/nodejs-websocket">这里</a></p>
+
+<p>我这里使用的是Mac系统，如果不是Mac系统，大家可以对比一下查看。</p>
+
+<h3 id="section-5">操作步骤</h3>
+
+<h4 id="section-6">1.安装依赖模块</h4>
+<p>打开终端,输入cd,然后拖拽文件目录,回车</p>
+
+<p><img src="/uploads/2016/1/12/13/1.png" alt="" /></p>
+
+<p>输入<code>mkdir crossscreen &amp;&amp; cd crossscreen</code>，这里是创建crossscreen文件夹并进入crossscreen文件夹</p>
+
+<p><img src="/uploads/2016/1/12/13/2.png" alt="" /></p>
+
+<p>输入<code>mkdir server &amp;&amp; cd server</code>，这里是创建server文件夹并进入server文件夹</p>
+
+<p><img src="/uploads/2016/1/12/13/3.png" alt="" /></p>
+
+<p>输入<code>npm install nodejs-websocket</code>,然后回车,安装成功终端应该是这样的</p>
+
+<p><img src="/uploads/2016/1/12/13/4.png" alt="" /></p>
+
+<p>系统文件目录应该是这样的</p>
+
+<p><img src="/uploads/2016/1/12/13/5.png" alt="" /></p>
+
+<p>这里说一下，有的Mac可能执行的图不是和我这里表现的一样，因为我这里安装了<a href="http://ohmyz.sh/">zsh</a></p>
+
+<h4 id="serverjs">2.编写server.js代码</h4>
+
+<p>因为这里编辑纯js代码，这里使用的编辑器是VS code.</p>
+
+<p>把server文件夹下内容导入VS code,然后创建server.js文件。</p>
+
+<p><img src="/uploads/2016/1/12/13/6.png" alt="" /></p>
+
+<p>接下来，大家就可以把代码拷贝到我们创建的server.js里面。</p>
+
+<p>如果想运行server.js ,直接在终端输入<code>node server.js</code> 中间隔着空格,记住要在server文件夹下，或者直接拖拽到终端也行。<br />
+结果应该是这样的。</p>
+
+<p><img src="/uploads/2016/1/12/13/7.png" alt="" /></p>
+
+<h4 id="section-7">3.代码讲解</h4>
+
+<pre><code>var ws = require('./node_modules/nodejs-websocket');
+</code></pre>
+<p>引用依赖库</p>
+
+<pre><code>var server = ws.createServer(function (connection) {
+	
+	})
+	
+	server.listen(8001);
+</code></pre>
+<p>创建server,监听8001端口。</p>
+
+<pre><code>connection.on("text", function (str) {});
+connection.on("close", function (str) {});
+connection.on("error", function (str) {});
+</code></pre>
+
+<p>监听传送过来的数据<br />
+监听连接关闭<br />
+监听连接错误</p>
+
+<h2 id="section-8">扩展思路</h2>
+
+<h3 id="section-9">数据格式</h3>
+
+<p>数据格式，这里使用的是使用的JSON来传送数据。如果想在egret中使用<code>protobuf</code>,请查看<a href="http://www.cnblogs.com/yangxiao/p/4686729.html">这里</a></p>
+
+<p>因为这里比较简单所以就是定义的如下格式，这个可以根据自己的习惯来定。</p>
+
+<pre><code>{
+	"userid": "",
+	"type": "",
+	"event": "",
+	"data": ""
+}
+</code></pre>
+
+<p>声明类 <code>Message</code></p>
+
+<pre><code>class Message {
+	constructor(userid:string,event:string,type:string,data:string) {
+		this.userid = userid;
+		this.type = type;
+		this.event = event;
+		this.data = null;
+	}
+	userid:string = null;
+	type:string = null;//  "show" or "control"
+	event:string = null;// "gameStart"
+	data:string = null;//“left”，“right”
+}
+</code></pre>
+
+<p>利用<code>JSON.parse(),JSON.stringify()</code>来转换。</p>
+
+<h3 id="websocket">WebSocket</h3>
+
+<pre><code>class WebSocket {
+	constructor() {
+
+	}
+
+	static instance: WebSocket = new WebSocket();
+	webSocket: egret.WebSocket = new egret.WebSocket();
+	
+	static getInstance(): MyWebSocket {
+	
+		return WebSocket.instance;
+	}
+	//初始化
+	init(url:string,port:any): void {
+		//接收消息
+		this.webSocket.addEventListener(egret.ProgressEvent.SOCKET_DATA, this.onReceiveMessage, this);
+		//连接
+		this.webSocket.addEventListener(egret.Event.CONNECT, this.onSocketOpen, this);
+		
+		this.webSocket.connect(url, port);
+		//添加链接关闭侦听，手动关闭或者服务器关闭连接会调用此方法
+        this.webSocket.addEventListener(egret.Event.CLOSE, this.onSocketClose, this);
+        //添加异常侦听，出现异常会调用此方法
+        this.webSocket.addEventListener(egret.IOErrorEvent.IO_ERROR, this.onSocketError, this);
+	}
+	
+	/**
+	 * 连接成功
+	 */
+	private onSocketOpen(): void {
+		var cmd = new Message(GlobalData.userid,"HelloWebSocket","show","null");
+		var msg = JSON.stringify(cmd);
+		console.log("连接成功，发送数据：" + msg);
+		
+		this.webSocket.writeUTF(msg);
+	}
+	/**
+	 * 传送数据
+	 */
+	sendMesssage(str:string)
+	{
+		this.webSocket.writeUTF(str);
+		this.webSocket.flush();
+	}
+	/**
+	 * 接收消息
+	 */
+	onReceiveMessage(e: egret.Event): void {
+		var msg = this.webSocket.readUTF();
+		var event = new game.SceneEvent(game.SceneEvent.ChangeScene);//自定义的事件来传送数据
+
+		event.eventData = JSON.parse(msg); //转换字符串为JSON格式
+
+		if(GlobalData.userid == event.eventData.userid)// 判断是否是属于同一组连接
+		game.ViewManager.getInstance().dispatchEvent(event)
+	}
+
+	private onSocketClose(): void {
+        console.log("WebSocketClose");
+    }
+
+    private onSocketError(): void {
+        console.log("WebSocketError");
+    }
+
+}
+
+</code></pre>
+<p>更多的使用方式查看<a href="http://edn.egret.com/cn/apidoc/index/name/egret.WebSocket">API</a>;</p>
+
+<h3 id="section-10">二维码</h3>
+
+<p>二维码使用的库是<a href="https://github.com/cxh612/qrCode">https://github.com/cxh612/qrCode</a></p>
+
+<p>具体的使用功能可以查看readme.md</p>
+
+<h3 id="url">解析URL</h3>
+
+<p>API 使用<a href="http://edn.egret.com/cn/apidoc/index/name/egret.globalFunction#getOption">egret.getOption</a></p>
+
+<h3 id="section-11">扩展思路</h3>
+
+<ol>
+  <li>手机做遥感，pc做显示器。</li>
+  <li>体感游戏，手机做感应器，pc做显示端。</li>
+  <li>两个手机，情侣之间，朋友之间的对抗赛，同步屏幕操作。</li>
+</ol>
+
+<h2 id="section-12">代码部署</h2>
+
+<h3 id="section-13">说在之前</h3>
+
+<p>因为个人的一些习惯癖好，不喜欢PHP，写起来感觉好难受。再一个Node.js又比较火，又可以使用TypeScript来编写，于是很愉快的决定使用Node.js了。写玩之后，发现找一个支持node.js的服务器好难，在这个上面折腾了好久。游戏1天半差不多就写完了，结果部署折腾了快一个星期的时间，因为不是很懂服务器，没有办法。最后只好找同学来指点一下，然后就自己折腾去了。最后买了阿里云。</p>
+
+<h3 id="section-14">服务器</h3>
+
+<p>我这里购买的是阿里云，配置的镜像是Ubuntu 14.04 64位。因为个人相比而言，相对于来说偏向Linux服务器，对于Ubuntu 更熟悉一些。这个根据个人的习惯爱好就行。有兴趣的，可以先在本地电脑安装虚拟机，然后安装Ubuntu。如果你不愿意折腾，那就直接购买就好了。如果购买阿里云，可以到网上找一些优惠码，这个阿里云还是固定发送一些的。我的推荐码xy0glk <a href="https://ecs-buy.aliyun.com/#/prepay">阿里云购买地址</a></p>
+
+<p><img src="/uploads/2016/1/12/13/8.png" alt="" /></p>
+
+<h3 id="nodejs">安装Node.js</h3>
+
+<p>因为只当服务器使用，这里说一下安装Node.js，在Ubuntu下，node 这个命令可能被占用，一般使用nodejs 命令.如果不想换,继续使用node命令,那么查看<a href="http://blchen.com/solution-for-ubuntu-node-command-invalid/">这里</a>。<a href="http://mclspace.com/2015/12/09/aliyun-build-nodejs-environment/">具体的操作可以查看这里</a></p>
+
+<h3 id="sftp">sftp上传</h3>
+
+<p>这里使用的是Yummy FTP,购买阿里云之后会给你发一份邮件给你。<br />
+<img src="/uploads/2016/1/12/13/9.png" alt="" /></p>
+
+<p>输入IP，用户名，端口号,然后就可以连接了。</p>
+
+<p><img src="/uploads/2016/1/12/13/10.png" alt="" /></p>
+
+<p>然后上传服务器端代码<br />
+<img src="/uploads/2016/1/12/13/11.png" alt="" /></p>
+
+<p>然后进入终端连接，启动服务器端代码,<a href="https://help.aliyun.com/knowledge_detail/5974445.html?spm=5176.775974781.0.0.dqguq5">更详细的教程</a></p>
+
+<p><img src="/uploads/2016/1/12/13/12.png" alt="" /></p>
+
+<p><img src="/uploads/mypictures/xsstomyzhifubao.png" alt="" /></p>
+
+
+
+                <hr>
+
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="13" data-title="egret(前端)＋Node.js(后端)实现跨屏互动教程"
+                    data-images="http://xsstomy/img/home-bg.jpg"
+                    data-content="原理讲解
+
+
+
+图讲解
+
+server端
+
+server端主要做信息接收和传递以及一些处理。可以理解为一个中转站。
+
+show端
+
+show端就是一个展示... | @xsstomy 的个人博客"
+                    data-url="http://xsstomy/articles/13.html">
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多少 Share end-->
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/articles/12.html" data-toggle="tooltip" data-placement="top" title="设计模式">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/articles/14.html" data-toggle="tooltip" data-placement="top" title="gulp在egret引擎中使用教程">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread" data-thread-key="13" data-title="egret(前端)＋Node.js(后端)实现跨屏互动教程" data-url="http://xsstomy/articles/13.html"></div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                <!-- friends -->
+                
+                <div class="sidebar-container">
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline" style="
+                        margin-bottom: 0;
+                    ">
+                        
+                            <li><a href="http://featherj.org/">FeatherJ</a></li>
+                        
+                            <li><a href="http://www.idom.me/">Dom</a></li>
+                        
+                            <li><a href="http://xzper.com/">纸片儿</a></li>
+                        
+                            <li><a href="http://city-10.com/">城市拓荒者</a></li>
+                        
+                            <li><a href="http://yjtxlib.com/">Yjtx</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xsstomy"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/han-mu-71">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/xsstomy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; xsstomy 2014-2016
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- Highlight.js -->
+<script>
+    async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js",function(){
+        hljs.initHighlightingOnLoad();
+    })
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+
+
+<!-- Image to hack wechat -->
+<!--<img src="/img/icon_wechat.png" width="0" height="0" />-->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<!-- Tencent QQ Analysis -->
+<!--<script type="text/javascript" src="http://tajs.qq.com/stats?sId=43623438" charset="UTF-8"></script>-->
+</body>
+
+</html>

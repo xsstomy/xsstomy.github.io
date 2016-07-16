@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keyword"  content="xsstomy, xsstomy blog,  xsstomy的博客,egret,egret 教程,egret 引擎,HTML5,swift, h5游戏,HTML5 游戏">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Egret赛车游戏之准备工作 - xsstomy</title>
+
+    <link rel="canonical" href="http://xsstomy/articles/2.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Hux add tongji.baidu -->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?927847cdebb6617d0945219f8ded1a83";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+    <meta name="google-site-verification" content="5x4fn8u-ngaY6n46Uy4NQQYg1TyGhDeFrQoCeN1Dap0" />
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">xsstomy</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+                <li>
+                    <a href="/about.html">About</a>
+                </li>
+                
+                <li>
+                    <a href="/game.html">Game</a>
+                </li>
+                
+                <li>
+                    <a href="/tags.html">Tags</a>
+                </li>
+                
+
+                <!-- Hux customized -->
+
+
+                <!-- Hux end -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/home-bg.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags.html#egret教程" title="egret教程">egret教程</a>
+                        
+                        <a class="tag" href="/tags.html#赛车游戏" title="赛车游戏">赛车游戏</a>
+                        
+                        <a class="tag" href="/tags.html#EgretWing" title="EgretWing">EgretWing</a>
+                        
+                        <a class="tag" href="/tags.html#白鹭引擎" title="白鹭引擎">白鹭引擎</a>
+                        
+                    </div>
+                    <h1>Egret赛车游戏之准备工作</h1>
+                    
+                    
+                    <h2 class="subheading"></h2>
+                    
+                    <span class="meta">Posted by xsstomy on November 28, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+
+				<h3 id="section"><strong>教程的目的和用意</strong></h3>
+<p>这里通过一个小的EUI项目，主要介绍新的EUI在Egret Wing 中的教程使用，同时会大概讲解我们推荐的egret项目开发流程，以及EgretWing 中的一些细小功能，不会过多的涉及代码的逻辑及代码的解析。希望大家能够通过此系列文章能够熟悉使用EgretWing。</p>
+
+<h3 id="section-1"><strong>开发之工具</strong></h3>
+<ul>
+  <li><strong><em>TextureMerger 1.5.5版本</em></strong></li>
+  <li><strong><em>ResDepot 1.4.2</em></strong></li>
+  <li><strong><em>EgretWing 2.1.4prerelease</em></strong></li>
+  <li><strong><em>EgretEngine 2.5.5</em></strong></li>
+</ul>
+
+<h3 id="section-2"><strong>准备工作</strong></h3>
+<ul>
+  <li>素材准备 <a href="https://coding.net/u/xsstomy/p/egretCourses/git/blob/master/resource/mySources.zip">素材下载</a></li>
+  <li>开发流程</li>
+</ul>
+
+<p>这里大概介绍一下开发的流程。<br />
+1. 准备好项目需要的素材,这里推荐使用碎图.(至于原因,大家可以查看一下ResDepot中发布时候的<a href="http://bbs.egret.com/forum.php?mod=viewthread&amp;tid=7367&amp;highlight=resdepot">合图功能</a>)<br />
+2. 创建EUI项目，把资源拷贝到项目/resource/mysource下.(这里文件名可以根据自己喜好取名)<br />
+3. 打开ResDepot,然后用ResDepot打开刚才创建的项目中resource/default.res.json 文件.<br />
+4. 把准备好的资源素材全部拖拽到ResDepot 刚才打开的default.res.json文件中，然后整理操作.(<a href="http://bbs.egret.com/forum.php?mod=viewthread&amp;tid=7367&amp;highlight=resdepot">具体使用方法</a>)<br />
+5. 项目开发.<br />
+6. 项目开发完成，发布项目h5版本.<br />
+7. 在ResDepot 中发布资源.</p>
+
+<blockquote>
+  <p>这里说下，我这里主要以一个简单的赛车游戏做讲解。<br />
+规则很简单，是否能够跑到10000km。如果跑到10000km，就算是成功，如果在游戏过程中碰撞到其它小车，就算是失败。</p>
+</blockquote>
+
+<h3 id="section-3"><strong>这里正式开始开发之前准备工作具体操作</strong></h3>
+<ol>
+  <li>打开EgretWing 2.1.4 ,创建EUI项目 ,取名Racing,这里引擎是2.5.5版本。<br />
+<a href="/uploads/2015/11/27/2/3.png"><img src="/uploads/2015/11/27/2/3.png" alt="" /></a></li>
+  <li>点击下一步，因为我们要做的赛车游戏是锁定竖屏的，我这里缩放模式选择fixedWidth,旋转设置选择portrait,具体的区别查看<a href="http://edn.egret.com/cn/index.php/article/index/id/553">缩放模式和旋转说明</a><br />
+<a href="/uploads/2015/11/27/2/1.png"><img src="/uploads/2015/11/27/2/1.png" alt="" /></a></li>
+  <li>
+    <p>在Racing项目中，resource文件下，创建两个文件夹，一个叫mySkins,一个叫mySources,把准备好的资源拷贝到mySources<br />
+文件夹下，然后删除项目自带的资源和皮肤，即Racing/resource/下的assets和eui_skins文件。然后点击包资源管理器中的刷新按钮。<br />
+这里的拷贝资源不是在EgretWing中拷贝。结果如下图<br />
+<a href="/uploads/2015/11/27/2/4.png"><img src="/uploads/2015/11/27/2/4.png" alt="" /></a></p>
+  </li>
+  <li>在游戏中因为要使用到数字，即使用到eui.BitmapLabel组件，这里我们需要用TextureMerger，处理一下资源<a href="http://bbs.egret.com/forum.php?mod=viewthread&amp;tid=918&amp;highlight=texturemerger">具体操作</a>。然后用ResDepot打开Racing项目中resource文件下的default.res.json,删除项目中自带的资源，然后添加在第3步中准备好的资源。具体的操作这里不细述<a href="http://bbs.egret.com/forum.php?mod=viewthread&amp;tid=7367&amp;highlight=resdepot">ResDepot教程</a>。最终的结果，可以下载源代码查看配置。<a href="https://coding.net/u/xsstomy/p/egretCourses/git">链接</a>.</li>
+</ol>
+
+<p>到这里我们的准备工作基本已经完成。这里我们简单分析一下接下来要做的界面。</p>
+
+<h3 id="section-4"><strong>赛车游戏界面</strong></h3>
+<p>在这里，主要会做几个界面，loadingUI，游戏开始，游戏进行中，游戏结束等几个界面。一般会有美术提供或者策划提供游戏原型。这里就按照自己的思路来了。</p>
+
+<p>这篇文章就讲到这里。敬请期待后面的文章。</p>
+
+<p><img src="/uploads/mypictures/xsstomyzhifubao.png" alt="" /></p>
+
+
+
+                <hr>
+
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="2" data-title="Egret赛车游戏之准备工作"
+                    data-images="http://xsstomy/img/home-bg.jpg"
+                    data-content="教程的目的和用意
+这里通过一个小的EUI项目，主要介绍新的EUI在Egret Wing 中的教程使用，同时会大概讲解我们推荐的egret项目开发流程，以及... | @xsstomy 的个人博客"
+                    data-url="http://xsstomy/articles/2.html">
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多少 Share end-->
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/articles/1.html" data-toggle="tooltip" data-placement="top" title="新博客的搭建">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/articles/3.html" data-toggle="tooltip" data-placement="top" title="Egret赛车游戏之LoadingUI界面">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread" data-thread-key="2" data-title="Egret赛车游戏之准备工作" data-url="http://xsstomy/articles/2.html"></div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                <!-- friends -->
+                
+                <div class="sidebar-container">
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline" style="
+                        margin-bottom: 0;
+                    ">
+                        
+                            <li><a href="http://featherj.org/">FeatherJ</a></li>
+                        
+                            <li><a href="http://www.idom.me/">Dom</a></li>
+                        
+                            <li><a href="http://xzper.com/">纸片儿</a></li>
+                        
+                            <li><a href="http://city-10.com/">城市拓荒者</a></li>
+                        
+                            <li><a href="http://yjtxlib.com/">Yjtx</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xsstomy"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/han-mu-71">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/xsstomy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; xsstomy 2014-2016
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- Highlight.js -->
+<script>
+    async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js",function(){
+        hljs.initHighlightingOnLoad();
+    })
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+
+
+<!-- Image to hack wechat -->
+<!--<img src="/img/icon_wechat.png" width="0" height="0" />-->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<!-- Tencent QQ Analysis -->
+<!--<script type="text/javascript" src="http://tajs.qq.com/stats?sId=43623438" charset="UTF-8"></script>-->
+</body>
+
+</html>

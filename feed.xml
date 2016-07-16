@@ -1,0 +1,2901 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xsstomy</title>
+    <description></description>
+    <link>http://xsstomy/</link>
+    <atom:link href="http://xsstomy/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 16 Jul 2016 21:43:37 +0800</pubDate>
+    <lastBuildDate>Sat, 16 Jul 2016 21:43:37 +0800</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;上周广州和深圳的白鹭开发者聚会，很遗憾没有时间参加，现在补这篇博客吧。这篇也算是继之前gulp的补充。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果你的目标是打包runtime和使用官方打包成移动app的方式，那么这篇文章可能不是很适合你。当然也欢迎你阅读。&lt;/p&gt;
+
+  &lt;p&gt;这里是打造个人个性的开发工作流，如果你喜欢折腾欢迎来尝试，毕竟官方的EgretWing 集成度已经是非常高的了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;需求&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;发布代码的版本控制&lt;/li&gt;
+  &lt;li&gt;代码编辑器个人偏好&lt;/li&gt;
+  &lt;li&gt;egret命令有时候gg&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;工具说明：&lt;/p&gt;
+
+  &lt;p&gt;​		sublime text 3 代码编辑&lt;/p&gt;
+
+ 		iTerm2  终端工具&lt;br /&gt;
+
+  &lt;p&gt;​		EgretWing2.5  UI编辑器，集成开发环境&lt;/p&gt;
+
+  &lt;p&gt;​		ResDepot 资源编辑器&lt;/p&gt;
+
+  &lt;p&gt;​		chrome 调试和预览工具&lt;/p&gt;
+
+  &lt;p&gt;​		web pack 代码构建工具		&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;工作流配置&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;sublime + egret + webpack + chrome + iTerm开发环境配置&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;EgretWing2.5 + ResDepot UI编辑＋资源管理&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;sublime-&quot;&gt;sublime 插件配置&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://github.com/Microsoft/TypeScript-Sublime-Plugin&lt;/li&gt;
+  &lt;li&gt;https://github.com/jdc0589/JsFormat(保存代码自动格式化)&lt;/li&gt;
+  &lt;li&gt;https://packagecontrol.io/packages/Seti_UI(主题看个人喜好)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;sublimeiterm-&quot;&gt;sublime+iTerm 视窗配置&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/7/16/17/sublime+iTerm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://code.kpman.cc/2015/02/07/Sublime-%E8%88%87-iTerm-%E7%9A%84%E8%A6%96%E7%AA%97%E9%85%8D%E7%BD%AE/&quot;&gt;sublime+iTerm&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;webpackegret-&quot;&gt;webpack＋egret 改造项目&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;创建项目 &lt;/li&gt;
+  &lt;li&gt;npm,git初始化&lt;/li&gt;
+  &lt;li&gt;依赖库安装&lt;/li&gt;
+  &lt;li&gt;webpack+tsconfig配置&lt;/li&gt;
+  &lt;li&gt;修改原项目&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;1.创建项目&lt;/h4&gt;
+
+&lt;p&gt;egret create web pack-egret - -type eui &lt;/p&gt;
+
+&lt;h4 id=&quot;npm-init--git-init&quot;&gt;2. npm init &amp;amp; git init&lt;/h4&gt;
+
+&lt;p&gt;/webpack-egret    npm init &lt;/p&gt;
+
+&lt;p&gt;/webpack-egret   git init &lt;/p&gt;
+
+&lt;h4 id=&quot;cnpm-install&quot;&gt;3. cnpm install&lt;/h4&gt;
+
+&lt;p&gt;package.json&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;&quot;devDependencies&quot;: {
+    &quot;babel-core&quot;: &quot;^6.10.4&quot;,
+    &quot;babel-loader&quot;: &quot;^6.2.4&quot;,
+    &quot;babel-plugin-transform-es2015-arrow-functions&quot;: &quot;^6.8.0&quot;,
+    &quot;babel-plugin-transform-runtime&quot;: &quot;^6.9.0&quot;,
+    &quot;babel-preset-es2015&quot;: &quot;^6.9.0&quot;,
+    &quot;babel-preset-react&quot;: &quot;^6.11.1&quot;,
+    &quot;babel-preset-stage-0&quot;: &quot;^6.5.0&quot;,
+    &quot;babel-runtime&quot;: &quot;^6.9.2&quot;,
+    &quot;awesome-typescript-loader&quot;: &quot;^0.15.10&quot;,
+    &quot;http-server&quot;: &quot;^0.9.0&quot;,
+    &quot;strip-sourcemap-loader&quot;: &quot;0.0.1&quot;,
+    &quot;typescript&quot;: &quot;^1.8.7&quot;,
+    &quot;webpack&quot;: &quot;^1.12.14&quot;,
+    &quot;webpack-dev-server&quot;: &quot;^1.14.1&quot;,
+    &quot;webpack-merge&quot;: &quot;^0.14.0&quot;,
+    &quot;webpack-validator&quot;: &quot;^2.2.2&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^2.22.0&quot;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;webpacktsconfig&quot;&gt;4.webpack+tsconfig配置&lt;/h4&gt;
+
+&lt;p&gt;tsconfig.json&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{
+   &quot;compilerOptions&quot;: {
+      &quot;target&quot;: &quot;ES5&quot;,
+      &quot;outDir&quot;: &quot;bin-debug&quot;,
+      &quot;sourceMap&quot;: true
+   },
+   &quot;exclude&quot;: [
+      &quot;bin-debug&quot;,
+      &quot;bin-release&quot;,
+      &quot;resource&quot;,
+      &quot;node_modules&quot;,
+      &quot;bower_components&quot;
+   ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;webpack.config.js&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var webpack = require(&#39;webpack&#39;);
+var path = require(&#39;path&#39;)
+var HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);
+var paths = require(&#39;./webpack.paths&#39;)
+var loaders = require(&#39;./webpack.loaders&#39;)
+
+
+module.exports = {
+	entry: {
+		main: paths.app
+	},
+	resolve: {
+		root: paths.app,
+		extensions: [&#39;&#39;, &#39;.js&#39;, &#39;.ts&#39;]
+	},
+	output: {
+		path: paths.build,
+		filename: &#39;bundle.js&#39;,
+		publicPath: &#39;build/&#39;
+	},
+	devtool: &#39;eval-source-map&#39;,
+	devServer: {
+		historyApiFallback: true,
+		hot: true,
+		inline: true,
+		progress: true
+	},
+	module: {
+		loaders: loaders
+	},
+	plugins: [
+		new webpack.NoErrorsPlugin(),
+		new webpack.DefinePlugin({
+			BUILD_MODE: JSON.stringify(&#39;development&#39;)
+		})
+	]
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里给出的webpack配置的不全，后面会给出整个项目的github地址&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;...
+&amp;lt;script src=&quot;libs/modules/egret/egret.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;libs/modules/egret/egret.web.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;libs/modules/game/game.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;libs/modules/game/game.web.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;libs/modules/tween/tween.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;libs/modules/res/res.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;build/bundle.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;目录结构&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;|----index.html
+|----src
+|    |---- Main.ts
+|    |---- LoadingUI.ts
+|    |----Configure.ts
+| 
+|----build
+|    
+|----libs
+|    |----modules
+|
+|----node_modules
+|
+|----resource
+|    |----assets
+|    |----config
+|    |----default.res.json
+|
+|----tsconfig.json
+|----package.json
+|----webpack.config.js
+|----webpack.loaders.js
+|----webpack.paths.js
+|----webpack.production.config.js
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;开发&lt;/h2&gt;
+
+&lt;h2 id=&quot;npm-run-start&quot;&gt;1.npm run start&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;这样就不用egret命令啦。这里是热更新的，只需要修改代码，保存一下，然后在浏览器中刷新就可以看到最新的效果。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/7/16/17/chrome+debug.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;npm-run-build&quot;&gt;2. npm run build&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;发布之后需要上传的目录结构&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;|----index.html
+|
+|----src
+|----build
+|----libs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;参考链接:&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://code.kpman.cc/2015/02/07/Sublime-%E8%88%87-iTerm-%E7%9A%84%E8%A6%96%E7%AA%97%E9%85%8D%E7%BD%AE/&quot;&gt;sublime+iterm&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://bbs.egret.com/forum.php?mod=viewthread&amp;amp;tid=17477&amp;amp;highlight=webpack&quot;&gt;webpack+egret&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;https://github.com/jdc0589/JsFormat&quot;&gt;sublime+jsFormat&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;https://github.com/Microsoft/TypeScript-Sublime-Plugin&quot;&gt;sublime+typescript&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://zhaoda.net/webpack-handbook/index.html&quot;&gt;webpack-cn&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;https://webpack.github.io/docs/?utm_source=github&amp;amp;utm_medium=readme&amp;amp;utm_campaign=top&quot;&gt;webpack&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;推荐一下切图工具&lt;a href=&quot;http://www.fancynode.com.cn/&quot;&gt;pxcook&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 17 Jul 2016 21:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/17.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/17.html</guid>
+        
+        <category>egret</category>
+        
+        <category>工作流</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>electron环境搭建到项目发布</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近了解到electron，于是去简单的研究了一下。网上找个详细的教程，没有找到比较全的，然后就把整个流程简单的记录一下，方便需要的人。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;环境搭建&lt;/h2&gt;
+&lt;p&gt;笔者这里使用的Mac，osx 10.11.3 ，在安装electron环境之前，确保本机已经安装&lt;strong&gt;Node.js&lt;/strong&gt;,&lt;strong&gt;Git&lt;/strong&gt;并确保尽可能的是最新的版本。笔者这里的Node版本4.2.2，Git版本2.5.4。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;1.切换镜像&lt;/h3&gt;
+&lt;p&gt;按照官方的教程，是无法正常运行的这里，我们需要使用一下淘宝的镜像(&lt;a href=&quot;http://npm.taobao.org/&quot;&gt;这里感谢淘宝&lt;/a&gt;)。这里我们在终端执行以下命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install -g cnpm --registry=https://registry.npm.taobao.org
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;electron&quot;&gt;2.安装electron&lt;/h3&gt;
+
+&lt;p&gt;在终端执行以下命令&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cnpm install electron-prebuilt -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;3.获取官方实例&lt;/h3&gt;
+&lt;p&gt;在终端执行以下命令或者直接到&lt;a href=&quot;https://github.com/atom/electron-quick-start&quot;&gt;https://github.com/atom/electron-quick-start&lt;/a&gt;下载整个项目&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/atom/electron-quick-start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;发布项目&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;1.安装打包工具&lt;/h3&gt;
+&lt;p&gt;因为我们需要将我们的源代码进行混淆打包，免得别人看到源码。我们在终端执行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install -g asar
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;2.打包项目&lt;/h3&gt;
+
+&lt;p&gt;命令 &lt;code&gt;asar pack|p [options] &amp;lt;dir&amp;gt; &amp;lt;output&amp;gt; &lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;这里在终端进到刚才下载的官方例子文件夹外,执行以下命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;asar p electron-quick-start app
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后修改打包后的文件后缀，修改为app.asar。这里说明的是一定要以app为打包文件名称。打包之后然后到&lt;a href=&quot;https://github.com/atom/electron/releases&quot;&gt;https://github.com/atom/electron/releases&lt;/a&gt;。笔者这里是Mac系统，下载的是electron-v0.36.10-darwin-x64.zip。解压，把app.asar拷贝到&lt;code&gt;Electron.app/Contents/Resources/resource&lt;/code&gt;下,其它的不要做任何修改,到此算是完成源代码打包。&lt;/p&gt;
+
+&lt;p&gt;还有修改应用名称，icon待续。。。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 Mar 2016 04:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/16.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/16.html</guid>
+        
+        <category>electron</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>查找Node.js中JavaScript内存泄漏的简单教程</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;缘由&lt;/h3&gt;
+
+&lt;p&gt;公司同事内部分享的一篇讲解查找内存泄漏的博客，个人觉得很赞，就决定翻译一下，翻译不重要的地方会略过。英文不太好，翻译不好的地方或者有错误的地方欢迎指正。 原博客链接&lt;a href=&quot;http://www.alexkras.com/simple-guide-to-finding-a-javascript-memory-leak-in-node-js/&quot;&gt;http://www.alexkras.com/simple-guide-to-finding-a-javascript-memory-leak-in-node-js/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;简介&lt;/h3&gt;
+&lt;p&gt;几个月前，有一次出现内存泄漏，不得不调试，查找问题所在。我查找了一些相关的资料和文章，但是认真仔细读过之后，还是有疑惑到底应该怎么去调试查找问题的所在。&lt;/p&gt;
+
+&lt;p&gt;我希望这篇文章对查找node中的内存泄漏有一个简单的引导。我将使用一种简单的方式来引导查找内存泄漏的问题。个人认为这种方式可以满足大部分需求。对于某些情况，这种方式可能不行。我将提供一些其他的资料供你参考。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;最小理论&lt;/h3&gt;
+
+&lt;p&gt;JavaScript是一种垃圾回收语言。因此，所有的内存使用都是由一个node进程来管理自动的分配和回收，通过V8 JavaSript引擎。&lt;/p&gt;
+
+&lt;p&gt;V8 怎么知道什么时候去回收内存？在程序中，从跟节点开始，V8有数据图始终保存所有变量的。在JavaScript中有四种数据类型。真假值，字符串，数字和对象。前3种都是简单类型，这3种数据类型能够保存数据指向他们。对象和其它所有类型都是对象类型(数组也是对象类型)，都能保存引用指向其它的对象。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/30/15/memory-graph.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;V8周期性的根据这个内存引用列表，试着查找一些从根节点无法查找到的数据。如果这些数据无法在根节点上查找到，V8 就确认这些数据不在被使用并且释放掉这些内存。这个机制被叫做垃圾回收。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;什么时候会发生内存泄漏？&lt;/h3&gt;
+
+&lt;p&gt;在JavaScript中内存泄漏发生在当数据不需要，在根节点中依然可以查找到时。 V8 会认为这些数据依然在使用而且不会释放掉这些数据对应的内存。&lt;strong&gt;为了能够调试内存泄漏问题，我们需要保存该数据通过错误调用，并且确保V8 能够去清理掉&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;非常重要的是要记住，垃圾回收并不是每时每刻都在清理。一般V8 在认为合适的情况下会执行垃圾回收。例如，V8 会周期性的执行垃圾回收，或者当V8 发现剩余内存变少到一定量的时候也会执行一次垃圾回收。节点有所有变量的内存链连接所有的进程，因此V8能够智能地随时调用。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/30/15/node-error.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;未完待续。。。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 26 Jan 2016 04:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/15.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/15.html</guid>
+        
+        <category>内存泄漏</category>
+        
+        <category>Node.js</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>gulp在egret引擎中使用教程</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;缘由&lt;/h3&gt;
+
+&lt;p&gt;作为一名伪前端攻城师，还是有必要学习一下前端工具和前端框架的。于是自己就折腾了一下，通过在egret引擎中使用gulp，来学习gulp的使用。这里是别人已经收集整理好的，gulp比较齐全的资料&lt;a href=&quot;https://github.com/Platform-CUF/use-gulp&quot;&gt;https://github.com/Platform-CUF/use-gulp&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;gulp&quot;&gt;gulp简介&lt;/h3&gt;
+
+&lt;p&gt;Gulp.js 是一个自动化构建工具，开发者可以使用它在项目开发过程中自动执行常见任务。Gulp.js 是基于 Node.js 构建的，利用 Node.js 流的威力，你可以快速构建项目并减少频繁的 IO 操作。Gulp.js 源文件和你用来定义任务的 Gulp 文件都是通过 JavaScript（或者 CoffeeScript ）源码来实现的。&lt;/p&gt;
+
+&lt;p&gt;在egret中，这里就是希望使用它编译TypeScript文件，虽然egret已经做了一些封装，满足了基本的需求，这里完全就是自己折腾，用前端工具，做一些定制化的操作。然后实现一些定制化的功能，比如压缩资源。比如模块编译。等等。&lt;/p&gt;
+
+&lt;h3 id=&quot;gulp-1&quot;&gt;gulp安装&lt;/h3&gt;
+
+&lt;h4 id=&quot;gulp-2&quot;&gt;1.全局安装gulp：&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt; $ npm install gulp -g &lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果安装失败，前面可以添加一个sudo&lt;/p&gt;
+
+  &lt;p&gt;&lt;code&gt;sudo npm install gulp -g&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;因为可能被国内的某些原因，无法正常安装。大家可以安装&lt;a href=&quot;http://npm.taobao.org/&quot;&gt;淘宝镜像&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;devdependencies&quot;&gt;2.作为项目的开发依赖（devDependencies）安装：&lt;/h4&gt;
+
+&lt;p&gt;在egret项目根目录下，命令行中输入以下命令:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm install --save-dev gulp&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;这里是到项目根目录安装的。即egret项目的根目录。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在egret项目根目录创建gulpfile.js文件。代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var gulp = require(&#39;gulp&#39;);
+gulp.task(&#39;default&#39;, function() {
+  // 将你的默认的任务代码放在这
+  
+  console.log(&quot;hello gulp&quot;)
+});
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在egret项目根目录下，命令行中输入:&lt;code&gt;gulp&lt;/code&gt; , &lt;br /&gt;
+终端输出内容中会有单独的一行，显示内容为&lt;code&gt; hello gulp&lt;/code&gt;;&lt;/p&gt;
+
+&lt;h4 id=&quot;typescript&quot;&gt;3.编译TypeScript&lt;/h4&gt;
+
+&lt;p&gt;在egret中，输入egret  build  则egret引擎会构建项目，TypeScript文件生成对应JavaScript文件，文件生成的目录是bin-debug。&lt;/p&gt;
+
+&lt;p&gt;在这里使用gulp来构建，我们同样默认还是生成在bin-debug文件目录下。&lt;br /&gt;
+在egret项目根目录下，命令行中输入以下命令:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm install --save-dev gulp-typescript&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;在egret中，构建项目使用的命令是egret  build ,这里我们就创建一个build任务,gulpfile.js编写代码。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var gulp = require(&#39;gulp&#39;);
+var ts = require(&#39;gulp-typescript&#39;)
+gulp.task(&#39;default&#39;, function() {
+  // 将你的默认的任务代码放在这
+   console.log(&quot;hello gulp&quot;);
+});
+
+//创建一个build 任务
+gulp.task(&#39;build&#39;, function() {
+    // 1. 找到文件
+    gulp.src(&#39;src/**/*.ts&#39;)
+    // 2. 编译TypeScript文件
+        .pipe(ts({
+        	  &quot;compilerOptions&quot;: {
+                &quot;target&quot;: &quot;ES6&quot;,
+                &quot;outDir&quot;: &quot;bin-debug&quot;,
+                &quot;sourceMap&quot;: true
+            },
+            &quot;exclude&quot;: [
+                &quot;bin-debug&quot;,
+                &quot;bin-release&quot;,
+                &quot;resource&quot;
+            ]
+        }))
+    // 3. 保存编译后的文件
+        .pipe(gulp.dest(&#39;bin-debug&#39;));
+})
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在egret项目根目录下，命令行中输入: gulp build ,&lt;br /&gt;
+我们查看对应的bin-debug目录下的JavaScript文件，是完全对应TypeScript文件生成的。&lt;br /&gt;
+这里我们就实现了egret  build 功能。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;这里在终端输入gulp build 时候，终端会输出比较多的错误提示，说是没有引用对应的库文件。&lt;br /&gt;
+接下来我们解决这个报错问题，我们引用新的gulp插件，直接调用egret默认提供的命令。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在egret项目根目录下，命令行中输入以下命令:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm install --save-dev gulp-shell&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;我们用shell脚本，调用egret引擎默认提供的命令功能。在gulpfile.js中编写对应的代码。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var gulp = require(&#39;gulp&#39;);
+var ts = require(&#39;gulp-typescript&#39;);
+var shell = require(&#39;gulp-shell&#39;);
+
+gulp.task(&#39;default&#39;, function () {
+    // 将你的默认的任务代码放在这
+    console.log(&quot;hello gulp&quot;);
+});
+
+
+gulp.task(&#39;build&#39;, function () {
+    // 1. 找到文件
+    gulp.src(&#39;src/**/*.ts&#39;)
+    // 2. 编译TypeScript文件
+        .pipe(ts({
+            &quot;compilerOptions&quot;: {
+                &quot;target&quot;: &quot;ES6&quot;,
+                &quot;outDir&quot;: &quot;bin-debug&quot;,
+                &quot;sourceMap&quot;: true
+            },
+            &quot;exclude&quot;: [
+                &quot;bin-debug&quot;,
+                &quot;bin-release&quot;,
+                &quot;resource&quot;
+            ]
+        }))
+    // 3. 保存编译后的文件
+        .pipe(gulp.dest(&#39;bin-debug&#39;));
+})
+
+//调用egret run －a 命令,实现增量编译
+gulp.task(&#39;run&#39;, function(){
+   gulp.src(&#39;&#39;)
+   .pipe(shell([
+       &#39;egret build -e&#39;,
+       &#39;egret run -a&#39;
+   ]))
+    
+});
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;egret&quot;&gt;4.发布Egret项目&lt;/h4&gt;
+
+&lt;p&gt;这里我们同样使用egret自带的命令。参考步骤3中编译操作。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var gulp = require(&#39;gulp&#39;);
+var ts = require(&#39;gulp-typescript&#39;);
+var shell = require(&#39;gulp-shell&#39;);
+
+gulp.task(&#39;default&#39;, function () {
+    // 将你的默认的任务代码放在这
+    console.log(&quot;hello gulp&quot;);
+});
+
+// gulp build  编译egret项目
+gulp.task(&#39;build&#39;, function () {
+    // 1. 找到文件
+    gulp.src(&#39;src/**/*.ts&#39;)
+    // 2. 编译TypeScript文件
+        .pipe(ts({
+            &quot;compilerOptions&quot;: {
+                &quot;target&quot;: &quot;ES6&quot;,
+                &quot;outDir&quot;: &quot;bin-debug&quot;,
+                &quot;sourceMap&quot;: true
+            },
+            &quot;exclude&quot;: [
+                &quot;bin-debug&quot;,
+                &quot;bin-release&quot;,
+                &quot;resource&quot;
+            ]
+        }))
+    // 3. 保存编译后的文件
+        .pipe(gulp.dest(&#39;bin-debug&#39;));
+})
+
+//调用 gulp run ,利用egret提供的实现增量编译
+gulp.task(&#39;run&#39;, function () {
+    gulp.src(&#39;&#39;)
+        .pipe(shell([
+            &#39;egret build -e&#39;,
+            &#39;egret run -a&#39;
+        ]))
+
+});
+
+
+// 发布 gulp publish
+gulp.task(&#39;publish&#39;, function () {
+    gulp.src(&#39;&#39;)
+        .pipe(shell([
+            &#39;egret build -e&#39;,
+            &#39;egret publish &#39; 
+        ]))
+})
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;发布我们这里基本的已经实现了，但是egret官方提供的可以默认的添加版本号，这里我们用另外的插&lt;br /&gt;
+件yargs来实现&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在egret项目根目录下，命令行中输入以下命令:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm install --save-dev yargs&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;gulpfile.js中添加代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var gulp = require(&#39;gulp&#39;);
+var ts = require(&#39;gulp-typescript&#39;);
+var shell = require(&#39;gulp-shell&#39;);
+var argv = require(&#39;yargs&#39;).argv;
+
+gulp.task(&#39;default&#39;, function () {
+    // 将你的默认的任务代码放在这
+    console.log(&quot;hello gulp&quot;);
+});
+
+// gulp build  编译egret项目
+gulp.task(&#39;build&#39;, function () {
+    // 1. 找到文件
+    gulp.src(&#39;src/**/*.ts&#39;)
+    // 2. 编译TypeScript文件
+        .pipe(ts({
+            &quot;compilerOptions&quot;: {
+                &quot;target&quot;: &quot;ES6&quot;,
+                &quot;outDir&quot;: &quot;bin-debug&quot;,
+                &quot;sourceMap&quot;: true
+            },
+            &quot;exclude&quot;: [
+                &quot;bin-debug&quot;,
+                &quot;bin-release&quot;,
+                &quot;resource&quot;
+            ]
+        }))
+    // 3. 保存编译后的文件
+        .pipe(gulp.dest(&#39;bin-debug&#39;));
+})
+
+//调用 gulp run ,利用egret提供的实现增量编译
+gulp.task(&#39;run&#39;, function () {
+    gulp.src(&#39;&#39;)
+        .pipe(shell([
+            &#39;egret build -e&#39;,
+            &#39;egret run -a&#39;
+        ]))
+
+});
+
+
+// 发布 gulp publish --version 1000
+gulp.task(&#39;publish&#39;, function () {
+
+    gulp.src(&#39;&#39;)
+        .pipe(shell([
+            &#39;egret build -e&#39;,
+            &#39;egret publish --version &#39; +argv.version
+        ]))
+})
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里，我们就完成了egret提供的基本相同的功能。剩下的就是我们的自定义功能了。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;5.自定义功能&lt;/h4&gt;
+
+&lt;h5 id=&quot;section-2&quot;&gt;5.1压缩图片资源&lt;/h5&gt;
+
+&lt;p&gt;安装压缩插件，在egret项目根目录下，命令行中输入以下命令:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm install --save-dev gulp-imagemin&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;然后新建一个imagemin的任务，代码:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var gulp = require(&#39;gulp&#39;);
+var ts = require(&#39;gulp-typescript&#39;);
+var shell = require(&#39;gulp-shell&#39;);
+var argv = require(&#39;yargs&#39;).argv;
+var image = require(&#39;gulp-imagemin&#39;);
+
+
+gulp.task(&#39;default&#39;, function () {
+    // 将你的默认的任务代码放在这
+    console.log(&quot;hello gulp&quot;);
+});
+
+// gulp build  编译egret项目
+gulp.task(&#39;build&#39;, function () {
+    // 1. 找到文件
+    gulp.src(&#39;src/**/*.ts&#39;)
+    // 2. 编译TypeScript文件
+        .pipe(ts({
+            &quot;compilerOptions&quot;: {
+                &quot;target&quot;: &quot;ES6&quot;,
+                &quot;outDir&quot;: &quot;bin-debug&quot;,
+                &quot;sourceMap&quot;: true
+            },
+            &quot;exclude&quot;: [
+                &quot;bin-debug&quot;,
+                &quot;bin-release&quot;,
+                &quot;resource&quot;
+            ]
+        }))
+    // 3. 保存编译后的文件
+        .pipe(gulp.dest(&#39;bin-debug&#39;));
+})
+
+//调用 gulp run ,利用egret提供的实现增量编译
+gulp.task(&#39;run&#39;, function () {
+    gulp.src(&#39;&#39;)
+        .pipe(shell([
+            &#39;egret build -e&#39;,
+            &#39;egret run -a&#39;
+        ]))
+
+});
+
+
+// 发布 gulp publish --version 1000
+gulp.task(&#39;publish&#39;, function () {
+
+    gulp.src(&#39;&#39;)
+        .pipe(shell([
+            &#39;egret build -e&#39;,
+            &#39;egret publish --version &#39; + argv.version
+        ]))
+})
+
+
+// 压缩图片功能 gulp imagemin
+gulp.task(&#39;imagemin&#39;, function () {
+    gulp.src(&#39;resource/**/*.{png,jpg,gif}&#39;)
+        .pipe(image({
+            optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）
+            progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+            interlaced: true //类型：Boolean 默认：false 隔行扫描gif进行渲染
+           
+        }))
+        .pipe(gulp.dest(&#39;bin-release/resource&#39;));
+});
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配合imagemin-pngquant 来实现深度压缩资源。&lt;br /&gt;
+安装压缩插件，在egret项目根目录下，命令行中输入以下命令:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm install imagemin-pngquant --save-dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;然后修改一下资源压缩代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var gulp = require(&#39;gulp&#39;);
+var ts = require(&#39;gulp-typescript&#39;);
+var shell = require(&#39;gulp-shell&#39;);
+var argv = require(&#39;yargs&#39;).argv;
+var image = require(&#39;gulp-imagemin&#39;);
+var pngquant = require(&#39;imagemin-pngquant&#39;);
+
+gulp.task(&#39;default&#39;, function () {
+    // 将你的默认的任务代码放在这
+    console.log(&quot;hello gulp&quot;);
+});
+
+// gulp build  编译egret项目
+gulp.task(&#39;build&#39;, function () {
+    // 1. 找到文件
+    gulp.src(&#39;src/**/*.ts&#39;)
+    // 2. 编译TypeScript文件
+        .pipe(ts({
+            &quot;compilerOptions&quot;: {
+                &quot;target&quot;: &quot;ES6&quot;,
+                &quot;outDir&quot;: &quot;bin-debug&quot;,
+                &quot;sourceMap&quot;: true
+            },
+            &quot;exclude&quot;: [
+                &quot;bin-debug&quot;,
+                &quot;bin-release&quot;,
+                &quot;resource&quot;
+            ]
+        }))
+    // 3. 保存编译后的文件
+        .pipe(gulp.dest(&#39;bin-debug&#39;));
+})
+
+//调用 gulp run ,利用egret提供的实现增量编译
+gulp.task(&#39;run&#39;, function () {
+    gulp.src(&#39;&#39;)
+        .pipe(shell([
+            &#39;egret build -e&#39;,
+            &#39;egret run -a&#39;
+        ]))
+
+});
+
+
+// 发布 gulp publish --version 1000
+gulp.task(&#39;publish&#39;, function () {
+
+    gulp.src(&#39;&#39;)
+        .pipe(shell([
+            &#39;egret build -e&#39;,
+            &#39;egret publish --version &#39; + argv.version
+        ]))
+})
+
+
+// 压缩图片功能 gulp imagemin
+gulp.task(&#39;imagemin&#39;, function () {
+    gulp.src(&#39;resource/**/*.{png,jpg,gif}&#39;)
+        .pipe(image({
+            optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）
+            progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+            use: [pngquant()]//使用pngquant深度压缩png图片的imagemin插件
+        }))
+        .pipe(gulp.dest(&#39;bin-release/resource&#39;));
+});
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里的压缩是全部压缩，如何实现增量压缩资源，这里使用其它的插件来实现。&lt;br /&gt;
+安装压缩插件，在egret项目根目录下，命令行中输入以下命令:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm install gulp-cache --save-dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;修改gulpfile.js代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var gulp = require(&#39;gulp&#39;);
+var ts = require(&#39;gulp-typescript&#39;);
+var shell = require(&#39;gulp-shell&#39;);
+var argv = require(&#39;yargs&#39;).argv;
+var image = require(&#39;gulp-imagemin&#39;);
+var pngquant = require(&#39;imagemin-pngquant&#39;);
+var cache = require(&#39;gulp-cache&#39;);
+
+gulp.task(&#39;default&#39;, function () {
+    // 将你的默认的任务代码放在这
+    console.log(&quot;hello gulp&quot;);
+});
+
+// gulp build  编译egret项目
+gulp.task(&#39;build&#39;, function () {
+    // 1. 找到文件
+    gulp.src(&#39;src/**/*.ts&#39;)
+    // 2. 编译TypeScript文件
+        .pipe(ts({
+            &quot;compilerOptions&quot;: {
+                &quot;target&quot;: &quot;ES6&quot;,
+                &quot;outDir&quot;: &quot;bin-debug&quot;,
+                &quot;sourceMap&quot;: true
+            },
+            &quot;exclude&quot;: [
+                &quot;bin-debug&quot;,
+                &quot;bin-release&quot;,
+                &quot;resource&quot;
+            ]
+        }))
+    // 3. 保存编译后的文件
+        .pipe(gulp.dest(&#39;bin-debug&#39;));
+})
+
+//调用 gulp run ,利用egret提供的实现增量编译
+gulp.task(&#39;run&#39;, function () {
+    gulp.src(&#39;&#39;)
+        .pipe(shell([
+            &#39;egret build -e&#39;,
+            &#39;egret run -a&#39;
+        ]))
+
+});
+
+
+// 发布 gulp publish --version 1000
+gulp.task(&#39;publish&#39;, function () {
+    gulp.src(&#39;&#39;)
+        .pipe(shell([
+            &#39;egret build -e&#39;,
+            &#39;egret publish --version &#39; + argv.version
+        ]))
+})
+
+
+// 压缩图片功能 gulp imagemin
+gulp.task(&#39;imagemin&#39;, function () {
+    gulp.src(&#39;resource/**/*.{png,jpg,gif}&#39;)
+        .pipe(cache(image({
+            optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）
+            progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+            use: [pngquant()]//使用pngquant深度压缩png图片的imagemin插件
+        })))
+        .pipe(gulp.dest(&#39;bin-release/resource&#39;));//压缩资源后的保存路径，这里可以填写发布后的路径
+});
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;section-3&quot;&gt;5.2添加版本控制&lt;/h5&gt;
+
+&lt;p&gt;未完待续…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 25 Jan 2016 04:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/14.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/14.html</guid>
+        
+        <category>egret</category>
+        
+        <category>gulp</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>egret(前端)＋Node.js(后端)实现跨屏互动教程</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;原理讲解&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/12/13/yuanli.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;图讲解&lt;/h3&gt;
+
+&lt;h4 id=&quot;server&quot;&gt;server端&lt;/h4&gt;
+
+&lt;p&gt;server端主要做信息接收和传递以及一些处理。可以理解为一个中转站。&lt;/p&gt;
+
+&lt;h4 id=&quot;show&quot;&gt;show端&lt;/h4&gt;
+
+&lt;p&gt;show端就是一个展示端，比如小霸王游戏机中需要的显示器。&lt;/p&gt;
+
+&lt;h4 id=&quot;control&quot;&gt;control端&lt;/h4&gt;
+
+&lt;p&gt;control端就好像小霸王游戏中的手柄，来操作游戏。&lt;/p&gt;
+
+&lt;p&gt;通信协议websocket&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;流程讲解&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;show端。生成一个随机数(xxx)，作为自己唯一的ID验证。同时连接server服务器并把自己ID传输过去，标记此WebSocket连接为show端。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;server端，记录步骤1中，连接过来的show端，同时记录ID(xxx)和身份标记show端。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;手机扫描show端游戏页面的二维码(二维码包含show端生成的随机数ID),打开control端，连接server服务器端。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;server端，对步骤3连接的WebSocket进行判断，通过ID，把show端和control端连接起来。同时标记此WebSocket为control端。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;这两个WebSocket连接就连接起来了，就可以进行通信，信息数据交流了。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;说明：为什么要有唯一的ID呢，因为这里的demo是一个show端对应一个control端的需求。可以满足多个人，同时打开show端，然后拿起手机扫描二维码，进行游戏操作。(这里如果想做多人控制一个比如，多人同时摇手机，给加油鼓劲。)&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;服务端代码&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;var controlArr = new Array();//记录所有control端的连接
+var showArr = new Array();//记录所有show端的连接
+
+var ws = require(&#39;./node_modules/nodejs-websocket&#39;);
+var server = ws.createServer(function (connection) {
+	connection.data = null;
+	connection.type = null;
+	console.log(&quot;new connetion&quot;);
+	console.log(&quot;连接数connection = &quot; + server.connections.length);
+	//接收数据
+	connection.on(&quot;text&quot;, function (str) {
+		var data = JSON.parse(str);
+		console.log(&quot;userid =&quot;,data.userid,&quot;type =&quot;,data.type);
+		if (connection.data === null) {
+			
+			/**
+			 * 1.判断链接是control端还是show端
+			 * 2.如果是control端，且是第一次发送消息，什么都不做
+			 * 3.如果是control端，不是第一次发送消息，那给所有的show端发送消息请求，游戏开始。
+			 * 4.show端接受消息，对应的唯一show端，做相对应的处理，并返回消息。
+			 * 5.游戏正式开始
+			 */
+
+			if (data.type == &quot;control&quot;) {
+				controlArr.push(connection);
+			} else if (data.type == &quot;show&quot;) {
+				showArr.push(connection);
+			}
+			
+			connection.userid = data.userid;
+			connection.type = data.type;
+
+
+			//如果是第一次发送消息什么都不做。
+			if (data.event == &quot;HelloWebSocket&quot;) {
+				return;
+			}
+			
+			//如果发送消息的是控制端
+			if (data.type == &quot;control&quot;) {
+				var msg1 = { userid: connection.userid, type: connection.type, event: data.event, leftOrRight: data.leftOrRight };
+				var sendMsg1 = JSON.stringify(msg1);
+				sendMessageToShow(sendMsg1);
+
+			}
+
+			//如果发送消息的是show端
+			if(data.type == &quot;show&quot;)
+			{
+				var msg2 = { userid: connection.userid, type: connection.type, event: data.event, leftOrRight: data.leftOrRight };
+				var sendMsg2 = JSON.stringify(msg2);
+				sendMessageToControl(sendMsg2);
+			}
+
+		} else {
+			broadcast(&quot;[&quot; + connection.userid + &quot;] &quot; + connection.userid);
+			console.log(&quot;connection.userid = &quot; + connection.userid);
+		}
+
+	});
+
+	connection.on(&quot;close&quot;, function () {
+		var data = { userid: connection.userid, type: connection.type, event: &quot;leave&quot;, leftOrRight: &quot;null&quot; };
+		var str = JSON.stringify(data);
+		broadcast(str);
+		console.log(&quot;userid =&quot;,data.userid,&quot;type =&quot;,data.type,&quot; close&quot;);
+
+		console.log(&quot;连接数connection = &quot; + server.connections.length);
+	});
+
+	connection.on(&quot;error&quot;, function () {
+		if (connection.type == &quot;control&quot;) {
+			var indexControl = controlArr.indexOf(connection);
+			if (indexControl != -1) {
+				controlArr.splice(indexControl, 1);
+
+			}
+		}
+		if (connection.type == &quot;show&quot;) {
+			var indexShow = controlArr.indexOf(connection);
+			if (indexShow != -1) {
+				controlArr.splice(indexShow, 1);
+
+			}
+		}
+
+	});
+})
+server.listen(8001);
+/**
+ * 
+ * 发送消息到所有连接
+ */
+function broadcast(str) {
+	server.connections.forEach(function (connection) {
+		connection.sendText(str);
+	})
+}
+/**
+ * 
+ * 发送消息到control(控制)端
+ */
+function sendMessageToControl(str) {
+	server.connections.forEach(function (connection) {
+		if (connection.type == &quot;control&quot;) {
+			connection.sendText(str);
+		}
+	})
+}
+/**
+ * 
+ * 发送消息到show(表现)端
+ */
+function sendMessageToShow(str) {
+	server.connections.forEach(function (connection) {
+		if (connection.type == &quot;show&quot;) {
+			connection.sendText(str);
+		}
+	})
+}
+
+console.log(&quot;服务器启动&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;模块介绍&lt;/h3&gt;
+
+&lt;p&gt;这里使用的是别人封装好的模块&lt;a href=&quot;https://www.npmjs.com/package/nodejs-websocket&quot;&gt;nodejs-websocket&lt;/a&gt;,点击链接,可以查看详细的API介绍和使用方法的介绍。&lt;/p&gt;
+
+&lt;p&gt;这里就只介绍整个操作流程，从创建过程到代码的编写。请先确保电脑已经安装nodejs，如果不会安装请谷歌或者百度,&lt;a href=&quot;https://nodejs.org/en/&quot;&gt;官网链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;安装之后，全局安装nodejs-websocket。在终端执行&lt;code&gt;sudo npm install nodejs-websocket -g&lt;/code&gt;。更详细的教程查看&lt;a href=&quot;https://github.com/sitegui/nodejs-websocket&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;我这里使用的是Mac系统，如果不是Mac系统，大家可以对比一下查看。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;操作步骤&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-6&quot;&gt;1.安装依赖模块&lt;/h4&gt;
+&lt;p&gt;打开终端,输入cd,然后拖拽文件目录,回车&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/12/13/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;输入&lt;code&gt;mkdir crossscreen &amp;amp;&amp;amp; cd crossscreen&lt;/code&gt;，这里是创建crossscreen文件夹并进入crossscreen文件夹&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/12/13/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;输入&lt;code&gt;mkdir server &amp;amp;&amp;amp; cd server&lt;/code&gt;，这里是创建server文件夹并进入server文件夹&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/12/13/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;输入&lt;code&gt;npm install nodejs-websocket&lt;/code&gt;,然后回车,安装成功终端应该是这样的&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/12/13/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;系统文件目录应该是这样的&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/12/13/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这里说一下，有的Mac可能执行的图不是和我这里表现的一样，因为我这里安装了&lt;a href=&quot;http://ohmyz.sh/&quot;&gt;zsh&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;serverjs&quot;&gt;2.编写server.js代码&lt;/h4&gt;
+
+&lt;p&gt;因为这里编辑纯js代码，这里使用的编辑器是VS code.&lt;/p&gt;
+
+&lt;p&gt;把server文件夹下内容导入VS code,然后创建server.js文件。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/12/13/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;接下来，大家就可以把代码拷贝到我们创建的server.js里面。&lt;/p&gt;
+
+&lt;p&gt;如果想运行server.js ,直接在终端输入&lt;code&gt;node server.js&lt;/code&gt; 中间隔着空格,记住要在server文件夹下，或者直接拖拽到终端也行。&lt;br /&gt;
+结果应该是这样的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/12/13/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;3.代码讲解&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;var ws = require(&#39;./node_modules/nodejs-websocket&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;引用依赖库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var server = ws.createServer(function (connection) {
+	
+	})
+	
+	server.listen(8001);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;创建server,监听8001端口。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;connection.on(&quot;text&quot;, function (str) {});
+connection.on(&quot;close&quot;, function (str) {});
+connection.on(&quot;error&quot;, function (str) {});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;监听传送过来的数据&lt;br /&gt;
+监听连接关闭&lt;br /&gt;
+监听连接错误&lt;/p&gt;
+
+&lt;h2 id=&quot;section-8&quot;&gt;扩展思路&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;数据格式&lt;/h3&gt;
+
+&lt;p&gt;数据格式，这里使用的是使用的JSON来传送数据。如果想在egret中使用&lt;code&gt;protobuf&lt;/code&gt;,请查看&lt;a href=&quot;http://www.cnblogs.com/yangxiao/p/4686729.html&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;因为这里比较简单所以就是定义的如下格式，这个可以根据自己的习惯来定。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+	&quot;userid&quot;: &quot;&quot;,
+	&quot;type&quot;: &quot;&quot;,
+	&quot;event&quot;: &quot;&quot;,
+	&quot;data&quot;: &quot;&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;声明类 &lt;code&gt;Message&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Message {
+	constructor(userid:string,event:string,type:string,data:string) {
+		this.userid = userid;
+		this.type = type;
+		this.event = event;
+		this.data = null;
+	}
+	userid:string = null;
+	type:string = null;//  &quot;show&quot; or &quot;control&quot;
+	event:string = null;// &quot;gameStart&quot;
+	data:string = null;//“left”，“right”
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;利用&lt;code&gt;JSON.parse(),JSON.stringify()&lt;/code&gt;来转换。&lt;/p&gt;
+
+&lt;h3 id=&quot;websocket&quot;&gt;WebSocket&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;class WebSocket {
+	constructor() {
+
+	}
+
+	static instance: WebSocket = new WebSocket();
+	webSocket: egret.WebSocket = new egret.WebSocket();
+	
+	static getInstance(): MyWebSocket {
+	
+		return WebSocket.instance;
+	}
+	//初始化
+	init(url:string,port:any): void {
+		//接收消息
+		this.webSocket.addEventListener(egret.ProgressEvent.SOCKET_DATA, this.onReceiveMessage, this);
+		//连接
+		this.webSocket.addEventListener(egret.Event.CONNECT, this.onSocketOpen, this);
+		
+		this.webSocket.connect(url, port);
+		//添加链接关闭侦听，手动关闭或者服务器关闭连接会调用此方法
+        this.webSocket.addEventListener(egret.Event.CLOSE, this.onSocketClose, this);
+        //添加异常侦听，出现异常会调用此方法
+        this.webSocket.addEventListener(egret.IOErrorEvent.IO_ERROR, this.onSocketError, this);
+	}
+	
+	/**
+	 * 连接成功
+	 */
+	private onSocketOpen(): void {
+		var cmd = new Message(GlobalData.userid,&quot;HelloWebSocket&quot;,&quot;show&quot;,&quot;null&quot;);
+		var msg = JSON.stringify(cmd);
+		console.log(&quot;连接成功，发送数据：&quot; + msg);
+		
+		this.webSocket.writeUTF(msg);
+	}
+	/**
+	 * 传送数据
+	 */
+	sendMesssage(str:string)
+	{
+		this.webSocket.writeUTF(str);
+		this.webSocket.flush();
+	}
+	/**
+	 * 接收消息
+	 */
+	onReceiveMessage(e: egret.Event): void {
+		var msg = this.webSocket.readUTF();
+		var event = new game.SceneEvent(game.SceneEvent.ChangeScene);//自定义的事件来传送数据
+
+		event.eventData = JSON.parse(msg); //转换字符串为JSON格式
+
+		if(GlobalData.userid == event.eventData.userid)// 判断是否是属于同一组连接
+		game.ViewManager.getInstance().dispatchEvent(event)
+	}
+
+	private onSocketClose(): void {
+        console.log(&quot;WebSocketClose&quot;);
+    }
+
+    private onSocketError(): void {
+        console.log(&quot;WebSocketError&quot;);
+    }
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;更多的使用方式查看&lt;a href=&quot;http://edn.egret.com/cn/apidoc/index/name/egret.WebSocket&quot;&gt;API&lt;/a&gt;;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;二维码&lt;/h3&gt;
+
+&lt;p&gt;二维码使用的库是&lt;a href=&quot;https://github.com/cxh612/qrCode&quot;&gt;https://github.com/cxh612/qrCode&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;具体的使用功能可以查看readme.md&lt;/p&gt;
+
+&lt;h3 id=&quot;url&quot;&gt;解析URL&lt;/h3&gt;
+
+&lt;p&gt;API 使用&lt;a href=&quot;http://edn.egret.com/cn/apidoc/index/name/egret.globalFunction#getOption&quot;&gt;egret.getOption&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;扩展思路&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;手机做遥感，pc做显示器。&lt;/li&gt;
+  &lt;li&gt;体感游戏，手机做感应器，pc做显示端。&lt;/li&gt;
+  &lt;li&gt;两个手机，情侣之间，朋友之间的对抗赛，同步屏幕操作。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section-12&quot;&gt;代码部署&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-13&quot;&gt;说在之前&lt;/h3&gt;
+
+&lt;p&gt;因为个人的一些习惯癖好，不喜欢PHP，写起来感觉好难受。再一个Node.js又比较火，又可以使用TypeScript来编写，于是很愉快的决定使用Node.js了。写玩之后，发现找一个支持node.js的服务器好难，在这个上面折腾了好久。游戏1天半差不多就写完了，结果部署折腾了快一个星期的时间，因为不是很懂服务器，没有办法。最后只好找同学来指点一下，然后就自己折腾去了。最后买了阿里云。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-14&quot;&gt;服务器&lt;/h3&gt;
+
+&lt;p&gt;我这里购买的是阿里云，配置的镜像是Ubuntu 14.04 64位。因为个人相比而言，相对于来说偏向Linux服务器，对于Ubuntu 更熟悉一些。这个根据个人的习惯爱好就行。有兴趣的，可以先在本地电脑安装虚拟机，然后安装Ubuntu。如果你不愿意折腾，那就直接购买就好了。如果购买阿里云，可以到网上找一些优惠码，这个阿里云还是固定发送一些的。我的推荐码xy0glk &lt;a href=&quot;https://ecs-buy.aliyun.com/#/prepay&quot;&gt;阿里云购买地址&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/12/13/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;nodejs&quot;&gt;安装Node.js&lt;/h3&gt;
+
+&lt;p&gt;因为只当服务器使用，这里说一下安装Node.js，在Ubuntu下，node 这个命令可能被占用，一般使用nodejs 命令.如果不想换,继续使用node命令,那么查看&lt;a href=&quot;http://blchen.com/solution-for-ubuntu-node-command-invalid/&quot;&gt;这里&lt;/a&gt;。&lt;a href=&quot;http://mclspace.com/2015/12/09/aliyun-build-nodejs-environment/&quot;&gt;具体的操作可以查看这里&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;sftp&quot;&gt;sftp上传&lt;/h3&gt;
+
+&lt;p&gt;这里使用的是Yummy FTP,购买阿里云之后会给你发一份邮件给你。&lt;br /&gt;
+&lt;img src=&quot;/uploads/2016/1/12/13/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;输入IP，用户名，端口号,然后就可以连接了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/12/13/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后上传服务器端代码&lt;br /&gt;
+&lt;img src=&quot;/uploads/2016/1/12/13/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后进入终端连接，启动服务器端代码,&lt;a href=&quot;https://help.aliyun.com/knowledge_detail/5974445.html?spm=5176.775974781.0.0.dqguq5&quot;&gt;更详细的教程&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/12/13/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 12 Jan 2016 02:28:39 +0000</pubDate>
+        <link>http://xsstomy/articles/13.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/13.html</guid>
+        
+        <category>egret</category>
+        
+        <category>node.js</category>
+        
+        <category>跨屏互动</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>设计模式</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;前言&lt;/h3&gt;
+&lt;p&gt;这里会简单的介绍一下设计模式的存在意义和历史发展，这样会有一个联想记忆，可能理解会更深刻一些，让自己会思索更深层次的内容，而不是简单背诵一些简单的原则或者原理。这里笔者推荐&lt;strong&gt;《设计模式之蝉》&lt;/strong&gt; 这本书来学习&lt;strong&gt;设计模式&lt;/strong&gt;来&lt;strong&gt;面向对象编程&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;设计模式意义&lt;/h3&gt;
+
+&lt;p&gt;在软件工程中，设计模式（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案。(&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_(%E8%AE%A1%E7%AE%97%E6%9C%BA)&quot;&gt;维基百科&lt;/a&gt;)能够高效重复的利用已有的资源而不重复的造轮子。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;设计模式历史&lt;/h3&gt;
+
+&lt;p&gt;建筑师克里斯托佛·亚历山大在1977/79年编制了一本汇集&lt;strong&gt;设计模式&lt;/strong&gt;的书，但是这种设计模式的思想在建筑设计领域里的影响远没有后来在软件开发领域里传播的广泛。&lt;/p&gt;
+
+&lt;p&gt;肯特·贝克和沃德·坎宁安在1987年，利用克里斯托佛·亚历山大在建筑设计领域里的思想开发了设计模式并把此思想应用在Smalltalk中的图形用户接口（GUI）的生成中。一年后埃里希·伽玛在他的苏黎世大学博士毕业论文中开始尝试把这种思想改写为适用于软件开发。与此同时James Coplien 在1989年至1991年也在利用相同的思想致力于C++的开发，而后于1991年发表了他的著作Advanced C++ Programming Styles and Idioms。同年Erich Gamma 得到了博士学位，然后去了美国，在那与Richard Helm, Ralph Johnson ,John Vlissides 合作出版了&lt;strong&gt;《设计模式：可复用面向对象软件的基础》&lt;/strong&gt;（Design Patterns - Elements of Reusable Object-Oriented Software） 一书，在此书中共收录了23个设计模式。&lt;/p&gt;
+
+&lt;p&gt;这四位作者在软件开发领域里以“四人帮”（英语，Gang of Four，简称GoF）而闻名，并且他们在此书中的协作导致了软件设计模式的突破。有时，GoF也会用于代指《设计模式》这本书。[&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_(%E8%AE%A1%E7%AE%97%E6%9C%BA)&quot;&gt;维基百科&lt;/a&gt;]&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;设计模式六大原则&lt;/h3&gt;
+
+&lt;p&gt;这里依然是从结构入手，这样大脑有一个大体的认识和印象。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/1/9/12/designpattern.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;上图结构主要两大块：&lt;/p&gt;
+
+&lt;p&gt;1.单一接口，类，方法的设计(&lt;strong&gt;单一原则&lt;/strong&gt;，&lt;strong&gt;接口分离原则&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;p&gt;2.类与类之间关系的设计(&lt;strong&gt;里氏替换&lt;/strong&gt;,&lt;strong&gt;依赖倒置&lt;/strong&gt;,&lt;strong&gt;迪米特&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;p&gt;3.设计之初考虑的原则(&lt;strong&gt;开闭原则&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;设计模式演变&lt;/h3&gt;
+
+&lt;p&gt;笔者认真的过了一遍演变的23种设计模式，都是适用于一定的特殊场景。阅读过程中认真的验证了一下这23种模式，都是遵守上述设计模式的六大原则，所以笔者推荐的是认真领悟设计模式的六大原则，在实际生产中，自己怎么使用舒服同时也能满足项目的需求，那就怎么用。因为最终的需求还是满足项目的需求，完成项目。如果非要推荐，个人推荐&lt;strong&gt;工厂模式&lt;/strong&gt;,&lt;strong&gt;观察者模式&lt;/strong&gt;,&lt;strong&gt;桥接模式&lt;/strong&gt;,&lt;strong&gt;原型模式&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 09 Jan 2016 18:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/12.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/12.html</guid>
+        
+        <category>设计模式</category>
+        
+        <category>设计模式之蝉</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>2016计划</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;不知不觉2015年过去了，回望2015年，觉得自己过的很惭愧，虽然有一点进步，但是还是不够。于是好好整理计划2016。望2017年回望2016年，不要太多遗憾。勉励自己一句话：人生苦短，及时行乐。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/31/11/2016.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 31 Dec 2015 08:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/11.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/11.html</guid>
+        
+        <category>2016</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>ECMAScript 2015新特性</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;缘由&lt;/h2&gt;
+&lt;p&gt;继上一篇翻译的文章&lt;a href=&quot;http://xsstomy.com/articles/9.html&quot;&gt;使用TypeScript开发React&lt;/a&gt;之后，对翻译文章有点上瘾了。最近也在研究ES2015,找到一篇不错的文章，于是又开始翻译起来了，就有了这篇博客。&lt;a href=&quot;https://github.com/lukehoban/es6features#readme&quot;&gt;原文链接&lt;/a&gt;。下面正式翻译了，翻译并不是全文对比翻译的，也加了部分自己查找到资料的整理。&lt;/p&gt;
+
+&lt;h2 id=&quot;ecmascript6&quot;&gt;ECMAScript6&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;简介&lt;/h3&gt;
+&lt;p&gt;ECMAScript 6,又名ECMAScript 2015,是ECMAScript 标准的最新版本。ES6是一个重要的更新对于JavaScript，并且这次更新是ES5在2009更新之后的首次更新。这些功能的正在集成在大部分&lt;a href=&quot;http://kangax.github.io/es5-compat-table/es6/&quot;&gt;JavaScript引擎&lt;/a&gt;中。&lt;/p&gt;
+
+&lt;p&gt;查看&lt;a href=&quot;http://www.ecma-international.org/ecma-262/6.0/&quot;&gt;ES6 标准&lt;/a&gt;都在这篇详细的说明书中。&lt;/p&gt;
+
+&lt;p&gt;ES6 包含以下新的功能点:&lt;br /&gt;
+- &lt;a href=&quot;#箭头操作符&quot;&gt;箭头操作符&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#类的支持&quot;&gt;类的支持&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#增强的对象字面量&quot;&gt;增强的对象字面量&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#字符串模板&quot;&gt;字符串模板&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#解构&quot;&gt;解构&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#参数默认值，剩余参数，拓展参数&quot;&gt;参数默认值，剩余参数，拓展参数&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#let与const关键字&quot;&gt;let与const 关键字&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#迭代器，for..of&quot;&gt;迭代器，for..of&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#generator&quot;&gt;generator&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#字符编码标准&quot;&gt;字符编码标准&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#模块&quot;&gt;模块&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#模块装载&quot;&gt;模块装载&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#Map,Set和WeekMap,WeakSet&quot;&gt;Map，Set 和 WeakMap，WeakSet&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#Proxies&quot;&gt;Proxies&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#Symbols类型&quot;&gt;Symbols类型&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#子类内置&quot;&gt;子类内置&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#Promises&quot;&gt;Promises&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#Math，Number，String，Object的新API&quot;&gt;Math，Number，String，Object 的新API&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#二进制和八进制&quot;&gt;二进制和八进制&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#反射API&quot;&gt;反射API&lt;/a&gt;&lt;br /&gt;
+- &lt;a href=&quot;#递归调用&quot;&gt;递归调用&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ecmascript6-&quot;&gt;ECMAScript6 新特性&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;箭头操作符&lt;/h3&gt;
+&lt;p&gt;箭头操作符是函数简写的一种表现行式。它在语法结构上比较像C#,Java8和CoffeeScript里面的功能。它同时支持两种使用方式，表达式方式和声明方式。与function申明方式不同的地方是，箭头操作符号能够在相同的代码编辑模块中保留相同的&lt;code&gt;this&lt;/code&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 表达式方式
+var odds = evens.map(v =&amp;gt; v + 1);
+var nums = evens.map((v, i) =&amp;gt; v + i);
+var pairs = evens.map(v =&amp;gt; ({even: v, odd: v + 1}));
+
+// 申明方式
+nums.forEach(v =&amp;gt; {
+  if (v % 5 === 0)
+    fives.push(v);
+});
+
+// 词汇 this
+var bob = {
+  _name: &quot;Bob&quot;,
+  _friends: [],
+  printFriends() {
+    this._friends.forEach(f =&amp;gt;
+      console.log(this._name + &quot; knows &quot; + f));
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;类的支持&lt;/h3&gt;
+&lt;p&gt;ES6 类是一个语法糖通过对JS原型模式的包装来实现。有一个简单类型申明形式使得类模式更加方便使用。类支持原型为基础的继承，super调用，实例和静态方法和构造函数。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class SkinnedMesh extends THREE.Mesh {
+  constructor(geometry, materials) {
+    super(geometry, materials);
+
+    this.idMatrix = SkinnedMesh.defaultMatrix();
+    this.bones = [];
+    this.boneMatrices = [];
+    //...
+  }
+  update(camera) {
+    //...
+    super.update();
+  }
+  get boneCount() {
+    return this.bones.length;
+  }
+  set matrixType(matrixType) {
+    this.idMatrix = SkinnedMesh[matrixType]();
+  }
+  static defaultMatrix() {
+    return new THREE.Matrix4();
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;增强的对象字面量&lt;/h2&gt;
+&lt;p&gt;对象字面量扩展到支持设置背景原型，简写为Foo Foo作业：定义方法，使super调用，和计算属性名称和表达式。另外，这些也给对象的文字和类声明更紧密的结合在一起，让对象设计受益于一些相同的便利&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var obj = {
+    // __proto__
+    __proto__: theProtoObj,
+    // Shorthand for ‘handler: handler’
+    handler,
+    // Methods
+    toString() {
+     // Super calls
+     return &quot;d &quot; + super.toString();
+    },
+    // Computed (dynamic) property names
+    [ &#39;prop_&#39; + (() =&amp;gt; 42)() ]: 42
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;字符串模板&lt;/h2&gt;
+&lt;p&gt;字符串模板提供构造字符串语法糖,这个类似在Perl,Python和更多的字符串插值功能。可选的，可以添加一个标记，以允许字符串结构来进行定制，避免从字符串内容里注入攻击或构造更高级别的数据结构。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 基础的字符串
+`In JavaScript &#39;\n&#39; is a line-feed.`
+
+// 多行字符串
+`In JavaScript this is
+ not legal.&quot;&quot;`&quot;&quot;
+
+// String interpolation
+&quot;var name = &quot;Bob&quot;, time = &quot;today&quot;;
+`Hello ${name}, how are you ${time}?`&quot;
+
+// Construct an HTTP request prefix is used to interpret the replacements and construction
+POST`http://foo.org/bar?a=${a}&amp;amp;b=${b}
+     Content-Type: application/json
+     X-Credentials: ${credentials}
+     { &quot;foo&quot;: ${foo},
+       &quot;bar&quot;: ${bar}}`(myOnReadyStateChangeHandler);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-6&quot;&gt;解构&lt;/h2&gt;
+&lt;p&gt;解构允许结合使用模式匹配，与匹配的数组和对象的支持。解构是错误弱化，类似于标准的对象查找foo[“bar”] ，使用解构赋值访问对象中未定义的属性，将会得到undifined。更详细的用法点击&lt;a href=&quot;http://www.csdn.net/article/2015-07-07/2825149-es6-in-depth-destructuring&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 数组匹配
+var [a, , b] = [1,2,3];
+
+// 对象匹配
+var { op: a, lhs: { op: b }, rhs: c }
+       = getASTNode()
+
+// object matching shorthand
+// binds `op`, `lhs` and `rhs` in scope
+var {op, lhs, rhs} = getASTNode()
+
+// Can be used in parameter position
+function g({name: x}) {
+  console.log(x);
+}
+g({name: 5})
+
+// Fail-soft destructuring
+var [a] = [];
+a === undefined;
+
+// Fail-soft destructuring with defaults
+var [a = 1] = [];
+a === 1;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-7&quot;&gt;参数默认值，剩余参数，拓展参数&lt;/h2&gt;
+&lt;p&gt;被评估的默认参数值。在函数调用中，将数组转换为连续的参数。将…参数绑定到数组。剩余参数省略必要的&lt;code&gt;arguments&lt;/code&gt;而且在一般情况更适用。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function f(x, y=12) {
+  // y is 12 if not passed (or passed as undefined)
+  return x + y;
+}
+f(3) == 15
+function f(x, ...y) {
+  // y is an Array
+  return x * y.length;
+}
+f(3, &quot;hello&quot;, true) == 6
+function f(x, y, z) {
+  return x + y + z;
+}
+// Pass each elem of array as argument
+f(...[1,2,3]) == 6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;letconst-&quot;&gt;let与const 关键字&lt;/h2&gt;
+&lt;p&gt;可以把let看成var，只是它定义的变量被限定在了特定范围内才能使用，而离开这个范围则无效。const则很直观，用来定义常量，即无法被更改值的变量。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function f() {
+  {
+    let x;
+    {
+      // okay, block scoped name
+      const x = &quot;sneaky&quot;;
+      // error, const
+      x = &quot;foo&quot;;
+    }
+    // error, already declared in block
+    let x = &quot;inner&quot;;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;## 迭代器，for..of&lt;br /&gt;
+迭代器对象能够像CLR的IEnumerable或Java 的Iterable。一般化的for..in定制基于迭代器的迭代与for..of。不要求实现一个数组，使懒惰的设计模式，如LINQ。ES6中新引入的for of循环功能相似，不同的是每次循环它提供的不是序号而是值。for-of循环不仅仅是为遍历数组而设计的。基本上所有类数组对象都适用，比如DOM NodeListS，也能用在字符串上。更多详细的用法可以点击&lt;a href=&quot;http://www.csdn.net/article/2015-06-15/2824965-es6-in-depth-iterators-and-the-for-of-loop&quot;&gt;这里查看&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;iterator:它是这么一个对象，拥有一个next方法，这个方法返回一个对象{done,value}，这个对象包含两个属性，一个布尔类型的done和包含任意值的value&lt;br /&gt;
+iterable: 这是这么一个对象，拥有一个obj[@@iterator]方法，这个方法返回一个iterator&lt;br /&gt;
+generator: 它是一种特殊的iterator。反的next方法可以接收一个参数并且返回值取决与它的构造函数（generator function）。generator同时拥有一个throw方法&lt;br /&gt;
+generator 函数: 即generator的构造函数。此函数内可以使用yield关键字。在yield出现的地方可以通过generator的next或throw方法向外界传递值。generator 函数是通过function*来声明的&lt;br /&gt;
+yield 关键字：它可以暂停函数的执行，随后可以再进进入函数继续执行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let fibonacci = {
+  [Symbol.iterator]() {
+    let pre = 0, cur = 1;
+    return {
+      next() {
+        [pre, cur] = [cur, pre + cur];
+        return { done: false, value: cur }
+      }
+    }
+  }
+}
+
+for (var n of fibonacci) {
+  // truncate the sequence at 1000
+  if (n &amp;gt; 1000)
+    break;
+  console.log(n);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;迭代是基于这些duck类型接口(使用TypeScript 类型的语法来阐述)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;interface IteratorResult {
+  done: boolean;
+  value: any;
+}
+interface Iterator {
+  next(): IteratorResult;
+}
+interface Iterable {
+  [Symbol.iterator](): Iterator
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;generator&quot;&gt;generator&lt;/h2&gt;
+&lt;p&gt;generator简化重复使用 &lt;code&gt;function*&lt;/code&gt;和&lt;code&gt;yield&lt;/code&gt;。声明为&lt;code&gt;function*&lt;/code&gt;函数返回一个generator实例。generator是迭代器的子类图包含一些扩展&lt;code&gt;next&lt;/code&gt;和&lt;code&gt;throw&lt;/code&gt;,这些能够使用的值将会返回到generator，因此&lt;code&gt;yield&lt;/code&gt;是一个关键字，如果return，返回一个value或者throws。&lt;a href=&quot;http://www.csdn.net/article/2015-06-15/2824967-es6-in-depth-generators&quot;&gt;更多的内容&lt;/a&gt;&lt;br /&gt;
+注：也可用于启用“ await’般的异步编程，又见ES7等待提案。&lt;br /&gt;
+生成器函数最大的特点是可以中断自己，但普通函数不可以。&lt;br /&gt;
+```&lt;br /&gt;
+var fibonacci = {&lt;br /&gt;
+  [Symbol.iterator]: function*() {&lt;br /&gt;
+    var pre = 0, cur = 1;&lt;br /&gt;
+    for (;;) {&lt;br /&gt;
+      var temp = pre;&lt;br /&gt;
+      pre = cur;&lt;br /&gt;
+      cur += temp;&lt;br /&gt;
+      yield cur;&lt;br /&gt;
+    }&lt;br /&gt;
+  }&lt;br /&gt;
+}&lt;/p&gt;
+
+&lt;p&gt;for (var n of fibonacci) {&lt;br /&gt;
+  // truncate the sequence at 1000&lt;br /&gt;
+  if (n &amp;gt; 1000)&lt;br /&gt;
+    break;&lt;br /&gt;
+  console.log(n);&lt;br /&gt;
+}&lt;br /&gt;
+```&lt;/p&gt;
+
+&lt;p&gt;generator接口是 (使用TypeScript 类型的语法来阐述)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;interface Generator extends Iterator {
+    next(value?: any): IteratorResult;
+    throw(exception: any);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-8&quot;&gt;字符编码标准&lt;/h2&gt;
+&lt;p&gt;非断补充，支持完整的Unicode ，包括串新的Unicode文本形式和新的RegExp ú模式来处理代码点，以及新的API来处理在21位的代码点水平的字符串。这些增加支持JavaScript的建立全球的应用程序。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// same as ES5.1
+&quot;𠮷&quot;.length == 2
+
+// new RegExp behaviour, opt-in ‘u’
+&quot;𠮷&quot;.match(/./u)[0].length == 2
+
+// new form
+&quot;\u{20BB7}&quot;==&quot;𠮷&quot;==&quot;\uD842\uDFB7&quot;
+
+// new String ops
+&quot;𠮷&quot;.codePointAt(0) == 0x20BB7
+
+// for-of iterates code points
+for(var c of &quot;𠮷&quot;) {
+  console.log(c);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-9&quot;&gt;模块&lt;/h2&gt;
+&lt;p&gt;对于模块组件定义语言级的支持。将从流行的JavaScript模块装载机模式（AMD，CommonJS）。将不同功能的代码分别写在不同文件中，各模块只需导出公共接口部分，然后通过模块的导入的方式可以在其他地方使用。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// lib/math.js
+export function sum(x, y) {
+  return x + y;
+}
+export var pi = 3.141593;
+// app.js
+import * as math from &quot;lib/math&quot;;
+alert(&quot;2π = &quot; + math.sum(math.pi, math.pi));
+// otherApp.js
+import {sum, pi} from &quot;lib/math&quot;;
+alert(&quot;2π = &quot; + sum(pi, pi));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一些附加功能包括&lt;code&gt;export default&lt;/code&gt;和&lt;code&gt;export *&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// lib/mathplusplus.js
+export * from &quot;lib/math&quot;;
+export var e = 2.71828182846;
+export default function(x) {
+    return Math.log(x);
+}
+// app.js
+import ln, {pi, e} from &quot;lib/mathplusplus&quot;;
+alert(&quot;2π = &quot; + ln(e)*pi*2);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-10&quot;&gt;模块装载机模式&lt;/h2&gt;
+&lt;p&gt;模块装载机支持:&lt;br /&gt;
+- 动态加载&lt;br /&gt;
+- 状态隔离&lt;br /&gt;
+- 全局命名空间隔离&lt;br /&gt;
+- 编译钩&lt;br /&gt;
+- 嵌套虚拟化&lt;/p&gt;
+
+&lt;p&gt;可以配置默认模块加载程序,新的加载程序可以构造来评估并且在分离或约束的情况下加载代码。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Dynamic loading – ‘System’ is default loader
+System.import(&#39;lib/math&#39;).then(function(m) {
+  alert(&quot;2π = &quot; + m.sum(m.pi, m.pi));
+});
+
+// Create execution sandboxes – new Loaders
+var loader = new Loader({
+  global: fixup(window) // replace ‘console.log’
+});
+loader.eval(&quot;console.log(&#39;hello world!&#39;);&quot;);
+
+// Directly manipulate module cache
+System.get(&#39;jquery&#39;);
+System.set(&#39;jquery&#39;, Module({$: $})); // WARNING: not yet finalized
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;## Map，Set 和 WeakMap，WeakSet&lt;br /&gt;
+这些是新加的集合类型，提供了更加方便的获取属性值的方法，不用像以前一样用hasOwnProperty来检查某个属性是属于原型链上的呢还是当前对象的。同时，在进行属性值添加与获取时有专门的get，set 方法。有时候我们会把对象作为一个对象的键用来存放属性值，普通集合类型比如简单对象会阻止垃圾回收器对这些作为属性键存在的对象的回收，有造成内存泄漏的危险。而WeakMap,WeakSet则更加安全些，这些作为属性键的对象如果没有别的变量在引用它们，则会被回收释放掉。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Sets
+var s = new Set();
+s.add(&quot;hello&quot;).add(&quot;goodbye&quot;).add(&quot;hello&quot;);
+s.size === 2;
+s.has(&quot;hello&quot;) === true;
+
+// Maps
+var m = new Map();
+m.set(&quot;hello&quot;, 42);
+m.set(s, 34);
+m.get(s) == 34;
+
+// Weak Maps
+var wm = new WeakMap();
+wm.set(s, { extra: 42 });
+wm.size === undefined
+
+// Weak Sets
+var ws = new WeakSet();
+ws.add({ data: 42 });
+// Because the added object has no other references, it will not be held in the set
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;proxies&quot;&gt;Proxies&lt;/h2&gt;
+&lt;p&gt;Proxy可以监听对象身上发生了什么事情，并在这些事情发生后执行一些相应的操作。一下子让我们对一个对象有了很强的追踪能力，同时在数据绑定方面也很有用处。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Proxying a normal object
+var target = {};
+var handler = {
+  get: function (receiver, name) {
+    return `Hello, ${name}!`;
+  }
+};
+
+var p = new Proxy(target, handler);
+p.world === &#39;Hello, world!&#39;;
+// Proxying a function object
+var target = function () { return &#39;I am the target&#39;; };
+var handler = {
+  apply: function (receiver, ...args) {
+    return &#39;I am the proxy&#39;;
+  }
+};
+
+var p = new Proxy(target, handler);
+p() === &#39;I am the proxy&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;有陷阱可用于所有的运行时级元操作。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var handler =
+{
+  get:...,
+  set:...,
+  has:...,
+  deleteProperty:...,
+  apply:...,
+  construct:...,
+  getOwnPropertyDescriptor:...,
+  defineProperty:...,
+  getPrototypeOf:...,
+  setPrototypeOf:...,
+  enumerate:...,
+  ownKeys:...,
+  preventExtensions:...,
+  isExtensible:...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;## Symbols类型&lt;br /&gt;
+符号启用对象状态访问控制。元件使性能受到任何字符串（如ES5 ）或符号来键入。符号是一个新的基本类型。用于调试的可选参数的说明 - 而不是身份的一部分。符号是唯一的（像gensym ），但不专用，因为它们是经由像Object.getOwnPropertySymbols反射功能暴露。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var MyClass = (function() {
+
+  // module scoped symbol
+  var key = Symbol(&quot;key&quot;);
+
+  function MyClass(privateData) {
+    this[key] = privateData;
+  }
+
+  MyClass.prototype = {
+    doStuff: function() {
+      ... this[key] ...
+    }
+  };
+
+  return MyClass;
+})();
+
+var c = new MyClass(&quot;hello&quot;)
+c[&quot;key&quot;] === undefined
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;## 子类内置&lt;/p&gt;
+
+&lt;p&gt;在ES6中，像&lt;code&gt;Array&lt;/code&gt;,&lt;code&gt;Date&lt;/code&gt; 和DOM &lt;code&gt;Element&lt;/code&gt;元素都可以被继承。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 数组的伪代码
+class Array {
+    constructor(...args) { /* ... */ }
+    static [Symbol.create]() {
+        // Install special [[DefineOwnProperty]]
+        // to magically update &#39;length&#39;
+    }
+}
+
+// 用户继承的子类
+class MyArray extends Array {
+    constructor(...args) { super(...args); }
+}
+
+// Two-phase &#39;new&#39;:
+// 1) Call @@create to allocate object
+// 2) Invoke constructor on new instance
+var arr = new MyArray();
+arr[1] = 12;
+arr.length == 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;promises&quot;&gt;Promises&lt;/h2&gt;
+&lt;p&gt;Promises 是一个异步编程库。Promises 是可以在未来提供价值的一个类。Promises 是用在许多现有的JavaScript库。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function timeout(duration = 0) {
+    return new Promise((resolve, reject) =&amp;gt; {
+        setTimeout(resolve, duration);
+    })
+}
+
+var p = timeout(1000).then(() =&amp;gt; {
+    return timeout(2000);
+}).then(() =&amp;gt; {
+    throw new Error(&quot;hmm&quot;);
+}).catch(err =&amp;gt; {
+    return Promise.all([timeout(100), timeout(200)]);
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;mathnumberstringobject-api&quot;&gt;Math，Number，String，Object 的新API&lt;/h2&gt;
+&lt;p&gt;对Math,Number,String还有Object等添加了许多新的API。以下对这些新API进行了简单展示。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Number.EPSILON
+Number.isInteger(Infinity) // false
+Number.isNaN(&quot;NaN&quot;) // false
+
+Math.acosh(3) // 1.762747174039086
+Math.hypot(3, 4) // 5
+Math.imul(Math.pow(2, 32) - 1, Math.pow(2, 32) - 2) // 2
+
+&quot;abcde&quot;.includes(&quot;cd&quot;) // true
+&quot;abc&quot;.repeat(3) // &quot;abcabcabc&quot;
+
+Array.from(document.querySelectorAll(&#39;*&#39;)) // 返回一个数组
+Array.of(1, 2, 3) // 类似 new Array(...), 但是没有特别的一个参数
+[0, 0, 0].fill(7, 1) // [0,7,7]
+[1, 2, 3].find(x =&amp;gt; x == 3) // 3
+[1, 2, 3].findIndex(x =&amp;gt; x == 2) // 1
+[1, 2, 3, 4, 5].copyWithin(3, 0) // [1, 2, 3, 1, 2]
+[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].entries() // iterator [0, &quot;a&quot;], [1,&quot;b&quot;], [2,&quot;c&quot;]
+[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].keys() // iterator 0, 1, 2
+[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].values() // iterator &quot;a&quot;, &quot;b&quot;, &quot;c&quot;
+
+Object.assign(Point, { origin: new Point(0,0) })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-11&quot;&gt;二进制和八进制&lt;/h2&gt;
+&lt;p&gt;两个新的数字文字形式添加二进制（B）、八进制（O）。&lt;br /&gt;
+&lt;code&gt;
+0b111110111 === 503 // true
+0o767 === 503 // true
+&lt;/code&gt;&lt;br /&gt;
+## 反射API&lt;br /&gt;
+全部反射API暴露运行级别元的操作的对象。这是有效地代理API的反射，并且允许使得对应于相同的元的操作作为代理陷阱呼叫。尤其适用于实现代理。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;暂时没有demo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;## 递归调用&lt;br /&gt;
+在递归调用堆栈不保证不增长。确保在无限制的的输入情况下递归算法的安全。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function factorial(n, acc = 1) {
+    &#39;use strict&#39;;
+    if (n &amp;lt;= 1) return acc;
+    return factorial(n - 1, n * acc);
+}
+
+// 在大多数实现中的堆栈溢出
+// 但是在ES6中对于任意的输入都是安全的
+factorial(100000)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;## 总结&lt;br /&gt;
+总结就是一句话，前后端差异越来越小了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 20 Dec 2015 01:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/10.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/10.html</guid>
+        
+        <category>ES2015</category>
+        
+        <category>ES6</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>使用TypeScript编写React</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;缘由&lt;/h2&gt;
+&lt;p&gt;最近在业余学习React，本身接触的egret一年多了，接触TypeScript时间还算有段时间，非常喜欢TypeScript。学习了TypeScript 就再也不想写JavaScript了。看了找了好些教程都是直接用JavaScript来写React,比较痛苦。今天找到了一篇比较好的教程。于是就想翻译一下，这里是&lt;a href=&quot;http://blog.wolksoftware.com/working-with-react-and-typescript&quot;&gt;原始博客链接&lt;/a&gt;，于是就有了这篇博客。&lt;/p&gt;
+
+&lt;p&gt;简单的介绍使用TypeScript 和 Atom 来开发 React 应用。&lt;/p&gt;
+
+&lt;p&gt;我们准备从 TodoMVC 项目开始，使用React 和 TypeScript 来开发著名的TODO App.&lt;br /&gt;
+&lt;img src=&quot;/uploads/2015/12/17/9/7yjwysnxnekg_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在这篇文章中你将学习到如下内容：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1.搭建开发环境&lt;/li&gt;
+  &lt;li&gt;2.设置项目&lt;/li&gt;
+  &lt;li&gt;3.React 基础组件&lt;/li&gt;
+  &lt;li&gt;4.使用TypeScript 开发 React组件&lt;/li&gt;
+  &lt;li&gt;5.编译应用&lt;/li&gt;
+  &lt;li&gt;6.运行应用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;搭建开发环境&lt;/h2&gt;
+&lt;p&gt;我们将开始搭建开发环境&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;下载并安装node.js &lt;a href=&quot;https://nodejs.org/en/&quot;&gt;https://nodejs.org/en/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;使用npm 安装 TypeScript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;$ npm install -g typescript tsd&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;说明:如果你使用的是OSX系统，请在命令行前面加上 sudo&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;下载并安装 Atom &lt;a href=&quot;https://atom.io/&quot;&gt;https://atom.io/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/poybtywe40rjbq_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;为Atom安装 atom-typescript插件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;$ apm install atom-typescript&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;这个插件有一些很酷的功能，如HTML 转换成 TSX：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/livogugozhshlq_retina.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;或依赖视图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/bontsmxoxxadda_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果你感兴趣，请到&lt;a href=&quot;https://github.com/TypeStrong/atom-typescript&quot;&gt;project’s page on Github&lt;/a&gt;查看该插件更多的功能。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;安装&lt;a href=&quot;https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en&quot;&gt;React的谷歌开发插件&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这个插件方便我们调试React应用 可以查看属性值和所选组件的状态。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/td99h20vs5yzq_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;设置项目&lt;/h2&gt;
+&lt;p&gt;到本教程结束时，该项目的结构类似下面的一个：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;让我们从创建应用的根目录开始&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir typescript-react
+$ cd typescript-react
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后在项目的根目录里面创建 &lt;code&gt;package.json&lt;/code&gt; 文件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+	private: true,
+  	dependencies: {
+    director: &quot;^1.2.0&quot;,
+    react: &quot;^0.13.3&quot;,
+    todomvc-app-css: &quot;^2.0.0&quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再然后你可以使用npm来安装项目所依赖的文件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 在项目的根目录文件
+$ npm install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个命令会在项目的根目录生成一个&lt;code&gt;node_modules&lt;/code&gt;文件夹，在&lt;code&gt;node_modules&lt;/code&gt;文件夹下会包含有三个文件，分别是&lt;code&gt;director&lt;/code&gt;,&lt;code&gt;react&lt;/code&gt;和&lt;code&gt;todomvc-app-css&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;我们现在开始安装一些TypeScript类型定义文件&lt;/p&gt;
+
+&lt;p&gt;类型定义文件通常用于定义公用的第三方库文件API接口，比如React。在一些IDE中使用TypeScript开发应用，IDE可以通过这些接口提供一些代码提示，方便项目的开发。&lt;/p&gt;
+
+&lt;p&gt;类型定义文件也用于编译器来确保我们正确地使用第三方库。&lt;/p&gt;
+
+&lt;p&gt;我们现在需要React 的类型定义文件，我们可以通过下面的命令来创建他们。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//在应用的根目录
+$ tsd init
+$ tsd install react --save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以上命令会在应用的根目录创建一个	&lt;code&gt;tsd.json&lt;/code&gt;文件和 &lt;code&gt;typings&lt;/code&gt;文件夹，在&lt;code&gt;typings&lt;/code&gt;文件夹中包含&lt;code&gt;react&lt;/code&gt;文件夹&lt;/p&gt;
+
+&lt;p&gt;我们也需要&lt;a href=&quot;https://raw.githubusercontent.com/borisyankov/DefinitelyTyped/master/react/react-global.d.ts&quot;&gt;下载&lt;/a&gt;然后取名为&lt;code&gt;global.d.ts&lt;/code&gt;保存到&lt;code&gt;typings/react&lt;/code&gt;文件夹下。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我们现在到应用根目录创建&lt;code&gt;index.html&lt;/code&gt;文件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang=&quot;en&quot; data-framework=&quot;typescript&quot;&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;
+    &amp;lt;title&amp;gt;React • TodoMVC&amp;lt;/title&amp;gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; 
+          href=&quot;node_modules/todomvc-common/base.css&quot;&amp;gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; 
+          href=&quot;node_modules/todomvc-app-css/index.css&quot;&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;section class=&quot;todoapp&quot;&amp;gt;&amp;lt;/section&amp;gt;
+    &amp;lt;footer class=&quot;info&quot;&amp;gt;
+      &amp;lt;p&amp;gt;Double-click to edit a todo&amp;lt;/p&amp;gt;
+      &amp;lt;p&amp;gt;
+        Created by 
+        &amp;lt;a href=&quot;http://github.com/remojansen/&quot;&amp;gt;Remo H. Jansen&amp;lt;/a&amp;gt;
+      &amp;lt;/p&amp;gt;
+      &amp;lt;p&amp;gt;Part of &amp;lt;a href=&quot;http://todomvc.com&quot;&amp;gt;TodoMVC&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+    &amp;lt;/footer&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot; 
+            src=&quot;node_modules/react/dist/react-with-addons.js&quot;&amp;gt;
+    &amp;lt;/script&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot; 
+            src=&quot;node_modules/director/build/director.js&quot;&amp;gt;
+    &amp;lt;/script&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/constants.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/utils.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/todoModel.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/todoItem.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/footer.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/app.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;此时，你的应用目录结构应该是这样的&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;你可能注意到在&lt;code&gt;index.html&lt;/code&gt;文件中有些JavaScript文件是缺少的，我们接下来将解决这个问题。&lt;/p&gt;
+
+&lt;h2 id=&quot;react-&quot;&gt;React 基础组件&lt;/h2&gt;
+
+&lt;p&gt;组件是React的主要应用程序块，一个组件表示一个自包含的用户界面，组件通常会显示一些数据，并且能够处理一些用户交互。&lt;/p&gt;
+
+&lt;p&gt;组件可以包含子组件。我们即将开发的应用程序是非常小的，所以我们只会开发一个顶级组件取名TodoApp。&lt;/p&gt;
+
+&lt;p&gt;TodoApp 组件将有多个组件组成，包含一个TodoFooter组件和一些TodoItem组件。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/plmlol7n2cfq_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;组件区分不同的数据集：&lt;strong&gt;属性和状态&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;属性&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;属性（短的属性）是一个组件的配置，它的选项，如果你可以。它们是从上面接收到的，并且是不可改变的，因为接收它们的组件是有关的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;组件不能更改其属性，但它负责将其子组件的属性放在一起。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;状态&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;该状态从一个组件安装时开始，并在时间（主要是用户事件产生的情况下）遭受突变。这是一个序列化表示在时间快照一点&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;组件管理其自己的内部，除了设置初始状态与它的孩子的状态不改。你可以说内部是私有的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;当我们使用TypeScript定义一个新的React组件的时候，我们必须申明接口的属性和状态，如下:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class SomeComponent extends React.Component&amp;lt;ISomeComponentProps, ISomeComponentState&amp;gt; {
+  // ...
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;现在，我们有我们的项目结构的地方，我们知道的基本知识，现在开始开发我们的组件。&lt;/p&gt;
+
+&lt;h2 id=&quot;typescript--react&quot;&gt;使用TypeScript 开发 React组件&lt;/h2&gt;
+
+&lt;p&gt;我们在应用根目录下创建一个名为js的文件夹，然后我们将创建如下图的目录结构文件&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当我们创建完成之后，我们可以随意的修改它们。&lt;/p&gt;
+
+&lt;h4 id=&quot;interfacesdts&quot;&gt;interfaces.d.ts&lt;/h4&gt;
+
+&lt;p&gt;我们将把我们应用中的所有接口都定义在此文件中。我们使用的扩展。d.ts（这也是由类型定义文件使用）代替。TS因为这个文件不会编译成为JavaScript文件。在我们编程过程中，此文件不会被编译，因为TypeScript接口不会编译成JavaScript。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Defines the interface of the structure of a task
+interface ITodo {
+  id: string,
+  title: string,
+  completed: boolean
+}
+
+
+// Defines the interface of the properties of the TodoItem component
+interface ITodoItemProps {
+  key : string,
+  todo : ITodo;
+  editing? : boolean;
+  onSave: (val: any) =&amp;gt; void;
+  onDestroy: () =&amp;gt; void;
+  onEdit: ()  =&amp;gt; void;
+  onCancel: (event : any) =&amp;gt; void;
+  onToggle: () =&amp;gt; void;
+}
+
+
+// Defines the interface of the state of the TodoItem component
+interface ITodoItemState {
+  editText : string
+}
+
+
+// Defines the interface of the properties of the Footer component
+interface ITodoFooterProps {
+  completedCount : number;
+  onClearCompleted : any;
+  nowShowing : string;
+  count : number;
+}
+
+// Defines the TodoModel interface
+interface ITodoModel {
+  key : any;
+  todos : Array&amp;lt;ITodo&amp;gt;;
+  onChanges : Array&amp;lt;any&amp;gt;;
+  subscribe(onChange);
+  inform();
+  addTodo(title : string);
+  toggleAll(checked);
+  toggle(todoToToggle);
+  destroy(todo);
+  save(todoToSave, text);
+  clearCompleted();
+}
+
+// Defines the interface of the properties of the App component
+interface IAppProps {
+  model : ITodoModel;
+}
+
+// Defines the interface of the state of the App component
+interface IAppState {
+  editing? : string;
+  nowShowing? : string
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;常量&lt;/h4&gt;
+
+&lt;p&gt;这个文件用于定义一些常量。通常用于保存一些键盘的常量和一些事件。&lt;/p&gt;
+
+&lt;p&gt;我们也可以用一些值来区分一些任务的当前状态:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;COMPLETED_TODOS 用于完成任务时&lt;/li&gt;
+  &lt;li&gt;ACTIVE_TODOS 用于没有完成任务时&lt;/li&gt;
+  &lt;li&gt;ALL_TODOS 用于显示所有任务时使用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;namespace app.constants {
+  export var ALL_TODOS = &#39;all&#39;;
+  export var ACTIVE_TODOS = &#39;active&#39;;
+  export var COMPLETED_TODOS = &#39;completed&#39;;
+  export var ENTER_KEY = 13;
+  export var ESCAPE_KEY = 27;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-6&quot;&gt;实用工具&lt;/h4&gt;
+
+&lt;p&gt;这个文件包含一个叫&lt;code&gt;Utils&lt;/code&gt;的类。这个类不仅仅包含是一些静态方法。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;namespace app.miscelanious {
+
+  export class Utils {
+
+    // generates a new Universally unique identify (UUID) 
+    // the UUID is used to identify each of the tasks
+    public static uuid() : string {
+      /*jshint bitwise:false */
+      var i, random;
+      var uuid = &#39;&#39;;
+
+      for (i = 0; i &amp;lt; 32; i++) {
+        random = Math.random() * 16 | 0;
+        if (i === 8 || i === 12 || i === 16 || i === 20) {
+          uuid += &#39;-&#39;;
+        }
+        uuid += (i === 12 ? 4 : (i === 16 ? (random &amp;amp; 3 | 8) : random))
+          .toString(16);
+      }
+
+      return uuid;
+    }
+
+    // adds &#39;s&#39; to the end of a given world when count &amp;gt; 1
+    public static pluralize(count, word) {
+      return count === 1 ? word : word + &#39;s&#39;;
+    }
+
+    // stores data using the localStorage API
+    public static store(namespace, data?) {
+      if (data) {
+        return localStorage.setItem(namespace, JSON.stringify(data));
+      }
+
+      var store = localStorage.getItem(namespace);
+      return (store &amp;amp;&amp;amp; JSON.parse(store)) || [];
+    }
+
+    // just a helper for inheritance
+    public static extend(...objs : any[]) : any {
+      var newObj = {};
+      for (var i = 0; i &amp;lt; objs.length; i++) {
+        var obj = objs[i];
+        for (var key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+      return newObj;
+    }
+
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;模型&lt;/h4&gt;
+
+&lt;p&gt;TodoModel 是一个通用 “model” 对象。由于这个应用程序是非常小的，它甚至可能不值得把这个逻辑分开，但我们这样做是为了演示一种方式来分离你的应用程序的部分。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/// &amp;lt;reference path=&quot;../typings/react/react-global.d.ts&quot; /&amp;gt;
+/// &amp;lt;reference path=&quot;./interfaces.d.ts&quot;/&amp;gt;
+
+namespace app.models {
+
+  export class TodoModel implements ITodoModel {
+
+    public key : string;            // key used for local storage
+    public todos : Array&amp;lt;ITodo&amp;gt;;    // a list of tasks
+    public onChanges : Array&amp;lt;any&amp;gt;;  // a list of events
+
+    constructor(key) {
+      this.key = key;
+      this.todos = app.miscelanious.Utils.store(key);
+      this.onChanges = [];
+    }
+
+    // the following are some methods 
+    // used to manipulate the list of tasks
+
+    public subscribe(onChange) {
+      this.onChanges.push(onChange);
+    }
+
+    public inform() {
+      app.miscelanious.Utils.store(this.key, this.todos);
+      this.onChanges.forEach(function (cb) { cb(); });
+    }
+
+    public addTodo(title : string) {
+      this.todos = this.todos.concat({
+        id: app.miscelanious.Utils.uuid(),
+        title: title,
+        completed: false
+      });
+
+      this.inform();
+    }
+
+    public toggleAll(checked) {
+      // Note: it&#39;s usually better to use immutable 
+      // data structures since they&#39;re easier to 
+      // reason about and React works very 
+      // well with them. That&#39;s why we use 
+      // map() and filter() everywhere instead of 
+      // mutating the array or todo items themselves.
+      this.todos = this.todos.map&amp;lt;ITodo&amp;gt;((todo : ITodo) =&amp;gt; {
+        return app.miscelanious.Utils.extend(
+          {}, todo, {completed: checked}
+        );
+      });
+
+      this.inform();
+    }
+
+    public toggle(todoToToggle) {
+      this.todos = this.todos.map&amp;lt;ITodo&amp;gt;((todo : ITodo) =&amp;gt; {
+        return todo !== todoToToggle ?
+          todo :
+          app.miscelanious.Utils.extend(
+            {}, todo, {completed: !todo.completed}
+          );
+      });
+
+      this.inform();
+    }
+
+    public destroy(todo) {
+      this.todos = this.todos.filter(function (candidate) {
+        return candidate !== todo;
+      });
+
+      this.inform();
+    }
+
+    public save(todoToSave, text) {
+      this.todos = this.todos.map(function (todo) {
+        return todo !== todoToSave ? todo : app.miscelanious.Utils.extend({}, todo, {title: text});
+      });
+
+      this.inform();
+    }
+
+    public clearCompleted() {
+      this.todos = this.todos.filter(function (todo) {
+        return !todo.completed;
+      });
+
+      this.inform();
+    }
+  }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-8&quot;&gt;页脚&lt;/h4&gt;
+
+&lt;p&gt;这个文件使用&lt;code&gt;.tsx&lt;/code&gt;扩展代替&lt;code&gt;.ts&lt;/code&gt;,因为它包含一些TSX 代码。&lt;/p&gt;
+
+&lt;p&gt;TSX 是 JSX的一种超集。我们将使用TSX代替客户端HTML模板因为TSX和JSX是用来生成一个在DOM状态存储。当组件的属性或者状态发生变化时，React会从最有效率的方式去更新DOM状态存储，并且同时把这些改变及时应用于DOM的真实展现。这个过程React非常高效的及时更新DOM内容。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;说明：我们需要一些额外的编译选项来编译&lt;code&gt;.tsx&lt;/code&gt;文件。我们将在这篇文章结尾介绍更多关于这方面的内容&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这个页脚组件允许用户去根据状态去删选任务列表和显示一些任务数。这个组件没有状态(注意如何通过将其传递给该接口的状态)但是有一些继承于父亲组件(TodoApp组件)的属性。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/// &amp;lt;reference path=&quot;../typings/react/react-global.d.ts&quot; /&amp;gt;
+/// &amp;lt;reference path=&quot;./interfaces.d.ts&quot;/&amp;gt;
+
+namespace app.components {
+
+  export class TodoFooter extends React.Component&amp;lt;ITodoFooterProps, {}&amp;gt; {
+
+    public render() {
+      var activeTodoWord = app.miscelanious.Utils.pluralize(this.props.count, &#39;item&#39;);
+      var clearButton = null;
+
+      if (this.props.completedCount &amp;gt; 0) {
+        clearButton = (
+          &amp;lt;button
+            className=&quot;clear-completed&quot;
+            onClick={this.props.onClearCompleted}&amp;gt;
+            Clear completed
+          &amp;lt;/button&amp;gt;
+        );
+      }
+
+      // React idiom for shortcutting to `classSet` since it&#39;ll be used often
+      var cx = React.addons.classSet;
+      var nowShowing = this.props.nowShowing;
+      return (
+        &amp;lt;footer className=&quot;footer&quot;&amp;gt;
+          &amp;lt;span className=&quot;todo-count&quot;&amp;gt;
+            &amp;lt;strong&amp;gt;{this.props.count}&amp;lt;/strong&amp;gt; {activeTodoWord} left
+          &amp;lt;/span&amp;gt;
+          &amp;lt;ul className=&quot;filters&quot;&amp;gt;
+            &amp;lt;li&amp;gt;
+              &amp;lt;a
+                href=&quot;#/&quot;
+                className={cx({selected: nowShowing === app.constants.ALL_TODOS})}&amp;gt;
+                  All
+              &amp;lt;/a&amp;gt;
+            &amp;lt;/li&amp;gt;
+            {&#39; &#39;}
+            &amp;lt;li&amp;gt;
+              &amp;lt;a
+                href=&quot;#/active&quot;
+                className={cx({selected: nowShowing === app.constants.ACTIVE_TODOS})}&amp;gt;
+                  Active
+              &amp;lt;/a&amp;gt;
+            &amp;lt;/li&amp;gt;
+            {&#39; &#39;}
+            &amp;lt;li&amp;gt;
+              &amp;lt;a
+                href=&quot;#/completed&quot;
+                className={cx({selected: nowShowing === app.constants.COMPLETED_TODOS})}&amp;gt;
+                  Completed
+              &amp;lt;/a&amp;gt;
+            &amp;lt;/li&amp;gt;
+          &amp;lt;/ul&amp;gt;
+          {clearButton}
+        &amp;lt;/footer&amp;gt;
+      );
+    }
+  }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;todoitem&quot;&gt;todoItem&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;TodoItem&lt;/code&gt;组件代表一个任务列表中的一个任务。&lt;br /&gt;
+这个组件不仅有属性(&lt;code&gt;ITodoItemProps&lt;/code&gt;)而且还有状态(&lt;code&gt;ITodoItemState&lt;/code&gt;)。&lt;/p&gt;
+
+&lt;p&gt;这个组件初始化状态是在构造函数里面设置同时属性是通过父亲组件传递过来的构造函数的参数来设置组件的(&lt;code&gt;TodoApp&lt;/code&gt;组件)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/// &amp;lt;reference path=&quot;../typings/react/react-global.d.ts&quot; /&amp;gt;
+/// &amp;lt;reference path=&quot;./interfaces.d.ts&quot;/&amp;gt;
+
+namespace app.components {
+
+  export class TodoItem extends React.Component&amp;lt;ITodoItemProps, ITodoItemState&amp;gt; {
+
+    constructor(props : ITodoItemProps){
+      super(props);
+      // set initial state
+      this.state = { editText: this.props.todo.title };
+    }
+
+    public handleSubmit(event) {
+      var val = this.state.editText.trim();
+      if (val) {
+        this.props.onSave(val);
+        this.setState({editText: val});
+      } else {
+        this.props.onDestroy();
+      }
+    }
+
+    public handleEdit() {
+      this.props.onEdit();
+      this.setState({editText: this.props.todo.title});
+    }
+
+    public handleKeyDown(event) {
+      if (event.which === app.constants.ESCAPE_KEY) {
+        this.setState({editText: this.props.todo.title});
+        this.props.onCancel(event);
+      } else if (event.which === app.constants.ENTER_KEY) {
+        this.handleSubmit(event);
+      }
+    }
+
+    public handleChange(event) {
+      this.setState({editText: event.target.value});
+    }
+
+    // This is a completely optional performance enhancement 
+    // that you can implement on any React component. If you 
+    // were to delete this method the app would still work 
+    // correctly (and still be very performant!), we just use it 
+    // as an example of how little code it takes to get an order
+    // of magnitude performance improvement.
+    public shouldComponentUpdate(nextProps, nextState) {
+      return (
+        nextProps.todo !== this.props.todo ||
+        nextProps.editing !== this.props.editing ||
+        nextState.editText !== this.state.editText
+      );
+    }
+
+    // Safely manipulate the DOM after updating the state 
+    // when invoking this.props.onEdit() in the handleEdit
+    // method above. 
+    public componentDidUpdate(prevProps) {
+      if (!prevProps.editing &amp;amp;&amp;amp; this.props.editing) {
+        var node = React.findDOMNode&amp;lt;HTMLInputElement&amp;gt;(this.refs[&quot;editField&quot;]);
+        node.focus();
+        node.setSelectionRange(node.value.length, node.value.length);
+      }
+    }
+
+    public render() {
+      return (
+        &amp;lt;li className={React.addons.classSet({
+          completed: this.props.todo.completed,
+          editing: this.props.editing
+        })}&amp;gt;
+          &amp;lt;div className=&quot;view&quot;&amp;gt;
+            &amp;lt;input
+              className=&quot;toggle&quot;
+              type=&quot;checkbox&quot;
+              checked={this.props.todo.completed}
+              onChange={this.props.onToggle}
+            /&amp;gt;
+            &amp;lt;label onDoubleClick={ e =&amp;gt; this.handleEdit() }&amp;gt;
+              {this.props.todo.title}
+            &amp;lt;/label&amp;gt;
+            &amp;lt;button className=&quot;destroy&quot; onClick={this.props.onDestroy} /&amp;gt;
+          &amp;lt;/div&amp;gt;
+          &amp;lt;input
+            ref=&quot;editField&quot;
+            className=&quot;edit&quot;
+            value={this.state.editText}
+            onBlur={ e =&amp;gt; this.handleSubmit(e) }
+            onChange={ e =&amp;gt; this.handleChange(e) }
+            onKeyDown={ e =&amp;gt; this.handleKeyDown(e) }
+          /&amp;gt;
+        &amp;lt;/li&amp;gt;
+      );
+    }
+  }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;#### app模块&lt;/p&gt;
+
+&lt;p&gt;此文件包含应用程序的入口点，这是该应用程序只有顶层组件的todoapp组件声明。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/// &amp;lt;reference path=&quot;../typings/react/react-global.d.ts&quot; /&amp;gt;
+/// &amp;lt;reference path=&quot;./interfaces.d.ts&quot;/&amp;gt;
+
+// We should have installed a type declaration file but
+// for the director npm package but it is not available
+// so we will use this declaration to avoid compilation 
+// errors for now.
+declare var Router : any;
+
+var TodoModel = app.models.TodoModel;
+var TodoFooter = app.components.TodoFooter;
+var TodoItem = app.components.TodoItem;
+
+namespace app.components {
+
+  export class TodoApp extends React.Component&amp;lt;IAppProps, IAppState&amp;gt; {
+
+    constructor(props : IAppProps) {
+      super(props);
+      this.state = {
+        nowShowing: app.constants.ALL_TODOS,
+        editing: null
+      };
+    }
+
+    public componentDidMount() {
+      var setState = this.setState;
+      // we will configure the Router here
+      // our router is provided by the
+      // director npm module
+      // the router observes changes in the URL and 
+      // triggers some component&#39;s event accordingly 
+      var router = Router({
+        &#39;/&#39;: setState.bind(this, {nowShowing: app.constants.ALL_TODOS}),
+        &#39;/active&#39;: setState.bind(this, {nowShowing: app.constants.ACTIVE_TODOS}),
+        &#39;/completed&#39;: setState.bind(this, {nowShowing: app.constants.COMPLETED_TODOS})
+      });
+      router.init(&#39;/&#39;);
+    }
+
+    public handleNewTodoKeyDown(event) {
+      if (event.keyCode !== app.constants.ENTER_KEY) {
+        return;
+      }
+
+      event.preventDefault();
+
+      var val = React.findDOMNode&amp;lt;HTMLInputElement&amp;gt;(this.refs[&quot;newField&quot;]).value.trim();
+
+      if (val) {
+        this.props.model.addTodo(val);
+        React.findDOMNode&amp;lt;HTMLInputElement&amp;gt;(this.refs[&quot;newField&quot;]).value = &#39;&#39;;
+      }
+    }
+
+    public toggleAll(event) {
+      var checked = event.target.checked;
+      this.props.model.toggleAll(checked);
+    }
+
+    public toggle(todoToToggle) {
+      this.props.model.toggle(todoToToggle);
+    }
+
+    public destroy(todo) {
+      this.props.model.destroy(todo);
+    }
+
+    public edit(todo) {
+      this.setState({editing: todo.id});
+    }
+
+    public save(todoToSave, text) {
+      this.props.model.save(todoToSave, text);
+      this.setState({editing: null});
+    }
+
+    public cancel() {
+      this.setState({editing: null});
+    }
+
+    public clearCompleted() {
+      this.props.model.clearCompleted();
+    }
+
+    // the JSX syntax is quite intuitive but check out
+    // https://facebook.github.io/react/docs/jsx-in-depth.html
+    // if you need additional help
+    public render() {
+      var footer;
+      var main;
+      var todos = this.props.model.todos;
+
+      var shownTodos = todos.filter(function (todo) {
+        switch (this.state.nowShowing) {
+        case app.constants.ACTIVE_TODOS:
+          return !todo.completed;
+        case app.constants.COMPLETED_TODOS:
+          return todo.completed;
+        default:
+          return true;
+        }
+      }, this);
+
+      var todoItems = shownTodos.map(function (todo) {
+        return (
+          &amp;lt;TodoItem
+            key={todo.id}
+            todo={todo}
+            onToggle={this.toggle.bind(this, todo)}
+            onDestroy={this.destroy.bind(this, todo)}
+            onEdit={this.edit.bind(this, todo)}
+            editing={this.state.editing === todo.id}
+            onSave={this.save.bind(this, todo)}
+            onCancel={ e =&amp;gt; this.cancel() }
+          /&amp;gt;
+        );
+      }, this);
+
+      var activeTodoCount = todos.reduce(function (accum, todo) {
+        return todo.completed ? accum : accum + 1;
+      }, 0);
+
+      var completedCount = todos.length - activeTodoCount;
+
+      if (activeTodoCount || completedCount) {
+        footer =
+          &amp;lt;TodoFooter
+            count={activeTodoCount}
+            completedCount={completedCount}
+            nowShowing={this.state.nowShowing}
+            onClearCompleted={ e=&amp;gt; this.clearCompleted() }
+          /&amp;gt;;
+      }
+
+      if (todos.length) {
+        main = (
+          &amp;lt;section className=&quot;main&quot;&amp;gt;
+            &amp;lt;input
+              className=&quot;toggle-all&quot;
+              type=&quot;checkbox&quot;
+              onChange={ e =&amp;gt; this.toggleAll(e) }
+              checked={activeTodoCount === 0}
+            /&amp;gt;
+            &amp;lt;ul className=&quot;todo-list&quot;&amp;gt;
+              {todoItems}
+            &amp;lt;/ul&amp;gt;
+          &amp;lt;/section&amp;gt;
+        );
+      }
+
+      return (
+        &amp;lt;div&amp;gt;
+          &amp;lt;header className=&quot;header&quot;&amp;gt;
+            &amp;lt;h1&amp;gt;todos&amp;lt;/h1&amp;gt;
+            &amp;lt;input
+              ref=&quot;newField&quot;
+              className=&quot;new-todo&quot;
+              placeholder=&quot;What needs to be done?&quot;
+              onKeyDown={ e =&amp;gt; this.handleNewTodoKeyDown(e) }
+              autoFocus={true}
+            /&amp;gt;
+          &amp;lt;/header&amp;gt;
+          {main}
+          {footer}
+        &amp;lt;/div&amp;gt;
+      );
+    }
+  }
+}
+
+var model = new TodoModel(&#39;react-todos&#39;);
+var TodoApp = app.components.TodoApp;
+
+function render() {
+  React.render(
+    &amp;lt;TodoApp model={model}/&amp;gt;,
+    document.getElementsByClassName(&#39;todoapp&#39;)[0]
+  );
+}
+
+model.subscribe(render);
+render();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;确保其中的 &lt;code&gt;this&lt;/code&gt;在所有的时候都指向正确的元素。例如，你应用使用箭头函数：&lt;br /&gt;
+&lt;code&gt;onKeyDown = { e =&amp;gt; this.handleNewTodoKeyDown(e) }&lt;/code&gt;&lt;br /&gt;
+代替 &lt;br /&gt;
+&lt;code&gt;onKeyDown = { this.handleNewTodoKeyDown }&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;确保&lt;code&gt;this&lt;/code&gt;指向&lt;code&gt;handleNewTodoKeyDown&lt;/code&gt;函数内部的组件。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-9&quot;&gt;编译应用程序&lt;/h2&gt;
+
+&lt;p&gt;为了编译我们的应用程序，我们需要在&lt;code&gt;js&lt;/code&gt;文件夹下添加一个&lt;code&gt;tsconfig.json&lt;/code&gt;文件。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &quot;compilerOptions&quot;: {
+        &quot;target&quot;: &quot;es5&quot;,
+        &quot;module&quot;: &quot;commonjs&quot;,
+        &quot;moduleResolution&quot;: &quot;node&quot;,
+        &quot;isolatedModules&quot;: false,
+        &quot;jsx&quot;: &quot;react&quot;,
+        &quot;experimentalDecorators&quot;: true,
+        &quot;emitDecoratorMetadata&quot;: true,
+        &quot;declaration&quot;: false,
+        &quot;noImplicitAny&quot;: false,
+        &quot;removeComments&quot;: true,
+        &quot;noLib&quot;: false,
+        &quot;preserveConstEnums&quot;: true,
+        &quot;suppressImplicitAnyIndexErrors&quot;: true
+    },
+    &quot;filesGlob&quot;: [
+        &quot;**/*.ts&quot;,
+        &quot;**/*.tsx&quot;,
+        &quot;!node_modules/**&quot;
+    ],
+    &quot;files&quot;: [
+        &quot;constants.ts&quot;,
+        &quot;interfaces.d.ts&quot;,
+        &quot;todoModel.ts&quot;,
+        &quot;utils.ts&quot;,
+        &quot;app.tsx&quot;,
+        &quot;footer.tsx&quot;,
+        &quot;todoItem.tsx&quot;
+    ],
+    &quot;exclude&quot;: []
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果我们认真阅读了&lt;a href=&quot;https://github.com/Microsoft/TypeScript/wiki/Compiler-Options&quot;&gt;TypeScript compiler options&lt;/a&gt;我们就能够知道该如何使用&lt;code&gt;tsconfig.json&lt;/code&gt;文件：&lt;br /&gt;
+&amp;gt; 参数&lt;code&gt;--project&lt;/code&gt;或者&lt;code&gt;-p&lt;/code&gt; 都能用于编译项目在给定的文件下。这个文件需要含有&lt;code&gt;tsconfig.json&lt;/code&gt;文件来直接编译。&lt;/p&gt;
+
+&lt;p&gt;我们可以编译我们的应用程序通过以下命令：&lt;br /&gt;
+&lt;code&gt;
+//在应用程序的根目录
+$ tsc -p js
+&lt;/code&gt;&lt;br /&gt;
+执行这个命令之后，应该会在&lt;code&gt;js&lt;/code&gt;文件夹下生成以下JavaScript文件：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这些文件会在我们的&lt;code&gt;index.html&lt;/code&gt;文件中引用：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/constants.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/utils.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/todoModel.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/todoItem.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/footer.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/app.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;接下来我们准备运行我们的应用程序。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-10&quot;&gt;运行应用程序&lt;/h2&gt;
+
+&lt;p&gt;为了运行我们的应用程序，我们需要一个web服务器。这里我们通过npm来安装&lt;a href=&quot;https://www.npmjs.com/package/http-server&quot;&gt;http-server&lt;/a&gt;。这里博主推荐使用&lt;a href=&quot;anywhere&quot;&gt;https://www.npmjs.com/package/anywhere&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;我们通过以下命令来安装http-server:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install -g http-server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果你使用的是OSX系统，请使用sudo权限&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;运用以下命令来运行应用程序：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 在应用的根目录
+$ http-server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果你打开浏览器导航到&lt;code&gt;http://127.0.0.1:8080/&lt;/code&gt;,你应用可以看到应用程序正在运行：&lt;br /&gt;
+&lt;img src=&quot;/uploads/2015/12/17/9/7yjwysnxnekg_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;记得打开谷歌浏览器开发者工具去查看一下React 开发者扩展工具 并且查看一下当你与应用程序交互时，如何改变组件的属性和状态的值。&lt;br /&gt;
+&lt;img src=&quot;/uploads/2015/12/17/9/td99h20vs5yzq_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-11&quot;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt;在这篇博客中我们已经学习了怎么搭建开发环境和怎么使用TypeScript来开发React应用程序。&lt;/p&gt;
+
+&lt;p&gt;你可以查看这个项目的&lt;a href=&quot;https://github.com/tastejs/todomvc/tree/master/examples/typescript-react&quot;&gt;源码&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;如果你想了解更多内容？请查看&lt;a href=&quot;http://jaysoo.ca/2015/09/26/typed-react-and-redux/&quot;&gt;Type React and Redux&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 18 Dec 2015 05:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/9.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/9.html</guid>
+        
+        <category>React</category>
+        
+        <category>TypeScript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>杂谈Egret引擎之初探</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;缘由&lt;/h3&gt;
+&lt;p&gt;来egret差不多一年了，还差几天就整整一年了。来之前说要认认真真的看一下引擎源码，结果来了快一年都没有看，年末正在整理这一年的事情，发现还没有写过。然后现在就简单的整理了一下。这中间egret引擎从2.0到2.5是一个大版本的更新，架构也调整了。这里就直接看的是2.5以后的引擎了。&lt;/p&gt;
+
+&lt;p&gt;来白鹭之前，是白鹭引擎的忠实用户，那时候公司说要做HTML5游戏，说要用游戏引擎做，那时候第一次知道游戏引擎这个东西，但是一直不了解游戏引擎是什么东西。那时候正好快国庆，在同学学校图书馆借了一本cocos2dx书籍，在租房刷了7天的书，那时候才对游戏引擎有了初步的认识和理解。那时候租房都是没有网络的，学习白鹭引擎，都是把白鹭引擎的官方的教程网页右键保存在本地的。因为不懂，始终都是停留在使用阶段。那时候的教程还是非常少的，现在的完善多了，这里&lt;a href=&quot;http://edn.egret.com/cn/docs/&quot;&gt;官方地址&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今天的初探主要是看核心库，从类结构上来，具体的API内容，大家就查看官方的&lt;a href=&quot;http://edn.egret.com/cn/apidoc/&quot;&gt;API文档&lt;/a&gt;了&lt;br /&gt;
+其实也就是一张简单的图了&lt;img src=&quot;/uploads/2015/12/13/8/egretclass.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;大概的三块：事件，显示对象，其它&lt;/h3&gt;
+&lt;p&gt;这样整体来看，我们大脑就有一个大概的印象，在学习和理解API上，就有一个整体的结构思路或者说是脉络，能够整体的把控引擎。这样对引擎的理解和使用是非常好的。这里推荐一篇博客，讲的是&lt;a href=&quot;http://zengrong.net/post/2383.htm&quot;&gt;技能掌握程度&lt;/a&gt;,还有程序员水平分等级，你属于哪一级？然后初探已经完了，这理主要想说的是大家从结构上来学习东西和理解事情，这样会有一个更全局的认识和理解。好吧，白鹭引擎的初探就到这里了，其实这里更多的是想对自己思索的一些总结。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;多一些探索精神和死磕精神&lt;/h3&gt;
+
+&lt;p&gt;说在最后的话。这两天把科技相对论看了几遍，其中的一句话是非常的认同的&lt;strong&gt;找到技术和产品的平衡点&lt;/strong&gt;。现在想从个人的理解回答一下知乎上的一个问题，说的是egret引擎为什么要从一开始就搭建周边环境，研发十多款工具。我觉得现在有些理论可以回答这个问题，在真正做一个成功的产品的时候，脱离工具流的引擎，即使非常引擎本身非常优秀，那就是像是一把利刃，缺少合适的握柄，无法把引擎的实力发挥到最大，没有高效的周边开发工具，那是无法成长壮大，那顶多是一个游戏框架，无法独立的成活下去，特别是一个技术型的驱动公司，更应该把握产品和技术的平衡点。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 14 Dec 2015 04:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/8.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/8.html</guid>
+        
+        <category>egret</category>
+        
+        <category>白鹭引擎</category>
+        
+        <category>egret引擎</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

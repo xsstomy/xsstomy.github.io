@@ -5,9 +5,60 @@
     <description></description>
     <link>http://xsstomy/</link>
     <atom:link href="http://xsstomy/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 17 Jul 2016 21:56:55 +0800</pubDate>
-    <lastBuildDate>Sun, 17 Jul 2016 21:56:55 +0800</lastBuildDate>
+    <pubDate>Sat, 13 Aug 2016 17:35:27 +0800</pubDate>
+    <lastBuildDate>Sat, 13 Aug 2016 17:35:27 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>手机微信端调试</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近使用reactjs开发单页应用，主要使用reactjs + webpack + redux + es2015(es6),因为使用了es2015 ，由于兼容性的问题，遇到一次比较坑的爬坑经历。情况是这样的，发布单页过后，在苹果手机微信中打开都是正常，在其他浏览器(chrome,safari)也是正常的；在安卓微信中都打不开,但是在chrome,qq浏览器也是正常的。当时就懵逼了，当时心里的状态是这样的，我靠，这是尼玛什么情况。没有办法，只能找办法调试解决了，但是要调试微信中的啊，其它浏览器中都是正常的啊，这时真是尴尬，完全不知道该如何调试手机端的微信(求心里阴影面积)。因为只在微信中出现，chrome中是正常的，那就不能使用chrome 调试方式了。这里是电脑调试手机端chrome方式&lt;a href=&quot;https://developers.google.com/web/tools/chrome-devtools/debug/remote-debugging/remote-debugging&quot;&gt;谷歌官方文档&lt;/a&gt;，再贴一个中文的&lt;a href=&quot;&quot;&gt;文档教程&lt;/a&gt;。最后找到微信web 开发者工具，最终调试成功。最终调试才知道是Object.assign 的兼容性问题，最后使用了&lt;a href=&quot;https://www.npmjs.com/package/object-assign&quot;&gt;object-assign&lt;/a&gt; 来解决兼容性的问题。下面来写一下这一次的详细调试过程。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;调试工具&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/wiki/10/e5f772f4521da17fa0d7304f68b97d7e.html&quot;&gt;微信web开发者工具&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;安卓手机一部&lt;/li&gt;
+  &lt;li&gt;主要用到x5 blink 内核调试方式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;步骤&lt;/h2&gt;
+
+&lt;p&gt;1.前面的可以看官方的文档,按照微信官方文档中的准备工作做好，然后把安卓手机微信中X5 blink 的设置也设置好。然后分别重启手机中的微信和pc的微信web开发者工具。(这里被坑了一下，开始的时候死活不能调试，分别重启了一下手机和web开发者工具就可以调试了)&lt;/p&gt;
+
+&lt;p&gt;这里是微信的开始调试之前的准备工作步骤，&lt;a href=&quot;https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1455784140&amp;amp;token=&amp;amp;lang=zh_CN&quot;&gt;微信官方文档地址&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/08/13/weixin-debug-ready.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这里贴一张我这里未开始调试的图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/08/13/debug-start.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.开始调试，请确保手机和微信web开发者工具都配置好，然后在web开发者工具中，选择X5 blink 调试， 然后就会弹出一个界面(移动调试，设备列表)， 如下图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/08/13/weixin-debug-start.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这里是官方文档的图。&lt;/p&gt;
+
+&lt;p&gt;因为我这里没有安卓手机，所以只能先大概的文字描述一下。会有三种调试方式，一个chrome调试方式，一个是X5  blink调试方式，一个是代理的调试方式。这里我们要用的是X5 blink 调试。点击com.tencent.mm 下面的网页inspect，这时候我们就可以调试手机端的微信里面页面了，直接源码调试，可以查看各种源码了，还可以断点调试。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/08/13/weixin-debug-debuging.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;调试到这里基本就结束了，主要是调试的方式，微信web开发者工具还是不错的，可以直接远程调试手机端微信里面的网页了，不像以前只能alert调试，想想就好伤痛。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 14 Aug 2016 04:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/20160813%E5%AE%89%E5%8D%93%E5%BE%AE%E4%BF%A1%E8%B0%83%E8%AF%95%E5%89%AF%E6%9C%AC.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/20160813%E5%AE%89%E5%8D%93%E5%BE%AE%E4%BF%A1%E8%B0%83%E8%AF%95%E5%89%AF%E6%9C%AC.html</guid>
+        
+        <category>reactjs</category>
+        
+        <category>微信</category>
+        
+        <category>调试</category>
+        
+        
+      </item>
     
       <item>
         <title>Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流</title>
@@ -2861,38 +2912,6 @@ $ http-server
         <category>React</category>
         
         <category>TypeScript</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>杂谈Egret引擎之初探</title>
-        <description>&lt;h3 id=&quot;section&quot;&gt;缘由&lt;/h3&gt;
-&lt;p&gt;来egret差不多一年了，还差几天就整整一年了。来之前说要认认真真的看一下引擎源码，结果来了快一年都没有看，年末正在整理这一年的事情，发现还没有写过。然后现在就简单的整理了一下。这中间egret引擎从2.0到2.5是一个大版本的更新，架构也调整了。这里就直接看的是2.5以后的引擎了。&lt;/p&gt;
-
-&lt;p&gt;来白鹭之前，是白鹭引擎的忠实用户，那时候公司说要做HTML5游戏，说要用游戏引擎做，那时候第一次知道游戏引擎这个东西，但是一直不了解游戏引擎是什么东西。那时候正好快国庆，在同学学校图书馆借了一本cocos2dx书籍，在租房刷了7天的书，那时候才对游戏引擎有了初步的认识和理解。那时候租房都是没有网络的，学习白鹭引擎，都是把白鹭引擎的官方的教程网页右键保存在本地的。因为不懂，始终都是停留在使用阶段。那时候的教程还是非常少的，现在的完善多了，这里&lt;a href=&quot;http://edn.egret.com/cn/docs/&quot;&gt;官方地址&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;今天的初探主要是看核心库，从类结构上来，具体的API内容，大家就查看官方的&lt;a href=&quot;http://edn.egret.com/cn/apidoc/&quot;&gt;API文档&lt;/a&gt;了&lt;br /&gt;
-其实也就是一张简单的图了&lt;img src=&quot;/uploads/2015/12/13/8/egretclass.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;大概的三块：事件，显示对象，其它&lt;/h3&gt;
-&lt;p&gt;这样整体来看，我们大脑就有一个大概的印象，在学习和理解API上，就有一个整体的结构思路或者说是脉络，能够整体的把控引擎。这样对引擎的理解和使用是非常好的。这里推荐一篇博客，讲的是&lt;a href=&quot;http://zengrong.net/post/2383.htm&quot;&gt;技能掌握程度&lt;/a&gt;,还有程序员水平分等级，你属于哪一级？然后初探已经完了，这理主要想说的是大家从结构上来学习东西和理解事情，这样会有一个更全局的认识和理解。好吧，白鹭引擎的初探就到这里了，其实这里更多的是想对自己思索的一些总结。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;多一些探索精神和死磕精神&lt;/h3&gt;
-
-&lt;p&gt;说在最后的话。这两天把科技相对论看了几遍，其中的一句话是非常的认同的&lt;strong&gt;找到技术和产品的平衡点&lt;/strong&gt;。现在想从个人的理解回答一下知乎上的一个问题，说的是egret引擎为什么要从一开始就搭建周边环境，研发十多款工具。我觉得现在有些理论可以回答这个问题，在真正做一个成功的产品的时候，脱离工具流的引擎，即使非常引擎本身非常优秀，那就是像是一把利刃，缺少合适的握柄，无法把引擎的实力发挥到最大，没有高效的周边开发工具，那是无法成长壮大，那顶多是一个游戏框架，无法独立的成活下去，特别是一个技术型的驱动公司，更应该把握产品和技术的平衡点。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 14 Dec 2015 04:28:39 +0800</pubDate>
-        <link>http://xsstomy/articles/8.html</link>
-        <guid isPermaLink="true">http://xsstomy/articles/8.html</guid>
-        
-        <category>egret</category>
-        
-        <category>白鹭引擎</category>
-        
-        <category>egret引擎</category>
         
         
       </item>

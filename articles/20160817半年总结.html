@@ -10,9 +10,9 @@
 
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流 - xsstomy</title>
+    <title>半年总结 - xsstomy</title>
 
-    <link rel="canonical" href="http://xsstomy/articles/17.html">
+    <link rel="canonical" href="http://xsstomy/articles/20160817%E5%8D%8A%E5%B9%B4%E6%80%BB%E7%BB%93.html">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -126,17 +126,17 @@ var _hmt = _hmt || [];
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags.html#egret" title="egret">egret</a>
+                        <a class="tag" href="/tags.html#总结" title="总结">总结</a>
                         
-                        <a class="tag" href="/tags.html#工作流" title="工作流">工作流</a>
+                        <a class="tag" href="/tags.html#2016" title="2016">2016</a>
                         
                     </div>
-                    <h1>Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流</h1>
+                    <h1>半年总结</h1>
                     
                     
                     <h2 class="subheading"></h2>
                     
-                    <span class="meta">Posted by xsstomy on July 17, 2016</span>
+                    <span class="meta">Posted by xsstomy on August 17, 2016</span>
                 </div>
             </div>
         </div>
@@ -151,256 +151,52 @@ var _hmt = _hmt || [];
 
 				<h2 id="section">前言</h2>
 
-<p>上周广州和深圳的白鹭开发者聚会，很遗憾没有时间参加，现在补这篇博客吧。这篇也算是继之前gulp的补充。</p>
+<p>做完手术之后就一直处于萎靡状态，博客都停了，然后不知不觉2016已经过去了一半多。出来工作之后，总感觉时间过的飞快，一不小心半年过去了，然后一不小心又到年底了。年龄渐长，跟着而来的各种事情(年龄到了，大家都懂的)都来了。不过现在心态还好，事情来了，遇到问题想办法解决就好。这里强烈推荐大家去看一下<a href="http://open.163.com/movie/2006/1/1/9/M6HV755O6_M6HV8DF19.html">积极心理学</a>,真的是非常棒的课程。写这篇博客的原因是看到了别人的半年总结，然后又翻了一下自己年初的计划，发现好多事情都跟不上计划，于是想重新调整一下计划，下面就总结一下上半年的事情和下半年事情的调整。</p>
 
-<blockquote>
-  <p>如果你的目标是打包runtime和使用官方打包成移动app的方式，那么这篇文章可能不是很适合你。当然也欢迎你阅读。</p>
-
-  <p>这里是打造个人个性的开发工作流，如果你喜欢折腾欢迎来尝试，毕竟官方的EgretWing 集成度已经是非常高的了。</p>
-</blockquote>
-
-<h2 id="section-1">伪需求</h2>
-
-<ol>
-  <li>发布代码的版本控制(避免缓存)</li>
-  <li>代码编辑器个人偏好</li>
-  <li>egret命令有时候gg</li>
-</ol>
-
-<blockquote>
-  <p>工具说明：</p>
-
-  <p>​		sublime text 3 代码编辑</p>
-
- 		iTerm2  终端工具<br />
-
-  <p>​		EgretWing2.5  UI编辑器，集成开发环境</p>
-
-  <p>​		ResDepot 资源编辑器</p>
-
-  <p>​		chrome 调试和预览工具</p>
-
-  <p>​		web pack 代码构建工具		</p>
-</blockquote>
-
-<h3 id="section-2">工作流配置</h3>
-
-<ol>
-  <li>
-    <p>sublime + egret + webpack + chrome + iTerm开发环境配置</p>
-  </li>
-  <li>
-    <p>EgretWing2.5 + ResDepot UI编辑＋资源管理</p>
-
-    <p>​</p>
-  </li>
-</ol>
-
-<h3 id="sublime-">sublime 插件配置</h3>
+<h2 id="section-1">上半年事情概述</h2>
 
 <ul>
-  <li>https://github.com/Microsoft/TypeScript-Sublime-Plugin</li>
-  <li>https://github.com/jdc0589/JsFormat(保存代码自动格式化)</li>
-  <li>https://packagecontrol.io/packages/Seti_UI(主题看个人喜好)</li>
+  <li>4月回武汉买房</li>
+  <li>4月辞职离开北京白鹭时代</li>
+  <li>4月回老家做手术</li>
+  <li>5月在家修养一个月</li>
+  <li>6月出来做事至今</li>
 </ul>
 
-<h3 id="sublimeiterm-">sublime+iTerm 视窗配置</h3>
-
-<p><img src="/uploads/2016/7/16/17/sublime+iTerm.png" alt="" /></p>
-
-<blockquote>
-  <p><a href="http://code.kpman.cc/2015/02/07/Sublime-%E8%88%87-iTerm-%E7%9A%84%E8%A6%96%E7%AA%97%E9%85%8D%E7%BD%AE/">sublime+iTerm</a></p>
-</blockquote>
-
-<h3 id="webpackegret-">webpack＋egret 改造项目</h3>
-
 <ol>
-  <li>创建项目 </li>
-  <li>npm,git初始化</li>
-  <li>依赖库安装</li>
-  <li>webpack+tsconfig配置</li>
-  <li>修改原项目</li>
+  <li>买房是因为看到房价飞涨，怕以后连房子都买不起，15年二胎政策出来的时候就预测房价一定会上涨，但是由于自己内心不坚定，导致多花不少钱买房。以后做事，认准了就要坚持去做，免得后悔。</li>
+  <li>离开北京是因为北京空气和房价，压力太大了，再加上自己身体，在北京生活不习惯，然后就选择离开了北京。心里还是非常喜欢北京的同事的，喜欢那种工作氛围。</li>
+  <li>回家手术就是因为身体原因了。</li>
 </ol>
 
-<h4 id="section-3">1.创建项目</h4>
+<h2 id="section-2">2016年上半年计划</h2>
 
-<p>egret create web pack-egret - -type eui </p>
+<p><img src="/uploads/2015/12/31/11/2016.png" alt="" /></p>
 
-<h4 id="npm-init--git-init">2. npm init &amp; git init</h4>
+<ol>
+  <li>mvc结构没有整理，到最近熟悉单向数据流的时候，才有了更深刻的认识。</li>
+  <li>数据每月买几本，但是看的好像还真不多，准备列一下书单，每读完一本书写写总结。<硅谷传奇> <浪潮之巅> <摄影构图学></摄影构图学></浪潮之巅></硅谷传奇></li>
+  <li>3d学习了一段时间，现在完全忘记了，也没有做相关的整理记录。“巧秀才跟不得烂笔头”这句话果然是真理。</li>
+  <li>由于五月在家休养，直到现在才纯纯的做reactjs开发。才熟悉webpack,reactjs等相关知识。</li>
+  <li>UI 学习自然是落下了。来到广州，前期一直处于加班状态。然后周末也重新捡起每周一次出去拍摄，技术方面的学习就自然落下了。中间一直在学习摄影和简单的后期，摄影技术和后期有一点点的增长。健身也重新捡起来了，每个一天锻炼一次，做it的还是需要有一个好的身体，其实做任何事情都需要一个好的健康的身体。</li>
+</ol>
 
-<p>/webpack-egret    npm init </p>
+<p>现在越来越注重生活，工作并不是生活的全部。每周必然出去走一走晒晒太阳，因为每周上班都是呆在办公室，空调下，完全不怎么见太阳。出去的时候，一般带着相机到广州有名的建筑或者旅游景点逛一逛，还是非常不错的。有时候也参加一下知乎群的活动，认识一下新朋友，毕竟离开了熟悉的圈子，需要建立新的交际圈，认识新的朋友。</p>
 
-<p>/webpack-egret   git init </p>
+<p>经过上半年的计划和所做的事情，发现还是主抓1-2件事情，不要超过三件事情，要不然人会非常的累和疲惫，反而不易于事情做成。建议是计划1到2件主要的事情，坚持的做下去。偶尔中间穿插一下其它的事情。每周至少一天完全的休闲，不做任何工作相关的事情。</p>
 
-<h4 id="npm-install">3. npm install</h4>
+<h2 id="section-3">2016年下半年计划</h2>
 
-<p>package.json</p>
-
-<pre><code class="language-json">"devDependencies": {
-    "babel-core": "^6.10.4",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-transform-es2015-arrow-functions": "^6.8.0",
-    "babel-plugin-transform-runtime": "^6.9.0",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-0": "^6.5.0",
-    "babel-runtime": "^6.9.2",
-    "awesome-typescript-loader": "^0.15.10",
-    "http-server": "^0.9.0",
-    "strip-sourcemap-loader": "0.0.1",
-    "typescript": "^1.8.7",
-    "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1",
-    "webpack-merge": "^0.14.0",
-    "webpack-validator": "^2.2.2",
-    "html-webpack-plugin": "^2.22.0"
-  }
-</code></pre>
-
-<h4 id="webpacktsconfig">4.webpack+tsconfig配置</h4>
-
-<p>tsconfig.json</p>
-
-<pre><code class="language-json">{
-   "compilerOptions": {
-      "target": "ES5",
-      "outDir": "bin-debug",
-      "sourceMap": true
-   },
-   "exclude": [
-      "bin-debug",
-      "bin-release",
-      "resource",
-      "node_modules",
-      "bower_components"
-   ]
-}
-</code></pre>
-
-<p>webpack.config.js</p>
-
-<pre><code class="language-javascript">var webpack = require('webpack');
-var path = require('path')
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var paths = require('./webpack.paths')
-var loaders = require('./webpack.loaders')
-
-
-module.exports = {
-	entry: {
-		main: paths.app
-	},
-	resolve: {
-		root: paths.app,
-		extensions: ['', '.js', '.ts']
-	},
-	output: {
-		path: paths.build,
-		filename: 'bundle.js',
-		publicPath: 'build/'
-	},
-	devtool: 'eval-source-map',
-	devServer: {
-		historyApiFallback: true,
-		hot: true,
-		inline: true,
-		progress: true
-	},
-	module: {
-		loaders: loaders
-	},
-	plugins: [
-		new webpack.NoErrorsPlugin(),
-		new webpack.DefinePlugin({
-			BUILD_MODE: JSON.stringify('development')
-		})
-	]
-};
-</code></pre>
-
-<p>这里给出的webpack配置的不全，后面会给出整个项目的github地址</p>
-
-<pre><code class="language-html">...
-&lt;script src="libs/modules/egret/egret.min.js"&gt;&lt;/script&gt;
-&lt;script src="libs/modules/egret/egret.web.min.js"&gt;&lt;/script&gt;
-&lt;script src="libs/modules/game/game.min.js"&gt;&lt;/script&gt;
-&lt;script src="libs/modules/game/game.web.min.js"&gt;&lt;/script&gt;
-&lt;script src="libs/modules/tween/tween.min.js"&gt;&lt;/script&gt;
-&lt;script src="libs/modules/res/res.min.js"&gt;&lt;/script&gt;
-&lt;script src="build/bundle.js"&gt;&lt;/script&gt;
-...
-</code></pre>
-
-<h4 id="section-4">目录结构</h4>
-
-<pre><code>|----index.html
-|----src
-|    |---- Main.ts
-|    |---- LoadingUI.ts
-|    |----Configure.ts
-| 
-|----build
-|    
-|----libs
-|    |----modules
-|
-|----node_modules
-|
-|----resource
-|    |----assets
-|    |----config
-|    |----default.res.json
-|
-|----tsconfig.json
-|----package.json
-|----webpack.config.js
-|----webpack.loaders.js
-|----webpack.paths.js
-|----webpack.production.config.js
-</code></pre>
-
-<h2 id="section-5">开发</h2>
-
-<h2 id="npm-run-start">1.npm run start</h2>
-
-<blockquote>
-  <p>这样就不用egret命令啦。这里是热更新的，只需要修改代码，保存一下，然后在浏览器中刷新就可以看到最新的效果。</p>
-</blockquote>
-
-<p><img src="/uploads/2016/7/16/17/chrome+debug.png" alt="" /></p>
-
-<h2 id="npm-run-build">2. npm run build</h2>
-
-<blockquote>
-  <p>发布之后需要上传的目录结构</p>
-</blockquote>
-
-<pre><code>|----index.html
-|
-|----resource
-|----build
-|----libs
-</code></pre>
-
-<blockquote>
-  <p>参考链接:</p>
-
-  <p><a href="http://code.kpman.cc/2015/02/07/Sublime-%E8%88%87-iTerm-%E7%9A%84%E8%A6%96%E7%AA%97%E9%85%8D%E7%BD%AE/">sublime+iterm</a></p>
-
-  <p><a href="http://bbs.egret.com/forum.php?mod=viewthread&amp;tid=17477&amp;highlight=webpack">webpack+egret</a></p>
-
-  <p><a href="https://github.com/jdc0589/JsFormat">sublime+jsFormat</a></p>
-
-  <p><a href="https://github.com/Microsoft/TypeScript-Sublime-Plugin">sublime+typescript</a></p>
-
-  <p><a href="http://zhaoda.net/webpack-handbook/index.html">webpack-cn</a></p>
-
-  <p><a href="https://webpack.github.io/docs/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=top">webpack</a></p>
-</blockquote>
-
-<p>推荐一下切图工具<a href="http://www.fancynode.com.cn/">pxcook</a></p>
+<ul>
+  <li>英语雅思的考试准备(主)</li>
+  <li>摄影学习(主)</li>
+  <li>绘画(副)</li>
+  <li>python(副)</li>
+  <li>坚持锻炼身体，例行公事(就像每天早上起来刷牙一样的事情)</li>
+</ul>
 
 <p><img src="/uploads/mypictures/xsstomyzhifubao.png" alt="" /></p>
+
 
 
                 <hr>
@@ -410,15 +206,12 @@ module.exports = {
                 </style>
                 <div class="ds-share"
                     style="text-align: right"
-                    data-thread-key="17" data-title="Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流"
+                    data-thread-key="19" data-title="半年总结"
                     data-images="http://xsstomy/img/home-bg.jpg"
                     data-content="前言
 
-上周广州和深圳的白鹭开发者聚会，很遗憾没有时间参加，现在补这篇博客吧。这篇也算是继之前gulp的补充。
-
-
-  如果你的目标是打包runtime和... | @xsstomy 的个人博客"
-                    data-url="http://xsstomy/articles/17.html">
+做完手术之后就一直处于萎靡状态，博客都停了，然后不知不觉2016已经过去了一半多。出来工作之后，总感觉时间过的飞快，一不小心半年过去了，然后一不小... | @xsstomy 的个人博客"
+                    data-url="http://xsstomy/articles/20160817%E5%8D%8A%E5%B9%B4%E6%80%BB%E7%BB%93.html">
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -438,13 +231,9 @@ module.exports = {
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/articles/16.html" data-toggle="tooltip" data-placement="top" title="electron环境搭建到项目发布">&larr; Previous Post</a>
+                        <a href="/articles/20160813%E5%AE%89%E5%8D%93%E5%BE%AE%E4%BF%A1%E8%B0%83%E8%AF%95%E5%89%AF%E6%9C%AC.html" data-toggle="tooltip" data-placement="top" title="手机微信端调试">&larr; Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/articles/20160813%E5%AE%89%E5%8D%93%E5%BE%AE%E4%BF%A1%E8%B0%83%E8%AF%95%E5%89%AF%E6%9C%AC.html" data-toggle="tooltip" data-placement="top" title="手机微信端调试">Next Post &rarr;</a>
-                    </li>
                     
                 </ul>
 
@@ -452,7 +241,7 @@ module.exports = {
                 
                 <!-- 多说评论框 start -->
                 <div class="comment">
-                    <div class="ds-thread" data-thread-key="17" data-title="Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流" data-url="http://xsstomy/articles/17.html"></div>
+                    <div class="ds-thread" data-thread-key="19" data-title="半年总结" data-url="http://xsstomy/articles/20160817%E5%8D%8A%E5%B9%B4%E6%80%BB%E7%BB%93.html"></div>
                 </div>
                 <!-- 多说评论框 end -->
                 

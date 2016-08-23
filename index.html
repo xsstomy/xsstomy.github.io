@@ -158,21 +158,6 @@ var _hmt = _hmt || [];
 <hr>
 
 <div class="post-preview">
-    <a href="/articles/20160813%E5%AE%89%E5%8D%93%E5%BE%AE%E4%BF%A1%E8%B0%83%E8%AF%95%E5%89%AF%E6%9C%AC.html">
-        <h2 class="post-title">            手机微信端调试
-        </h2>
-        
-        <div class="post-content-preview">
-            前言
-最近使用reactjs开发单页应用，主要使用reactjs + webpack + redux + es2015(es6),因为使用了es2015 ，由于兼容性的问题，遇到一次比较坑的爬坑经历。情况是这样的，发布单页过后，在苹果手机微信中打开都是正常，在其他浏览器(chrome,safari)也是正常的；在安卓微信中都打不开,但是在chrome,qq浏览器也是正常的。当时就懵逼了，当时...
-        </div>
-    </a>
-    <p class="post-meta">Posted by xsstomy on August 14, 2016</p>
-        
-</div>
-<hr>
-
-<div class="post-preview">
     <a href="/articles/20160813%E5%AE%89%E5%8D%93%E5%BE%AE%E4%BF%A1%E8%B0%83%E8%AF%95.html">
         <h2 class="post-title">            手机微信端调试
         </h2>
@@ -216,33 +201,6 @@ var _hmt = _hmt || [];
 <hr>
 
 <div class="post-preview">
-    <a href="/articles/17.html">
-        <h2 class="post-title">            Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流
-        </h2>
-        
-        <div class="post-content-preview">
-            前言
-
-上周广州和深圳的白鹭开发者聚会，很遗憾没有时间参加，现在补这篇博客吧。这篇也算是继之前gulp的补充。
-
-
-  如果你的目标是打包runtime和使用官方打包成移动app的方式，那么这篇文章可能不是很适合你。当然也欢迎你阅读。
-
-  这里是打造个人个性的开发工作流，如果你喜欢折腾欢迎来尝试，毕竟官方的EgretWing 集成度已经是非常高的了。
-
-
-伪需求
-
-
-  发布代码的版本控制...
-        </div>
-    </a>
-    <p class="post-meta">Posted by xsstomy on July 17, 2016</p>
-        
-</div>
-<hr>
-
-<div class="post-preview">
     <a href="/articles/16-electron%E5%88%9D%E7%BA%A7%E5%85%A5%E9%97%A8.html">
         <h2 class="post-title">            electron环境搭建到项目发布
         </h2>
@@ -259,46 +217,6 @@ var _hmt = _hmt || [];
         </div>
     </a>
     <p class="post-meta">Posted by xsstomy on March 6, 2016</p>
-        
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/articles/16.html">
-        <h2 class="post-title">            electron环境搭建到项目发布
-        </h2>
-        
-        <div class="post-content-preview">
-            前言
-最近了解到electron，于是去简单的研究了一下。网上找个详细的教程，没有找到比较全的，然后就把整个流程简单的记录一下，方便需要的人。
-
-环境搭建
-笔者这里使用的Mac，osx 10.11.3 ，在安装electron环境之前，确保本机已经安装Node.js,Git并确保尽可能的是最新的版本。笔者这里的Node版本4.2.2，Git版本2.5.4。
-
-1.切换镜像
-按照官方的教程，是...
-        </div>
-    </a>
-    <p class="post-meta">Posted by xsstomy on March 6, 2016</p>
-        
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/articles/15.html">
-        <h2 class="post-title">            查找Node.js中JavaScript内存泄漏的简单教程
-        </h2>
-        
-        <div class="post-content-preview">
-            缘由
-
-公司同事内部分享的一篇讲解查找内存泄漏的博客，个人觉得很赞，就决定翻译一下，翻译不重要的地方会略过。英文不太好，翻译不好的地方或者有错误的地方欢迎指正。 原博客链接http://www.alexkras.com/simple-guide-to-finding-a-javascript-memory-leak-in-node-js/
-
-简介
-几个月前，有一次出现内存泄漏，不得不调试，查...
-        </div>
-    </a>
-    <p class="post-meta">Posted by xsstomy on January 26, 2016</p>
         
 </div>
 <hr>
@@ -338,6 +256,103 @@ Gulp.js 是一个自动化构建工具，开发者可以使用它在项目开发
         </div>
     </a>
     <p class="post-meta">Posted by xsstomy on January 25, 2016</p>
+        
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/articles/13.html">
+        <h2 class="post-title">            egret(前端)＋Node.js(后端)实现跨屏互动教程
+        </h2>
+        
+        <div class="post-content-preview">
+            原理讲解
+
+
+
+图讲解
+
+server端
+
+server端主要做信息接收和传递以及一些处理。可以理解为一个中转站。
+
+show端
+
+show端就是一个展示端，比如小霸王游戏机中需要的显示器。
+
+control端
+
+control端就好像小霸王游戏中的手柄，来操作游戏。
+
+通信协议websocket
+
+流程讲解
+
+
+  
+    show端。生成一个随机数(xxx)，作为自己唯一的ID验证。同...
+        </div>
+    </a>
+    <p class="post-meta">Posted by xsstomy on January 12, 2016</p>
+        
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/articles/12.html">
+        <h2 class="post-title">            设计模式
+        </h2>
+        
+        <div class="post-content-preview">
+            前言
+这里会简单的介绍一下设计模式的存在意义和历史发展，这样会有一个联想记忆，可能理解会更深刻一些，让自己会思索更深层次的内容，而不是简单背诵一些简单的原则或者原理。这里笔者推荐《设计模式之蝉》 这本书来学习设计模式来面向对象编程。
+
+设计模式意义
+
+在软件工程中，设计模式（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案。(维基百科)能够高效重复...
+        </div>
+    </a>
+    <p class="post-meta">Posted by xsstomy on January 9, 2016</p>
+        
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/articles/11.html">
+        <h2 class="post-title">            2016计划
+        </h2>
+        
+        <div class="post-content-preview">
+            前言
+不知不觉2015年过去了，回望2015年，觉得自己过的很惭愧，虽然有一点进步，但是还是不够。于是好好整理计划2016。望2017年回望2016年，不要太多遗憾。勉励自己一句话：人生苦短，及时行乐。
+
+
+
+
+
+        </div>
+    </a>
+    <p class="post-meta">Posted by xsstomy on December 31, 2015</p>
+        
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/articles/10.html">
+        <h2 class="post-title">            ECMAScript 2015新特性
+        </h2>
+        
+        <div class="post-content-preview">
+            缘由
+继上一篇翻译的文章使用TypeScript开发React之后，对翻译文章有点上瘾了。最近也在研究ES2015,找到一篇不错的文章，于是又开始翻译起来了，就有了这篇博客。原文链接。下面正式翻译了，翻译并不是全文对比翻译的，也加了部分自己查找到资料的整理。
+
+ECMAScript6
+
+简介
+ECMAScript 6,又名ECMAScript 2015,是ECMAScript 标准的最新版本...
+        </div>
+    </a>
+    <p class="post-meta">Posted by xsstomy on December 20, 2015</p>
         
 </div>
 <hr>
@@ -412,7 +427,7 @@ Gulp.js 是一个自动化构建工具，开发者可以使用它在项目开发
                             
         				
                             
-                				<a href="/tags.html#egret" title="egret" rel="7">
+                				<a href="/tags.html#egret" title="egret" rel="4">
                                     egret
                                 </a>
                             
@@ -434,75 +449,27 @@ Gulp.js 是一个自动化构建工具，开发者可以使用它在项目开发
                             
         				
                             
-                				<a href="/tags.html#设计模式" title="设计模式" rel="2">
-                                    设计模式
-                                </a>
+        				
                             
         				
                             
-                				<a href="/tags.html#设计模式之蝉" title="设计模式之蝉" rel="2">
-                                    设计模式之蝉
-                                </a>
+        				
                             
         				
                             
-                				<a href="/tags.html#node.js" title="node.js" rel="2">
-                                    node.js
-                                </a>
+        				
                             
         				
                             
-                				<a href="/tags.html#跨屏互动" title="跨屏互动" rel="2">
-                                    跨屏互动
-                                </a>
+        				
                             
         				
                             
-                				<a href="/tags.html#gulp" title="gulp" rel="2">
-                                    gulp
-                                </a>
+        				
                             
         				
                             
-                				<a href="/tags.html#内存泄漏" title="内存泄漏" rel="2">
-                                    内存泄漏
-                                </a>
-                            
         				
-                            
-                				<a href="/tags.html#Node.js" title="Node.js" rel="2">
-                                    Node.js
-                                </a>
-                            
-        				
-                            
-                				<a href="/tags.html#electron" title="electron" rel="2">
-                                    electron
-                                </a>
-                            
-        				
-                            
-                				<a href="/tags.html#工作流" title="工作流" rel="2">
-                                    工作流
-                                </a>
-                            
-        				
-                            
-                				<a href="/tags.html#reactjs" title="reactjs" rel="2">
-                                    reactjs
-                                </a>
-                            
-        				
-                            
-                				<a href="/tags.html#微信" title="微信" rel="2">
-                                    微信
-                                </a>
-                            
-        				
-                            
-                				<a href="/tags.html#调试" title="调试" rel="2">
-                                    调试
-                                </a>
                             
         				
                             

@@ -10,9 +10,9 @@
 
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>新博客的搭建 - xsstomy</title>
+    <title>Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流 - xsstomy</title>
 
-    <link rel="canonical" href="http://xsstomy/articles/1.html">
+    <link rel="canonical" href="http://xsstomy/articles/17egret-workflow.html">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -130,17 +130,17 @@ var _hmt = _hmt || [];
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags.html#博客" title="博客">博客</a>
+                        <a class="tag" href="/tags.html#egret" title="egret">egret</a>
                         
-                        <a class="tag" href="/tags.html#Github Pages" title="Github Pages">Github Pages</a>
+                        <a class="tag" href="/tags.html#工作流" title="工作流">工作流</a>
                         
                     </div>
-                    <h1>新博客的搭建</h1>
+                    <h1>Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流</h1>
                     
                     
                     <h2 class="subheading"></h2>
                     
-                    <span class="meta">Posted by xsstomy on November 22, 2015</span>
+                    <span class="meta">Posted by xsstomy on July 17, 2016</span>
                 </div>
             </div>
         </div>
@@ -153,28 +153,258 @@ var _hmt = _hmt || [];
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
 
-				<p>前言<br />
-一直在折腾博客，从最开始的Typecho到WordPress到现在的Github Pages.自己买空间，买域名，折腾过好些次，但是总是感觉用着不习惯，网站打开速度慢，最近同事说把自己的博客迁移到了Github,编辑文章直接用Markdown编辑，简直各种爽。于是我又开始折腾起来了，最终有了新的博客，也有了这篇简单的教程。虽然把博客弄起了，但是还是折腾了大半天，我这里只讲解最简单粗暴的方法。闲话少说，正式开始。</p>
+				<h2 id="section">前言</h2>
 
-<p>操作步骤</p>
+<p>上周广州和深圳的白鹭开发者聚会，很遗憾没有时间参加，现在补这篇博客吧。这篇也算是继之前gulp的补充。</p>
+
+<blockquote>
+  <p>如果你的目标是打包runtime和使用官方打包成移动app的方式，那么这篇文章可能不是很适合你。当然也欢迎你阅读。</p>
+
+  <p>这里是打造个人个性的开发工作流，如果你喜欢折腾欢迎来尝试，毕竟官方的EgretWing 集成度已经是非常高的了。</p>
+</blockquote>
+
+<h2 id="section-1">需求</h2>
+
+<ol>
+  <li>发布代码的版本控制</li>
+  <li>代码编辑器个人偏好</li>
+  <li>egret命令有时候gg</li>
+</ol>
+
+<blockquote>
+  <p>工具说明：</p>
+
+  <p>​		sublime text 3 代码编辑</p>
+
+ 		iTerm2  终端工具<br />
+
+  <p>​		EgretWing2.5  UI编辑器，集成开发环境</p>
+
+  <p>​		ResDepot 资源编辑器</p>
+
+  <p>​		chrome 调试和预览工具</p>
+
+  <p>​		web pack 代码构建工具		</p>
+</blockquote>
+
+<h3 id="section-2">工作流配置</h3>
 
 <ol>
   <li>
-    <p>第一步建立仓库，建立Github pages。在<a href="https://github.com">Github</a>注册账号。然后创建一个公有(public)仓库，取名为username.github.io.(这里的username就是用户名，我的就是xsstomy了)。更具体的内容可以查看<a href="https://pages.github.com/">这里</a>。</p>
+    <p>sublime + egret + webpack + chrome + iTerm开发环境配置</p>
   </li>
   <li>
-    <p>建立模版，就是博客的模版，我这里非常的简单粗暴。因为是同事的<a href="http://blog.domlib.com/">博客</a>,看着挺简洁大方，是我喜欢的风格。我就直接download下来，然后修改了一番，直接上传到第一步中创建的仓库中。于是我的这边博客就建好了。</p>
+    <p>EgretWing2.5 + ResDepot UI编辑＋资源管理</p>
+
+    <p>​</p>
   </li>
 </ol>
 
-<p>说明</p>
+<h3 id="sublime-">sublime 插件配置</h3>
+
+<ul>
+  <li>https://github.com/Microsoft/TypeScript-Sublime-Plugin</li>
+  <li>https://github.com/jdc0589/JsFormat(保存代码自动格式化)</li>
+  <li>https://packagecontrol.io/packages/Seti_UI(主题看个人喜好)</li>
+</ul>
+
+<h3 id="sublimeiterm-">sublime+iTerm 视窗配置</h3>
+
+<p><img src="/uploads/2016/7/16/17/sublime+iTerm.png" alt="" /></p>
+
+<blockquote>
+  <p><a href="http://code.kpman.cc/2015/02/07/Sublime-%E8%88%87-iTerm-%E7%9A%84%E8%A6%96%E7%AA%97%E9%85%8D%E7%BD%AE/">sublime+iTerm</a></p>
+</blockquote>
+
+<h3 id="webpackegret-">webpack＋egret 改造项目</h3>
 
 <ol>
-  <li>在步骤2中，主要修改的地方，可以参考这里的<a href="https://github.com/Huxpro/huxpro.github.io">教程</a>。</li>
-  <li>因为之前没有弄过评论，小小的迷茫了一下，主要用的是<a href="http://duoshuo.com/">多说</a>，仔细看了下，还是挺简单方便的。</li>
-  <li>自定义域名，这里现成的教程比较多，我就直接帖下<a href="http://jingyan.baidu.com/article/3c343ff70fb6e60d3779632f.html">教程</a>。如果有缓存的话，多清理下就好了。</li>
+  <li>创建项目 </li>
+  <li>npm,git初始化</li>
+  <li>依赖库安装</li>
+  <li>webpack+tsconfig配置</li>
+  <li>修改原项目</li>
 </ol>
 
+<h4 id="section-3">1.创建项目</h4>
+
+<p>egret create web pack-egret - -type eui </p>
+
+<h4 id="npm-init--git-init">2. npm init &amp; git init</h4>
+
+<p>/webpack-egret    npm init </p>
+
+<p>/webpack-egret   git init </p>
+
+<h4 id="cnpm-install">3. cnpm install</h4>
+
+<p>package.json</p>
+
+<pre><code class="language-json">"devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.8.0",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-runtime": "^6.9.2",
+    "awesome-typescript-loader": "^0.15.10",
+    "http-server": "^0.9.0",
+    "strip-sourcemap-loader": "0.0.1",
+    "typescript": "^1.8.7",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0",
+    "webpack-validator": "^2.2.2",
+    "html-webpack-plugin": "^2.22.0"
+  }
+</code></pre>
+
+<h4 id="webpacktsconfig">4.webpack+tsconfig配置</h4>
+
+<p>tsconfig.json</p>
+
+<pre><code class="language-json">{
+   "compilerOptions": {
+      "target": "ES5",
+      "outDir": "bin-debug",
+      "sourceMap": true
+   },
+   "exclude": [
+      "bin-debug",
+      "bin-release",
+      "resource",
+      "node_modules",
+      "bower_components"
+   ]
+}
+</code></pre>
+
+<p>webpack.config.js</p>
+
+<pre><code class="language-javascript">var webpack = require('webpack');
+var path = require('path')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var paths = require('./webpack.paths')
+var loaders = require('./webpack.loaders')
+
+
+module.exports = {
+	entry: {
+		main: paths.app
+	},
+	resolve: {
+		root: paths.app,
+		extensions: ['', '.js', '.ts']
+	},
+	output: {
+		path: paths.build,
+		filename: 'bundle.js',
+		publicPath: 'build/'
+	},
+	devtool: 'eval-source-map',
+	devServer: {
+		historyApiFallback: true,
+		hot: true,
+		inline: true,
+		progress: true
+	},
+	module: {
+		loaders: loaders
+	},
+	plugins: [
+		new webpack.NoErrorsPlugin(),
+		new webpack.DefinePlugin({
+			BUILD_MODE: JSON.stringify('development')
+		})
+	]
+};
+</code></pre>
+
+<p>这里给出的webpack配置的不全，后面会给出整个项目的github地址</p>
+
+<pre><code class="language-html">...
+&lt;script src="libs/modules/egret/egret.min.js"&gt;&lt;/script&gt;
+&lt;script src="libs/modules/egret/egret.web.min.js"&gt;&lt;/script&gt;
+&lt;script src="libs/modules/game/game.min.js"&gt;&lt;/script&gt;
+&lt;script src="libs/modules/game/game.web.min.js"&gt;&lt;/script&gt;
+&lt;script src="libs/modules/tween/tween.min.js"&gt;&lt;/script&gt;
+&lt;script src="libs/modules/res/res.min.js"&gt;&lt;/script&gt;
+&lt;script src="build/bundle.js"&gt;&lt;/script&gt;
+...
+</code></pre>
+
+<h4 id="section-4">目录结构</h4>
+
+<pre><code>|----index.html
+|----src
+|    |---- Main.ts
+|    |---- LoadingUI.ts
+|    |----Configure.ts
+| 
+|----build
+|    
+|----libs
+|    |----modules
+|
+|----node_modules
+|
+|----resource
+|    |----assets
+|    |----config
+|    |----default.res.json
+|
+|----tsconfig.json
+|----package.json
+|----webpack.config.js
+|----webpack.loaders.js
+|----webpack.paths.js
+|----webpack.production.config.js
+</code></pre>
+
+<h2 id="section-5">开发</h2>
+
+<h2 id="npm-run-start">1.npm run start</h2>
+
+<blockquote>
+  <p>这样就不用egret命令啦。这里是热更新的，只需要修改代码，保存一下，然后在浏览器中刷新就可以看到最新的效果。</p>
+</blockquote>
+
+<p><img src="/uploads/2016/7/16/17/chrome+debug.png" alt="" /></p>
+
+<h2 id="npm-run-build">2. npm run build</h2>
+
+<blockquote>
+  <p>发布之后需要上传的目录结构</p>
+</blockquote>
+
+<pre><code>|----index.html
+|
+|----src
+|----build
+|----libs
+</code></pre>
+
+<blockquote>
+  <p>参考链接:</p>
+
+  <p><a href="http://code.kpman.cc/2015/02/07/Sublime-%E8%88%87-iTerm-%E7%9A%84%E8%A6%96%E7%AA%97%E9%85%8D%E7%BD%AE/">sublime+iterm</a></p>
+
+  <p><a href="http://bbs.egret.com/forum.php?mod=viewthread&amp;tid=17477&amp;highlight=webpack">webpack+egret</a></p>
+
+  <p><a href="https://github.com/jdc0589/JsFormat">sublime+jsFormat</a></p>
+
+  <p><a href="https://github.com/Microsoft/TypeScript-Sublime-Plugin">sublime+typescript</a></p>
+
+  <p><a href="http://zhaoda.net/webpack-handbook/index.html">webpack-cn</a></p>
+
+  <p><a href="https://webpack.github.io/docs/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=top">webpack</a></p>
+</blockquote>
+
+<p>推荐一下切图工具<a href="http://www.fancynode.com.cn/">pxcook</a></p>
+
+<p><img src="/uploads/mypictures/xsstomyzhifubao.png" alt="" /></p>
 
 
                 <hr>
@@ -184,11 +414,15 @@ var _hmt = _hmt || [];
                 </style>
                 <div class="ds-share"
                     style="text-align: right"
-                    data-thread-key="1" data-title="新博客的搭建"
+                    data-thread-key="17" data-title="Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流"
                     data-images="http://xsstomy/img/home-bg.jpg"
                     data-content="前言
-一直在折腾博客，从最开始的Typecho到WordPress到现在的Github Pages.自己买空间，买域名，折腾过好些次，但是总是感觉用着不习... | @xsstomy 的个人博客"
-                    data-url="http://xsstomy/articles/1.html">
+
+上周广州和深圳的白鹭开发者聚会，很遗憾没有时间参加，现在补这篇博客吧。这篇也算是继之前gulp的补充。
+
+
+  如果你的目标是打包runtime和... | @xsstomy 的个人博客"
+                    data-url="http://xsstomy/articles/17egret-workflow.html">
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -207,9 +441,13 @@ var _hmt = _hmt || [];
 
                 <ul class="pager">
                     
+                    <li class="previous">
+                        <a href="/articles/16-electron.html" data-toggle="tooltip" data-placement="top" title="electron环境搭建到项目发布">&larr; Previous Post</a>
+                    </li>
+                    
                     
                     <li class="next">
-                        <a href="/articles/2.html" data-toggle="tooltip" data-placement="top" title="Egret赛车游戏之准备工作">Next Post &rarr;</a>
+                        <a href="/articles/20160813android-weixin-debug.html" data-toggle="tooltip" data-placement="top" title="手机微信端调试">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -218,7 +456,7 @@ var _hmt = _hmt || [];
                 
                 <!-- 多说评论框 start -->
                 <div class="comment">
-                    <div class="ds-thread" data-thread-key="1" data-title="新博客的搭建" data-url="http://xsstomy/articles/1.html"></div>
+                    <div class="ds-thread" data-thread-key="17" data-title="Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流" data-url="http://xsstomy/articles/17egret-workflow.html"></div>
                 </div>
                 <!-- 多说评论框 end -->
                 

@@ -10,9 +10,9 @@
 
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>新博客的搭建 - xsstomy</title>
+    <title>electron环境搭建到项目发布 - xsstomy</title>
 
-    <link rel="canonical" href="http://xsstomy/articles/1.html">
+    <link rel="canonical" href="http://xsstomy/articles/16-electron.html">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -130,17 +130,15 @@ var _hmt = _hmt || [];
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags.html#博客" title="博客">博客</a>
-                        
-                        <a class="tag" href="/tags.html#Github Pages" title="Github Pages">Github Pages</a>
+                        <a class="tag" href="/tags.html#electron" title="electron">electron</a>
                         
                     </div>
-                    <h1>新博客的搭建</h1>
+                    <h1>electron环境搭建到项目发布</h1>
                     
                     
                     <h2 class="subheading"></h2>
                     
-                    <span class="meta">Posted by xsstomy on November 22, 2015</span>
+                    <span class="meta">Posted by xsstomy on March 6, 2016</span>
                 </div>
             </div>
         </div>
@@ -153,28 +151,53 @@ var _hmt = _hmt || [];
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
 
-				<p>前言<br />
-一直在折腾博客，从最开始的Typecho到WordPress到现在的Github Pages.自己买空间，买域名，折腾过好些次，但是总是感觉用着不习惯，网站打开速度慢，最近同事说把自己的博客迁移到了Github,编辑文章直接用Markdown编辑，简直各种爽。于是我又开始折腾起来了，最终有了新的博客，也有了这篇简单的教程。虽然把博客弄起了，但是还是折腾了大半天，我这里只讲解最简单粗暴的方法。闲话少说，正式开始。</p>
+				<h2 id="section">前言</h2>
+<p>最近了解到electron，于是去简单的研究了一下。网上找个详细的教程，没有找到比较全的，然后就把整个流程简单的记录一下，方便需要的人。</p>
 
-<p>操作步骤</p>
+<h2 id="section-1">环境搭建</h2>
+<p>笔者这里使用的Mac，osx 10.11.3 ，在安装electron环境之前，确保本机已经安装<strong>Node.js</strong>,<strong>Git</strong>并确保尽可能的是最新的版本。笔者这里的Node版本4.2.2，Git版本2.5.4。</p>
 
-<ol>
-  <li>
-    <p>第一步建立仓库，建立Github pages。在<a href="https://github.com">Github</a>注册账号。然后创建一个公有(public)仓库，取名为username.github.io.(这里的username就是用户名，我的就是xsstomy了)。更具体的内容可以查看<a href="https://pages.github.com/">这里</a>。</p>
-  </li>
-  <li>
-    <p>建立模版，就是博客的模版，我这里非常的简单粗暴。因为是同事的<a href="http://blog.domlib.com/">博客</a>,看着挺简洁大方，是我喜欢的风格。我就直接download下来，然后修改了一番，直接上传到第一步中创建的仓库中。于是我的这边博客就建好了。</p>
-  </li>
-</ol>
+<h3 id="section-2">1.切换镜像</h3>
+<p>按照官方的教程，是无法正常运行的这里，我们需要使用一下淘宝的镜像(<a href="http://npm.taobao.org/">这里感谢淘宝</a>)。这里我们在终端执行以下命令：</p>
 
-<p>说明</p>
+<pre><code>npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre>
 
-<ol>
-  <li>在步骤2中，主要修改的地方，可以参考这里的<a href="https://github.com/Huxpro/huxpro.github.io">教程</a>。</li>
-  <li>因为之前没有弄过评论，小小的迷茫了一下，主要用的是<a href="http://duoshuo.com/">多说</a>，仔细看了下，还是挺简单方便的。</li>
-  <li>自定义域名，这里现成的教程比较多，我就直接帖下<a href="http://jingyan.baidu.com/article/3c343ff70fb6e60d3779632f.html">教程</a>。如果有缓存的话，多清理下就好了。</li>
-</ol>
+<h3 id="electron">2.安装electron</h3>
 
+<p>在终端执行以下命令</p>
+
+<pre><code>cnpm install electron-prebuilt -g
+</code></pre>
+
+<h3 id="section-3">3.获取官方实例</h3>
+<p>在终端执行以下命令或者直接到<a href="https://github.com/atom/electron-quick-start">https://github.com/atom/electron-quick-start</a>下载整个项目</p>
+
+<pre><code>git clone https://github.com/atom/electron-quick-start
+</code></pre>
+
+<h2 id="section-4">发布项目</h2>
+
+<h3 id="section-5">1.安装打包工具</h3>
+<p>因为我们需要将我们的源代码进行混淆打包，免得别人看到源码。我们在终端执行</p>
+
+<pre><code>npm install -g asar
+</code></pre>
+
+<h3 id="section-6">2.打包项目</h3>
+
+<p>命令 <code>asar pack|p [options] &lt;dir&gt; &lt;output&gt; </code></p>
+
+<p>这里在终端进到刚才下载的官方例子文件夹外,执行以下命令：</p>
+
+<pre><code>asar p electron-quick-start app
+</code></pre>
+
+<p>然后修改打包后的文件后缀，修改为app.asar。这里说明的是一定要以app为打包文件名称。打包之后然后到<a href="https://github.com/atom/electron/releases">https://github.com/atom/electron/releases</a>。笔者这里是Mac系统，下载的是electron-v0.36.10-darwin-x64.zip。解压，把app.asar拷贝到<code>Electron.app/Contents/Resources/resource</code>下,其它的不要做任何修改,到此算是完成源代码打包。</p>
+
+<p>还有修改应用名称，icon待续。。。</p>
+
+<p><img src="/uploads/mypictures/xsstomyzhifubao.png" alt="" /></p>
 
 
                 <hr>
@@ -184,11 +207,13 @@ var _hmt = _hmt || [];
                 </style>
                 <div class="ds-share"
                     style="text-align: right"
-                    data-thread-key="1" data-title="新博客的搭建"
+                    data-thread-key="16" data-title="electron环境搭建到项目发布"
                     data-images="http://xsstomy/img/home-bg.jpg"
                     data-content="前言
-一直在折腾博客，从最开始的Typecho到WordPress到现在的Github Pages.自己买空间，买域名，折腾过好些次，但是总是感觉用着不习... | @xsstomy 的个人博客"
-                    data-url="http://xsstomy/articles/1.html">
+最近了解到electron，于是去简单的研究了一下。网上找个详细的教程，没有找到比较全的，然后就把整个流程简单的记录一下，方便需要的人。
+
+环境搭建... | @xsstomy 的个人博客"
+                    data-url="http://xsstomy/articles/16-electron.html">
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -207,9 +232,13 @@ var _hmt = _hmt || [];
 
                 <ul class="pager">
                     
+                    <li class="previous">
+                        <a href="/articles/15.html" data-toggle="tooltip" data-placement="top" title="查找Node.js中JavaScript内存泄漏的简单教程">&larr; Previous Post</a>
+                    </li>
+                    
                     
                     <li class="next">
-                        <a href="/articles/2.html" data-toggle="tooltip" data-placement="top" title="Egret赛车游戏之准备工作">Next Post &rarr;</a>
+                        <a href="/articles/17egret-workflow.html" data-toggle="tooltip" data-placement="top" title="Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -218,7 +247,7 @@ var _hmt = _hmt || [];
                 
                 <!-- 多说评论框 start -->
                 <div class="comment">
-                    <div class="ds-thread" data-thread-key="1" data-title="新博客的搭建" data-url="http://xsstomy/articles/1.html"></div>
+                    <div class="ds-thread" data-thread-key="16" data-title="electron环境搭建到项目发布" data-url="http://xsstomy/articles/16-electron.html"></div>
                 </div>
                 <!-- 多说评论框 end -->
                 

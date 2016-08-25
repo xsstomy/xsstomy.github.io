@@ -5,9 +5,122 @@
     <description></description>
     <link>http://xsstomy/</link>
     <atom:link href="http://xsstomy/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 16 Jul 2016 21:43:37 +0800</pubDate>
-    <lastBuildDate>Sat, 16 Jul 2016 21:43:37 +0800</lastBuildDate>
+    <pubDate>Thu, 25 Aug 2016 12:33:02 +0800</pubDate>
+    <lastBuildDate>Thu, 25 Aug 2016 12:33:02 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>半年总结</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;做完手术之后就一直处于萎靡状态，博客都停了，然后不知不觉2016已经过去了一半多。出来工作之后，总感觉时间过的飞快，一不小心半年过去了，然后一不小心又到年底了。年龄渐长，跟着而来的各种事情(年龄到了，大家都懂的)都来了。不过现在心态还好，事情来了，遇到问题想办法解决就好。这里强烈推荐大家去看一下&lt;a href=&quot;http://open.163.com/movie/2006/1/1/9/M6HV755O6_M6HV8DF19.html&quot;&gt;积极心理学&lt;/a&gt;,真的是非常棒的课程。写这篇博客的原因是看到了别人的半年总结，然后又翻了一下自己年初的计划，发现好多事情都跟不上计划，于是想重新调整一下计划，下面就总结一下上半年的事情和下半年事情的调整。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;上半年事情概述&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;4月回武汉买房&lt;/li&gt;
+  &lt;li&gt;4月辞职离开北京白鹭时代&lt;/li&gt;
+  &lt;li&gt;4月回老家做手术&lt;/li&gt;
+  &lt;li&gt;5月在家修养一个月&lt;/li&gt;
+  &lt;li&gt;6月出来做事至今&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;买房是因为看到房价飞涨，怕以后连房子都买不起，15年二胎政策出来的时候就预测房价一定会上涨，但是由于自己内心不坚定，导致多花不少钱买房。以后做事，认准了就要坚持去做，免得后悔。&lt;/li&gt;
+  &lt;li&gt;离开北京是因为北京空气和房价，压力太大了，再加上自己身体，在北京生活不习惯，然后就选择离开了北京。心里还是非常喜欢北京的同事的，喜欢那种工作氛围。&lt;/li&gt;
+  &lt;li&gt;回家手术就是因为身体原因了。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;2016年上半年计划&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/31/11/2016.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;mvc结构没有整理，到最近熟悉单向数据流的时候，才有了更深刻的认识。&lt;/li&gt;
+  &lt;li&gt;数据每月买几本，但是看的好像还真不多，准备列一下书单，每读完一本书写写总结。&lt;硅谷传奇&gt; &lt;浪潮之巅&gt; &lt;摄影构图学&gt;&lt;/摄影构图学&gt;&lt;/浪潮之巅&gt;&lt;/硅谷传奇&gt;&lt;/li&gt;
+  &lt;li&gt;3d学习了一段时间，现在完全忘记了，也没有做相关的整理记录。“巧秀才跟不得烂笔头”这句话果然是真理。&lt;/li&gt;
+  &lt;li&gt;由于五月在家休养，直到现在才纯纯的做reactjs开发。才熟悉webpack,reactjs等相关知识。&lt;/li&gt;
+  &lt;li&gt;UI 学习自然是落下了。来到广州，前期一直处于加班状态。然后周末也重新捡起每周一次出去拍摄，技术方面的学习就自然落下了。中间一直在学习摄影和简单的后期，摄影技术和后期有一点点的增长。健身也重新捡起来了，每个一天锻炼一次，做it的还是需要有一个好的身体，其实做任何事情都需要一个好的健康的身体。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;现在越来越注重生活，工作并不是生活的全部。每周必然出去走一走晒晒太阳，因为每周上班都是呆在办公室，空调下，完全不怎么见太阳。出去的时候，一般带着相机到广州有名的建筑或者旅游景点逛一逛，还是非常不错的。有时候也参加一下知乎群的活动，认识一下新朋友，毕竟离开了熟悉的圈子，需要建立新的交际圈，认识新的朋友。&lt;/p&gt;
+
+&lt;p&gt;经过上半年的计划和所做的事情，发现还是主抓1-2件事情，不要超过三件事情，要不然人会非常的累和疲惫，反而不易于事情做成。建议是计划1到2件主要的事情，坚持的做下去。偶尔中间穿插一下其它的事情。每周至少一天完全的休闲，不做任何工作相关的事情。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;2016年下半年计划&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;英语雅思的考试准备(主)&lt;/li&gt;
+  &lt;li&gt;摄影学习(主)&lt;/li&gt;
+  &lt;li&gt;绘画(副)&lt;/li&gt;
+  &lt;li&gt;python(副)&lt;/li&gt;
+  &lt;li&gt;坚持锻炼身体，例行公事(就像每天早上起来刷牙一样的事情)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 17 Aug 2016 10:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/20160817summraze-six-months.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/20160817summraze-six-months.html</guid>
+        
+        <category>总结</category>
+        
+        <category>2016</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>手机微信端调试</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近使用reactjs开发单页应用，主要使用reactjs + webpack + redux + es2015(es6),因为使用了es2015 ，由于兼容性的问题，遇到一次比较坑的爬坑经历。情况是这样的，发布单页过后，在苹果手机微信中打开都是正常，在其他浏览器(chrome,safari)也是正常的；在安卓微信中都打不开,但是在chrome,qq浏览器也是正常的。当时就懵逼了，当时心里的状态是这样的，我靠，这是尼玛什么情况。没有办法，只能找办法调试解决了，但是要调试微信中的啊，其它浏览器中都是正常的啊，这时真是尴尬，完全不知道该如何调试手机端的微信(求心里阴影面积)。因为只在微信中出现，chrome中是正常的，那就不能使用chrome 调试方式了。这里是电脑调试手机端chrome方式&lt;a href=&quot;https://developers.google.com/web/tools/chrome-devtools/debug/remote-debugging/remote-debugging&quot;&gt;谷歌官方文档&lt;/a&gt;，再贴一个中文的&lt;a href=&quot;&quot;&gt;文档教程&lt;/a&gt;。最后找到微信web 开发者工具，最终调试成功。最终调试才知道是Object.assign 的兼容性问题，最后使用了&lt;a href=&quot;https://www.npmjs.com/package/object-assign&quot;&gt;object-assign&lt;/a&gt; 来解决兼容性的问题。下面来写一下这一次的详细调试过程。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;调试工具&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mp.weixin.qq.com/wiki/10/e5f772f4521da17fa0d7304f68b97d7e.html&quot;&gt;微信web开发者工具&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;安卓手机一部&lt;/li&gt;
+  &lt;li&gt;主要用到x5 blink 内核调试方式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;步骤&lt;/h2&gt;
+
+&lt;p&gt;1.前面的可以看官方的文档,按照微信官方文档中的准备工作做好，然后把安卓手机微信中X5 blink 的设置也设置好。然后分别重启手机中的微信和pc的微信web开发者工具。(这里被坑了一下，开始的时候死活不能调试，分别重启了一下手机和web开发者工具就可以调试了)&lt;/p&gt;
+
+&lt;p&gt;这里是微信的开始调试之前的准备工作步骤，&lt;a href=&quot;https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1455784140&amp;amp;token=&amp;amp;lang=zh_CN&quot;&gt;微信官方文档地址&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/08/13/weixin-debug-ready.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这里贴一张我这里未开始调试的图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/08/13/debug-start.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.开始调试，请确保手机和微信web开发者工具都配置好，然后在web开发者工具中，选择X5 blink 调试， 然后就会弹出一个界面(移动调试，设备列表)， 如下图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/08/13/weixin-debug-start.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这里是官方文档的图。&lt;/p&gt;
+
+&lt;p&gt;因为我这里没有安卓手机，所以只能先大概的文字描述一下。会有三种调试方式，一个chrome调试方式，一个是X5  blink调试方式，一个是代理的调试方式。这里我们要用的是X5 blink 调试。点击com.tencent.mm 下面的网页inspect，这时候我们就可以调试手机端的微信里面页面了，直接源码调试，可以查看各种源码了，还可以断点调试。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/2016/08/13/weixin-debug-debuging.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;调试到这里基本就结束了，主要是调试的方式，微信web开发者工具还是不错的，可以直接远程调试手机端微信里面的网页了，不像以前只能alert调试，想想就好伤痛。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 14 Aug 2016 04:28:39 +0800</pubDate>
+        <link>http://xsstomy/articles/20160813android-weixin-debug.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/20160813android-weixin-debug.html</guid>
+        
+        <category>reactjs</category>
+        
+        <category>微信</category>
+        
+        <category>调试</category>
+        
+        
+      </item>
     
       <item>
         <title>Sublime+iTerm2+EgretWing2.5+Webpack+ResDepot+chrome个人工作流</title>
@@ -265,8 +378,8 @@ module.exports = {
 &lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 17 Jul 2016 21:28:39 +0800</pubDate>
-        <link>http://xsstomy/articles/17.html</link>
-        <guid isPermaLink="true">http://xsstomy/articles/17.html</guid>
+        <link>http://xsstomy/articles/17egret-workflow.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/17egret-workflow.html</guid>
         
         <category>egret</category>
         
@@ -326,8 +439,8 @@ module.exports = {
 &lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 06 Mar 2016 04:28:39 +0800</pubDate>
-        <link>http://xsstomy/articles/16.html</link>
-        <guid isPermaLink="true">http://xsstomy/articles/16.html</guid>
+        <link>http://xsstomy/articles/16-electron.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/16-electron.html</guid>
         
         <category>electron</category>
         
@@ -1925,974 +2038,6 @@ factorial(100000)
         <category>ES2015</category>
         
         <category>ES6</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>使用TypeScript编写React</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;缘由&lt;/h2&gt;
-&lt;p&gt;最近在业余学习React，本身接触的egret一年多了，接触TypeScript时间还算有段时间，非常喜欢TypeScript。学习了TypeScript 就再也不想写JavaScript了。看了找了好些教程都是直接用JavaScript来写React,比较痛苦。今天找到了一篇比较好的教程。于是就想翻译一下，这里是&lt;a href=&quot;http://blog.wolksoftware.com/working-with-react-and-typescript&quot;&gt;原始博客链接&lt;/a&gt;，于是就有了这篇博客。&lt;/p&gt;
-
-&lt;p&gt;简单的介绍使用TypeScript 和 Atom 来开发 React 应用。&lt;/p&gt;
-
-&lt;p&gt;我们准备从 TodoMVC 项目开始，使用React 和 TypeScript 来开发著名的TODO App.&lt;br /&gt;
-&lt;img src=&quot;/uploads/2015/12/17/9/7yjwysnxnekg_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;在这篇文章中你将学习到如下内容：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1.搭建开发环境&lt;/li&gt;
-  &lt;li&gt;2.设置项目&lt;/li&gt;
-  &lt;li&gt;3.React 基础组件&lt;/li&gt;
-  &lt;li&gt;4.使用TypeScript 开发 React组件&lt;/li&gt;
-  &lt;li&gt;5.编译应用&lt;/li&gt;
-  &lt;li&gt;6.运行应用&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;搭建开发环境&lt;/h2&gt;
-&lt;p&gt;我们将开始搭建开发环境&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;下载并安装node.js &lt;a href=&quot;https://nodejs.org/en/&quot;&gt;https://nodejs.org/en/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;使用npm 安装 TypeScript&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;$ npm install -g typescript tsd&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;说明:如果你使用的是OSX系统，请在命令行前面加上 sudo&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;下载并安装 Atom &lt;a href=&quot;https://atom.io/&quot;&gt;https://atom.io/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/poybtywe40rjbq_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;为Atom安装 atom-typescript插件&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;$ apm install atom-typescript&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;这个插件有一些很酷的功能，如HTML 转换成 TSX：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/livogugozhshlq_retina.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;或依赖视图：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/bontsmxoxxadda_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;如果你感兴趣，请到&lt;a href=&quot;https://github.com/TypeStrong/atom-typescript&quot;&gt;project’s page on Github&lt;/a&gt;查看该插件更多的功能。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;安装&lt;a href=&quot;https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en&quot;&gt;React的谷歌开发插件&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;这个插件方便我们调试React应用 可以查看属性值和所选组件的状态。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/td99h20vs5yzq_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section-2&quot;&gt;设置项目&lt;/h2&gt;
-&lt;p&gt;到本教程结束时，该项目的结构类似下面的一个：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;让我们从创建应用的根目录开始&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ mkdir typescript-react
-$ cd typescript-react
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;然后在项目的根目录里面创建 &lt;code&gt;package.json&lt;/code&gt; 文件&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-	private: true,
-  	dependencies: {
-    director: &quot;^1.2.0&quot;,
-    react: &quot;^0.13.3&quot;,
-    todomvc-app-css: &quot;^2.0.0&quot;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;再然后你可以使用npm来安装项目所依赖的文件&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// 在项目的根目录文件
-$ npm install
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这个命令会在项目的根目录生成一个&lt;code&gt;node_modules&lt;/code&gt;文件夹，在&lt;code&gt;node_modules&lt;/code&gt;文件夹下会包含有三个文件，分别是&lt;code&gt;director&lt;/code&gt;,&lt;code&gt;react&lt;/code&gt;和&lt;code&gt;todomvc-app-css&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;我们现在开始安装一些TypeScript类型定义文件&lt;/p&gt;
-
-&lt;p&gt;类型定义文件通常用于定义公用的第三方库文件API接口，比如React。在一些IDE中使用TypeScript开发应用，IDE可以通过这些接口提供一些代码提示，方便项目的开发。&lt;/p&gt;
-
-&lt;p&gt;类型定义文件也用于编译器来确保我们正确地使用第三方库。&lt;/p&gt;
-
-&lt;p&gt;我们现在需要React 的类型定义文件，我们可以通过下面的命令来创建他们。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;//在应用的根目录
-$ tsd init
-$ tsd install react --save
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;以上命令会在应用的根目录创建一个	&lt;code&gt;tsd.json&lt;/code&gt;文件和 &lt;code&gt;typings&lt;/code&gt;文件夹，在&lt;code&gt;typings&lt;/code&gt;文件夹中包含&lt;code&gt;react&lt;/code&gt;文件夹&lt;/p&gt;
-
-&lt;p&gt;我们也需要&lt;a href=&quot;https://raw.githubusercontent.com/borisyankov/DefinitelyTyped/master/react/react-global.d.ts&quot;&gt;下载&lt;/a&gt;然后取名为&lt;code&gt;global.d.ts&lt;/code&gt;保存到&lt;code&gt;typings/react&lt;/code&gt;文件夹下。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;我们现在到应用根目录创建&lt;code&gt;index.html&lt;/code&gt;文件&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
-&amp;lt;html lang=&quot;en&quot; data-framework=&quot;typescript&quot;&amp;gt;
-  &amp;lt;head&amp;gt;
-    &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;
-    &amp;lt;title&amp;gt;React • TodoMVC&amp;lt;/title&amp;gt;
-    &amp;lt;link rel=&quot;stylesheet&quot; 
-          href=&quot;node_modules/todomvc-common/base.css&quot;&amp;gt;
-    &amp;lt;link rel=&quot;stylesheet&quot; 
-          href=&quot;node_modules/todomvc-app-css/index.css&quot;&amp;gt;
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body&amp;gt;
-    &amp;lt;section class=&quot;todoapp&quot;&amp;gt;&amp;lt;/section&amp;gt;
-    &amp;lt;footer class=&quot;info&quot;&amp;gt;
-      &amp;lt;p&amp;gt;Double-click to edit a todo&amp;lt;/p&amp;gt;
-      &amp;lt;p&amp;gt;
-        Created by 
-        &amp;lt;a href=&quot;http://github.com/remojansen/&quot;&amp;gt;Remo H. Jansen&amp;lt;/a&amp;gt;
-      &amp;lt;/p&amp;gt;
-      &amp;lt;p&amp;gt;Part of &amp;lt;a href=&quot;http://todomvc.com&quot;&amp;gt;TodoMVC&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
-    &amp;lt;/footer&amp;gt;
-    &amp;lt;script type=&quot;text/javascript&quot; 
-            src=&quot;node_modules/react/dist/react-with-addons.js&quot;&amp;gt;
-    &amp;lt;/script&amp;gt;
-    &amp;lt;script type=&quot;text/javascript&quot; 
-            src=&quot;node_modules/director/build/director.js&quot;&amp;gt;
-    &amp;lt;/script&amp;gt;
-    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/constants.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/utils.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/todoModel.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/todoItem.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/footer.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/app.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;此时，你的应用目录结构应该是这样的&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;你可能注意到在&lt;code&gt;index.html&lt;/code&gt;文件中有些JavaScript文件是缺少的，我们接下来将解决这个问题。&lt;/p&gt;
-
-&lt;h2 id=&quot;react-&quot;&gt;React 基础组件&lt;/h2&gt;
-
-&lt;p&gt;组件是React的主要应用程序块，一个组件表示一个自包含的用户界面，组件通常会显示一些数据，并且能够处理一些用户交互。&lt;/p&gt;
-
-&lt;p&gt;组件可以包含子组件。我们即将开发的应用程序是非常小的，所以我们只会开发一个顶级组件取名TodoApp。&lt;/p&gt;
-
-&lt;p&gt;TodoApp 组件将有多个组件组成，包含一个TodoFooter组件和一些TodoItem组件。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/plmlol7n2cfq_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;组件区分不同的数据集：&lt;strong&gt;属性和状态&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h4 id=&quot;section-3&quot;&gt;属性&lt;/h4&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;属性（短的属性）是一个组件的配置，它的选项，如果你可以。它们是从上面接收到的，并且是不可改变的，因为接收它们的组件是有关的。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;组件不能更改其属性，但它负责将其子组件的属性放在一起。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;section-4&quot;&gt;状态&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;该状态从一个组件安装时开始，并在时间（主要是用户事件产生的情况下）遭受突变。这是一个序列化表示在时间快照一点&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;组件管理其自己的内部，除了设置初始状态与它的孩子的状态不改。你可以说内部是私有的。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;当我们使用TypeScript定义一个新的React组件的时候，我们必须申明接口的属性和状态，如下:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class SomeComponent extends React.Component&amp;lt;ISomeComponentProps, ISomeComponentState&amp;gt; {
-  // ...
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;现在，我们有我们的项目结构的地方，我们知道的基本知识，现在开始开发我们的组件。&lt;/p&gt;
-
-&lt;h2 id=&quot;typescript--react&quot;&gt;使用TypeScript 开发 React组件&lt;/h2&gt;
-
-&lt;p&gt;我们在应用根目录下创建一个名为js的文件夹，然后我们将创建如下图的目录结构文件&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;当我们创建完成之后，我们可以随意的修改它们。&lt;/p&gt;
-
-&lt;h4 id=&quot;interfacesdts&quot;&gt;interfaces.d.ts&lt;/h4&gt;
-
-&lt;p&gt;我们将把我们应用中的所有接口都定义在此文件中。我们使用的扩展。d.ts（这也是由类型定义文件使用）代替。TS因为这个文件不会编译成为JavaScript文件。在我们编程过程中，此文件不会被编译，因为TypeScript接口不会编译成JavaScript。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// Defines the interface of the structure of a task
-interface ITodo {
-  id: string,
-  title: string,
-  completed: boolean
-}
-
-
-// Defines the interface of the properties of the TodoItem component
-interface ITodoItemProps {
-  key : string,
-  todo : ITodo;
-  editing? : boolean;
-  onSave: (val: any) =&amp;gt; void;
-  onDestroy: () =&amp;gt; void;
-  onEdit: ()  =&amp;gt; void;
-  onCancel: (event : any) =&amp;gt; void;
-  onToggle: () =&amp;gt; void;
-}
-
-
-// Defines the interface of the state of the TodoItem component
-interface ITodoItemState {
-  editText : string
-}
-
-
-// Defines the interface of the properties of the Footer component
-interface ITodoFooterProps {
-  completedCount : number;
-  onClearCompleted : any;
-  nowShowing : string;
-  count : number;
-}
-
-// Defines the TodoModel interface
-interface ITodoModel {
-  key : any;
-  todos : Array&amp;lt;ITodo&amp;gt;;
-  onChanges : Array&amp;lt;any&amp;gt;;
-  subscribe(onChange);
-  inform();
-  addTodo(title : string);
-  toggleAll(checked);
-  toggle(todoToToggle);
-  destroy(todo);
-  save(todoToSave, text);
-  clearCompleted();
-}
-
-// Defines the interface of the properties of the App component
-interface IAppProps {
-  model : ITodoModel;
-}
-
-// Defines the interface of the state of the App component
-interface IAppState {
-  editing? : string;
-  nowShowing? : string
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;section-5&quot;&gt;常量&lt;/h4&gt;
-
-&lt;p&gt;这个文件用于定义一些常量。通常用于保存一些键盘的常量和一些事件。&lt;/p&gt;
-
-&lt;p&gt;我们也可以用一些值来区分一些任务的当前状态:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;COMPLETED_TODOS 用于完成任务时&lt;/li&gt;
-  &lt;li&gt;ACTIVE_TODOS 用于没有完成任务时&lt;/li&gt;
-  &lt;li&gt;ALL_TODOS 用于显示所有任务时使用&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;namespace app.constants {
-  export var ALL_TODOS = &#39;all&#39;;
-  export var ACTIVE_TODOS = &#39;active&#39;;
-  export var COMPLETED_TODOS = &#39;completed&#39;;
-  export var ENTER_KEY = 13;
-  export var ESCAPE_KEY = 27;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;section-6&quot;&gt;实用工具&lt;/h4&gt;
-
-&lt;p&gt;这个文件包含一个叫&lt;code&gt;Utils&lt;/code&gt;的类。这个类不仅仅包含是一些静态方法。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;namespace app.miscelanious {
-
-  export class Utils {
-
-    // generates a new Universally unique identify (UUID) 
-    // the UUID is used to identify each of the tasks
-    public static uuid() : string {
-      /*jshint bitwise:false */
-      var i, random;
-      var uuid = &#39;&#39;;
-
-      for (i = 0; i &amp;lt; 32; i++) {
-        random = Math.random() * 16 | 0;
-        if (i === 8 || i === 12 || i === 16 || i === 20) {
-          uuid += &#39;-&#39;;
-        }
-        uuid += (i === 12 ? 4 : (i === 16 ? (random &amp;amp; 3 | 8) : random))
-          .toString(16);
-      }
-
-      return uuid;
-    }
-
-    // adds &#39;s&#39; to the end of a given world when count &amp;gt; 1
-    public static pluralize(count, word) {
-      return count === 1 ? word : word + &#39;s&#39;;
-    }
-
-    // stores data using the localStorage API
-    public static store(namespace, data?) {
-      if (data) {
-        return localStorage.setItem(namespace, JSON.stringify(data));
-      }
-
-      var store = localStorage.getItem(namespace);
-      return (store &amp;amp;&amp;amp; JSON.parse(store)) || [];
-    }
-
-    // just a helper for inheritance
-    public static extend(...objs : any[]) : any {
-      var newObj = {};
-      for (var i = 0; i &amp;lt; objs.length; i++) {
-        var obj = objs[i];
-        for (var key in obj) {
-          if (obj.hasOwnProperty(key)) {
-            newObj[key] = obj[key];
-          }
-        }
-      }
-      return newObj;
-    }
-
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;section-7&quot;&gt;模型&lt;/h4&gt;
-
-&lt;p&gt;TodoModel 是一个通用 “model” 对象。由于这个应用程序是非常小的，它甚至可能不值得把这个逻辑分开，但我们这样做是为了演示一种方式来分离你的应用程序的部分。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/// &amp;lt;reference path=&quot;../typings/react/react-global.d.ts&quot; /&amp;gt;
-/// &amp;lt;reference path=&quot;./interfaces.d.ts&quot;/&amp;gt;
-
-namespace app.models {
-
-  export class TodoModel implements ITodoModel {
-
-    public key : string;            // key used for local storage
-    public todos : Array&amp;lt;ITodo&amp;gt;;    // a list of tasks
-    public onChanges : Array&amp;lt;any&amp;gt;;  // a list of events
-
-    constructor(key) {
-      this.key = key;
-      this.todos = app.miscelanious.Utils.store(key);
-      this.onChanges = [];
-    }
-
-    // the following are some methods 
-    // used to manipulate the list of tasks
-
-    public subscribe(onChange) {
-      this.onChanges.push(onChange);
-    }
-
-    public inform() {
-      app.miscelanious.Utils.store(this.key, this.todos);
-      this.onChanges.forEach(function (cb) { cb(); });
-    }
-
-    public addTodo(title : string) {
-      this.todos = this.todos.concat({
-        id: app.miscelanious.Utils.uuid(),
-        title: title,
-        completed: false
-      });
-
-      this.inform();
-    }
-
-    public toggleAll(checked) {
-      // Note: it&#39;s usually better to use immutable 
-      // data structures since they&#39;re easier to 
-      // reason about and React works very 
-      // well with them. That&#39;s why we use 
-      // map() and filter() everywhere instead of 
-      // mutating the array or todo items themselves.
-      this.todos = this.todos.map&amp;lt;ITodo&amp;gt;((todo : ITodo) =&amp;gt; {
-        return app.miscelanious.Utils.extend(
-          {}, todo, {completed: checked}
-        );
-      });
-
-      this.inform();
-    }
-
-    public toggle(todoToToggle) {
-      this.todos = this.todos.map&amp;lt;ITodo&amp;gt;((todo : ITodo) =&amp;gt; {
-        return todo !== todoToToggle ?
-          todo :
-          app.miscelanious.Utils.extend(
-            {}, todo, {completed: !todo.completed}
-          );
-      });
-
-      this.inform();
-    }
-
-    public destroy(todo) {
-      this.todos = this.todos.filter(function (candidate) {
-        return candidate !== todo;
-      });
-
-      this.inform();
-    }
-
-    public save(todoToSave, text) {
-      this.todos = this.todos.map(function (todo) {
-        return todo !== todoToSave ? todo : app.miscelanious.Utils.extend({}, todo, {title: text});
-      });
-
-      this.inform();
-    }
-
-    public clearCompleted() {
-      this.todos = this.todos.filter(function (todo) {
-        return !todo.completed;
-      });
-
-      this.inform();
-    }
-  }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;section-8&quot;&gt;页脚&lt;/h4&gt;
-
-&lt;p&gt;这个文件使用&lt;code&gt;.tsx&lt;/code&gt;扩展代替&lt;code&gt;.ts&lt;/code&gt;,因为它包含一些TSX 代码。&lt;/p&gt;
-
-&lt;p&gt;TSX 是 JSX的一种超集。我们将使用TSX代替客户端HTML模板因为TSX和JSX是用来生成一个在DOM状态存储。当组件的属性或者状态发生变化时，React会从最有效率的方式去更新DOM状态存储，并且同时把这些改变及时应用于DOM的真实展现。这个过程React非常高效的及时更新DOM内容。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;说明：我们需要一些额外的编译选项来编译&lt;code&gt;.tsx&lt;/code&gt;文件。我们将在这篇文章结尾介绍更多关于这方面的内容&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这个页脚组件允许用户去根据状态去删选任务列表和显示一些任务数。这个组件没有状态(注意如何通过将其传递给该接口的状态)但是有一些继承于父亲组件(TodoApp组件)的属性。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/// &amp;lt;reference path=&quot;../typings/react/react-global.d.ts&quot; /&amp;gt;
-/// &amp;lt;reference path=&quot;./interfaces.d.ts&quot;/&amp;gt;
-
-namespace app.components {
-
-  export class TodoFooter extends React.Component&amp;lt;ITodoFooterProps, {}&amp;gt; {
-
-    public render() {
-      var activeTodoWord = app.miscelanious.Utils.pluralize(this.props.count, &#39;item&#39;);
-      var clearButton = null;
-
-      if (this.props.completedCount &amp;gt; 0) {
-        clearButton = (
-          &amp;lt;button
-            className=&quot;clear-completed&quot;
-            onClick={this.props.onClearCompleted}&amp;gt;
-            Clear completed
-          &amp;lt;/button&amp;gt;
-        );
-      }
-
-      // React idiom for shortcutting to `classSet` since it&#39;ll be used often
-      var cx = React.addons.classSet;
-      var nowShowing = this.props.nowShowing;
-      return (
-        &amp;lt;footer className=&quot;footer&quot;&amp;gt;
-          &amp;lt;span className=&quot;todo-count&quot;&amp;gt;
-            &amp;lt;strong&amp;gt;{this.props.count}&amp;lt;/strong&amp;gt; {activeTodoWord} left
-          &amp;lt;/span&amp;gt;
-          &amp;lt;ul className=&quot;filters&quot;&amp;gt;
-            &amp;lt;li&amp;gt;
-              &amp;lt;a
-                href=&quot;#/&quot;
-                className={cx({selected: nowShowing === app.constants.ALL_TODOS})}&amp;gt;
-                  All
-              &amp;lt;/a&amp;gt;
-            &amp;lt;/li&amp;gt;
-            {&#39; &#39;}
-            &amp;lt;li&amp;gt;
-              &amp;lt;a
-                href=&quot;#/active&quot;
-                className={cx({selected: nowShowing === app.constants.ACTIVE_TODOS})}&amp;gt;
-                  Active
-              &amp;lt;/a&amp;gt;
-            &amp;lt;/li&amp;gt;
-            {&#39; &#39;}
-            &amp;lt;li&amp;gt;
-              &amp;lt;a
-                href=&quot;#/completed&quot;
-                className={cx({selected: nowShowing === app.constants.COMPLETED_TODOS})}&amp;gt;
-                  Completed
-              &amp;lt;/a&amp;gt;
-            &amp;lt;/li&amp;gt;
-          &amp;lt;/ul&amp;gt;
-          {clearButton}
-        &amp;lt;/footer&amp;gt;
-      );
-    }
-  }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;todoitem&quot;&gt;todoItem&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;TodoItem&lt;/code&gt;组件代表一个任务列表中的一个任务。&lt;br /&gt;
-这个组件不仅有属性(&lt;code&gt;ITodoItemProps&lt;/code&gt;)而且还有状态(&lt;code&gt;ITodoItemState&lt;/code&gt;)。&lt;/p&gt;
-
-&lt;p&gt;这个组件初始化状态是在构造函数里面设置同时属性是通过父亲组件传递过来的构造函数的参数来设置组件的(&lt;code&gt;TodoApp&lt;/code&gt;组件)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/// &amp;lt;reference path=&quot;../typings/react/react-global.d.ts&quot; /&amp;gt;
-/// &amp;lt;reference path=&quot;./interfaces.d.ts&quot;/&amp;gt;
-
-namespace app.components {
-
-  export class TodoItem extends React.Component&amp;lt;ITodoItemProps, ITodoItemState&amp;gt; {
-
-    constructor(props : ITodoItemProps){
-      super(props);
-      // set initial state
-      this.state = { editText: this.props.todo.title };
-    }
-
-    public handleSubmit(event) {
-      var val = this.state.editText.trim();
-      if (val) {
-        this.props.onSave(val);
-        this.setState({editText: val});
-      } else {
-        this.props.onDestroy();
-      }
-    }
-
-    public handleEdit() {
-      this.props.onEdit();
-      this.setState({editText: this.props.todo.title});
-    }
-
-    public handleKeyDown(event) {
-      if (event.which === app.constants.ESCAPE_KEY) {
-        this.setState({editText: this.props.todo.title});
-        this.props.onCancel(event);
-      } else if (event.which === app.constants.ENTER_KEY) {
-        this.handleSubmit(event);
-      }
-    }
-
-    public handleChange(event) {
-      this.setState({editText: event.target.value});
-    }
-
-    // This is a completely optional performance enhancement 
-    // that you can implement on any React component. If you 
-    // were to delete this method the app would still work 
-    // correctly (and still be very performant!), we just use it 
-    // as an example of how little code it takes to get an order
-    // of magnitude performance improvement.
-    public shouldComponentUpdate(nextProps, nextState) {
-      return (
-        nextProps.todo !== this.props.todo ||
-        nextProps.editing !== this.props.editing ||
-        nextState.editText !== this.state.editText
-      );
-    }
-
-    // Safely manipulate the DOM after updating the state 
-    // when invoking this.props.onEdit() in the handleEdit
-    // method above. 
-    public componentDidUpdate(prevProps) {
-      if (!prevProps.editing &amp;amp;&amp;amp; this.props.editing) {
-        var node = React.findDOMNode&amp;lt;HTMLInputElement&amp;gt;(this.refs[&quot;editField&quot;]);
-        node.focus();
-        node.setSelectionRange(node.value.length, node.value.length);
-      }
-    }
-
-    public render() {
-      return (
-        &amp;lt;li className={React.addons.classSet({
-          completed: this.props.todo.completed,
-          editing: this.props.editing
-        })}&amp;gt;
-          &amp;lt;div className=&quot;view&quot;&amp;gt;
-            &amp;lt;input
-              className=&quot;toggle&quot;
-              type=&quot;checkbox&quot;
-              checked={this.props.todo.completed}
-              onChange={this.props.onToggle}
-            /&amp;gt;
-            &amp;lt;label onDoubleClick={ e =&amp;gt; this.handleEdit() }&amp;gt;
-              {this.props.todo.title}
-            &amp;lt;/label&amp;gt;
-            &amp;lt;button className=&quot;destroy&quot; onClick={this.props.onDestroy} /&amp;gt;
-          &amp;lt;/div&amp;gt;
-          &amp;lt;input
-            ref=&quot;editField&quot;
-            className=&quot;edit&quot;
-            value={this.state.editText}
-            onBlur={ e =&amp;gt; this.handleSubmit(e) }
-            onChange={ e =&amp;gt; this.handleChange(e) }
-            onKeyDown={ e =&amp;gt; this.handleKeyDown(e) }
-          /&amp;gt;
-        &amp;lt;/li&amp;gt;
-      );
-    }
-  }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;#### app模块&lt;/p&gt;
-
-&lt;p&gt;此文件包含应用程序的入口点，这是该应用程序只有顶层组件的todoapp组件声明。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/// &amp;lt;reference path=&quot;../typings/react/react-global.d.ts&quot; /&amp;gt;
-/// &amp;lt;reference path=&quot;./interfaces.d.ts&quot;/&amp;gt;
-
-// We should have installed a type declaration file but
-// for the director npm package but it is not available
-// so we will use this declaration to avoid compilation 
-// errors for now.
-declare var Router : any;
-
-var TodoModel = app.models.TodoModel;
-var TodoFooter = app.components.TodoFooter;
-var TodoItem = app.components.TodoItem;
-
-namespace app.components {
-
-  export class TodoApp extends React.Component&amp;lt;IAppProps, IAppState&amp;gt; {
-
-    constructor(props : IAppProps) {
-      super(props);
-      this.state = {
-        nowShowing: app.constants.ALL_TODOS,
-        editing: null
-      };
-    }
-
-    public componentDidMount() {
-      var setState = this.setState;
-      // we will configure the Router here
-      // our router is provided by the
-      // director npm module
-      // the router observes changes in the URL and 
-      // triggers some component&#39;s event accordingly 
-      var router = Router({
-        &#39;/&#39;: setState.bind(this, {nowShowing: app.constants.ALL_TODOS}),
-        &#39;/active&#39;: setState.bind(this, {nowShowing: app.constants.ACTIVE_TODOS}),
-        &#39;/completed&#39;: setState.bind(this, {nowShowing: app.constants.COMPLETED_TODOS})
-      });
-      router.init(&#39;/&#39;);
-    }
-
-    public handleNewTodoKeyDown(event) {
-      if (event.keyCode !== app.constants.ENTER_KEY) {
-        return;
-      }
-
-      event.preventDefault();
-
-      var val = React.findDOMNode&amp;lt;HTMLInputElement&amp;gt;(this.refs[&quot;newField&quot;]).value.trim();
-
-      if (val) {
-        this.props.model.addTodo(val);
-        React.findDOMNode&amp;lt;HTMLInputElement&amp;gt;(this.refs[&quot;newField&quot;]).value = &#39;&#39;;
-      }
-    }
-
-    public toggleAll(event) {
-      var checked = event.target.checked;
-      this.props.model.toggleAll(checked);
-    }
-
-    public toggle(todoToToggle) {
-      this.props.model.toggle(todoToToggle);
-    }
-
-    public destroy(todo) {
-      this.props.model.destroy(todo);
-    }
-
-    public edit(todo) {
-      this.setState({editing: todo.id});
-    }
-
-    public save(todoToSave, text) {
-      this.props.model.save(todoToSave, text);
-      this.setState({editing: null});
-    }
-
-    public cancel() {
-      this.setState({editing: null});
-    }
-
-    public clearCompleted() {
-      this.props.model.clearCompleted();
-    }
-
-    // the JSX syntax is quite intuitive but check out
-    // https://facebook.github.io/react/docs/jsx-in-depth.html
-    // if you need additional help
-    public render() {
-      var footer;
-      var main;
-      var todos = this.props.model.todos;
-
-      var shownTodos = todos.filter(function (todo) {
-        switch (this.state.nowShowing) {
-        case app.constants.ACTIVE_TODOS:
-          return !todo.completed;
-        case app.constants.COMPLETED_TODOS:
-          return todo.completed;
-        default:
-          return true;
-        }
-      }, this);
-
-      var todoItems = shownTodos.map(function (todo) {
-        return (
-          &amp;lt;TodoItem
-            key={todo.id}
-            todo={todo}
-            onToggle={this.toggle.bind(this, todo)}
-            onDestroy={this.destroy.bind(this, todo)}
-            onEdit={this.edit.bind(this, todo)}
-            editing={this.state.editing === todo.id}
-            onSave={this.save.bind(this, todo)}
-            onCancel={ e =&amp;gt; this.cancel() }
-          /&amp;gt;
-        );
-      }, this);
-
-      var activeTodoCount = todos.reduce(function (accum, todo) {
-        return todo.completed ? accum : accum + 1;
-      }, 0);
-
-      var completedCount = todos.length - activeTodoCount;
-
-      if (activeTodoCount || completedCount) {
-        footer =
-          &amp;lt;TodoFooter
-            count={activeTodoCount}
-            completedCount={completedCount}
-            nowShowing={this.state.nowShowing}
-            onClearCompleted={ e=&amp;gt; this.clearCompleted() }
-          /&amp;gt;;
-      }
-
-      if (todos.length) {
-        main = (
-          &amp;lt;section className=&quot;main&quot;&amp;gt;
-            &amp;lt;input
-              className=&quot;toggle-all&quot;
-              type=&quot;checkbox&quot;
-              onChange={ e =&amp;gt; this.toggleAll(e) }
-              checked={activeTodoCount === 0}
-            /&amp;gt;
-            &amp;lt;ul className=&quot;todo-list&quot;&amp;gt;
-              {todoItems}
-            &amp;lt;/ul&amp;gt;
-          &amp;lt;/section&amp;gt;
-        );
-      }
-
-      return (
-        &amp;lt;div&amp;gt;
-          &amp;lt;header className=&quot;header&quot;&amp;gt;
-            &amp;lt;h1&amp;gt;todos&amp;lt;/h1&amp;gt;
-            &amp;lt;input
-              ref=&quot;newField&quot;
-              className=&quot;new-todo&quot;
-              placeholder=&quot;What needs to be done?&quot;
-              onKeyDown={ e =&amp;gt; this.handleNewTodoKeyDown(e) }
-              autoFocus={true}
-            /&amp;gt;
-          &amp;lt;/header&amp;gt;
-          {main}
-          {footer}
-        &amp;lt;/div&amp;gt;
-      );
-    }
-  }
-}
-
-var model = new TodoModel(&#39;react-todos&#39;);
-var TodoApp = app.components.TodoApp;
-
-function render() {
-  React.render(
-    &amp;lt;TodoApp model={model}/&amp;gt;,
-    document.getElementsByClassName(&#39;todoapp&#39;)[0]
-  );
-}
-
-model.subscribe(render);
-render();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;确保其中的 &lt;code&gt;this&lt;/code&gt;在所有的时候都指向正确的元素。例如，你应用使用箭头函数：&lt;br /&gt;
-&lt;code&gt;onKeyDown = { e =&amp;gt; this.handleNewTodoKeyDown(e) }&lt;/code&gt;&lt;br /&gt;
-代替 &lt;br /&gt;
-&lt;code&gt;onKeyDown = { this.handleNewTodoKeyDown }&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;确保&lt;code&gt;this&lt;/code&gt;指向&lt;code&gt;handleNewTodoKeyDown&lt;/code&gt;函数内部的组件。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-9&quot;&gt;编译应用程序&lt;/h2&gt;
-
-&lt;p&gt;为了编译我们的应用程序，我们需要在&lt;code&gt;js&lt;/code&gt;文件夹下添加一个&lt;code&gt;tsconfig.json&lt;/code&gt;文件。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-    &quot;compilerOptions&quot;: {
-        &quot;target&quot;: &quot;es5&quot;,
-        &quot;module&quot;: &quot;commonjs&quot;,
-        &quot;moduleResolution&quot;: &quot;node&quot;,
-        &quot;isolatedModules&quot;: false,
-        &quot;jsx&quot;: &quot;react&quot;,
-        &quot;experimentalDecorators&quot;: true,
-        &quot;emitDecoratorMetadata&quot;: true,
-        &quot;declaration&quot;: false,
-        &quot;noImplicitAny&quot;: false,
-        &quot;removeComments&quot;: true,
-        &quot;noLib&quot;: false,
-        &quot;preserveConstEnums&quot;: true,
-        &quot;suppressImplicitAnyIndexErrors&quot;: true
-    },
-    &quot;filesGlob&quot;: [
-        &quot;**/*.ts&quot;,
-        &quot;**/*.tsx&quot;,
-        &quot;!node_modules/**&quot;
-    ],
-    &quot;files&quot;: [
-        &quot;constants.ts&quot;,
-        &quot;interfaces.d.ts&quot;,
-        &quot;todoModel.ts&quot;,
-        &quot;utils.ts&quot;,
-        &quot;app.tsx&quot;,
-        &quot;footer.tsx&quot;,
-        &quot;todoItem.tsx&quot;
-    ],
-    &quot;exclude&quot;: []
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;如果我们认真阅读了&lt;a href=&quot;https://github.com/Microsoft/TypeScript/wiki/Compiler-Options&quot;&gt;TypeScript compiler options&lt;/a&gt;我们就能够知道该如何使用&lt;code&gt;tsconfig.json&lt;/code&gt;文件：&lt;br /&gt;
-&amp;gt; 参数&lt;code&gt;--project&lt;/code&gt;或者&lt;code&gt;-p&lt;/code&gt; 都能用于编译项目在给定的文件下。这个文件需要含有&lt;code&gt;tsconfig.json&lt;/code&gt;文件来直接编译。&lt;/p&gt;
-
-&lt;p&gt;我们可以编译我们的应用程序通过以下命令：&lt;br /&gt;
-&lt;code&gt;
-//在应用程序的根目录
-$ tsc -p js
-&lt;/code&gt;&lt;br /&gt;
-执行这个命令之后，应该会在&lt;code&gt;js&lt;/code&gt;文件夹下生成以下JavaScript文件：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/2015/12/17/9/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;这些文件会在我们的&lt;code&gt;index.html&lt;/code&gt;文件中引用：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/constants.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/utils.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/todoModel.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/todoItem.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/footer.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;script type=&quot;text/javascript&quot; src=&quot;js/app.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;接下来我们准备运行我们的应用程序。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-10&quot;&gt;运行应用程序&lt;/h2&gt;
-
-&lt;p&gt;为了运行我们的应用程序，我们需要一个web服务器。这里我们通过npm来安装&lt;a href=&quot;https://www.npmjs.com/package/http-server&quot;&gt;http-server&lt;/a&gt;。这里博主推荐使用&lt;a href=&quot;anywhere&quot;&gt;https://www.npmjs.com/package/anywhere&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;我们通过以下命令来安装http-server:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ npm install -g http-server
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;如果你使用的是OSX系统，请使用sudo权限&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;运用以下命令来运行应用程序：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// 在应用的根目录
-$ http-server
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;如果你打开浏览器导航到&lt;code&gt;http://127.0.0.1:8080/&lt;/code&gt;,你应用可以看到应用程序正在运行：&lt;br /&gt;
-&lt;img src=&quot;/uploads/2015/12/17/9/7yjwysnxnekg_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;记得打开谷歌浏览器开发者工具去查看一下React 开发者扩展工具 并且查看一下当你与应用程序交互时，如何改变组件的属性和状态的值。&lt;br /&gt;
-&lt;img src=&quot;/uploads/2015/12/17/9/td99h20vs5yzq_retina.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section-11&quot;&gt;总结&lt;/h2&gt;
-
-&lt;p&gt;在这篇博客中我们已经学习了怎么搭建开发环境和怎么使用TypeScript来开发React应用程序。&lt;/p&gt;
-
-&lt;p&gt;你可以查看这个项目的&lt;a href=&quot;https://github.com/tastejs/todomvc/tree/master/examples/typescript-react&quot;&gt;源码&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;如果你想了解更多内容？请查看&lt;a href=&quot;http://jaysoo.ca/2015/09/26/typed-react-and-redux/&quot;&gt;Type React and Redux&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 18 Dec 2015 05:28:39 +0800</pubDate>
-        <link>http://xsstomy/articles/9.html</link>
-        <guid isPermaLink="true">http://xsstomy/articles/9.html</guid>
-        
-        <category>React</category>
-        
-        <category>TypeScript</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>杂谈Egret引擎之初探</title>
-        <description>&lt;h3 id=&quot;section&quot;&gt;缘由&lt;/h3&gt;
-&lt;p&gt;来egret差不多一年了，还差几天就整整一年了。来之前说要认认真真的看一下引擎源码，结果来了快一年都没有看，年末正在整理这一年的事情，发现还没有写过。然后现在就简单的整理了一下。这中间egret引擎从2.0到2.5是一个大版本的更新，架构也调整了。这里就直接看的是2.5以后的引擎了。&lt;/p&gt;
-
-&lt;p&gt;来白鹭之前，是白鹭引擎的忠实用户，那时候公司说要做HTML5游戏，说要用游戏引擎做，那时候第一次知道游戏引擎这个东西，但是一直不了解游戏引擎是什么东西。那时候正好快国庆，在同学学校图书馆借了一本cocos2dx书籍，在租房刷了7天的书，那时候才对游戏引擎有了初步的认识和理解。那时候租房都是没有网络的，学习白鹭引擎，都是把白鹭引擎的官方的教程网页右键保存在本地的。因为不懂，始终都是停留在使用阶段。那时候的教程还是非常少的，现在的完善多了，这里&lt;a href=&quot;http://edn.egret.com/cn/docs/&quot;&gt;官方地址&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;今天的初探主要是看核心库，从类结构上来，具体的API内容，大家就查看官方的&lt;a href=&quot;http://edn.egret.com/cn/apidoc/&quot;&gt;API文档&lt;/a&gt;了&lt;br /&gt;
-其实也就是一张简单的图了&lt;img src=&quot;/uploads/2015/12/13/8/egretclass.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;大概的三块：事件，显示对象，其它&lt;/h3&gt;
-&lt;p&gt;这样整体来看，我们大脑就有一个大概的印象，在学习和理解API上，就有一个整体的结构思路或者说是脉络，能够整体的把控引擎。这样对引擎的理解和使用是非常好的。这里推荐一篇博客，讲的是&lt;a href=&quot;http://zengrong.net/post/2383.htm&quot;&gt;技能掌握程度&lt;/a&gt;,还有程序员水平分等级，你属于哪一级？然后初探已经完了，这理主要想说的是大家从结构上来学习东西和理解事情，这样会有一个更全局的认识和理解。好吧，白鹭引擎的初探就到这里了，其实这里更多的是想对自己思索的一些总结。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;多一些探索精神和死磕精神&lt;/h3&gt;
-
-&lt;p&gt;说在最后的话。这两天把科技相对论看了几遍，其中的一句话是非常的认同的&lt;strong&gt;找到技术和产品的平衡点&lt;/strong&gt;。现在想从个人的理解回答一下知乎上的一个问题，说的是egret引擎为什么要从一开始就搭建周边环境，研发十多款工具。我觉得现在有些理论可以回答这个问题，在真正做一个成功的产品的时候，脱离工具流的引擎，即使非常引擎本身非常优秀，那就是像是一把利刃，缺少合适的握柄，无法把引擎的实力发挥到最大，没有高效的周边开发工具，那是无法成长壮大，那顶多是一个游戏框架，无法独立的成活下去，特别是一个技术型的驱动公司，更应该把握产品和技术的平衡点。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 14 Dec 2015 04:28:39 +0800</pubDate>
-        <link>http://xsstomy/articles/8.html</link>
-        <guid isPermaLink="true">http://xsstomy/articles/8.html</guid>
-        
-        <category>egret</category>
-        
-        <category>白鹭引擎</category>
-        
-        <category>egret引擎</category>
         
         
       </item>

@@ -1,6 +1,6 @@
 ### xsstomy.github.io
 
-#### contact 
+#### contact me
 
 ```
 wechat: xsstomy1990

@@ -5,8 +5,8 @@
     <description></description>
     <link>http://xsstomy/</link>
     <atom:link href="http://xsstomy/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 28 Aug 2016 21:20:46 +0800</pubDate>
-    <lastBuildDate>Sun, 28 Aug 2016 21:20:46 +0800</lastBuildDate>
+    <pubDate>Mon, 29 Aug 2016 09:39:41 +0800</pubDate>
+    <lastBuildDate>Mon, 29 Aug 2016 09:39:41 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -493,8 +493,8 @@ module.exports = {
 &lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 17 Jul 2016 21:28:39 +0800</pubDate>
-        <link>http://xsstomy/articles/17egret-workflow.html</link>
-        <guid isPermaLink="true">http://xsstomy/articles/17egret-workflow.html</guid>
+        <link>http://xsstomy/articles/17.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/17.html</guid>
         
         <category>egret</category>
         
@@ -554,8 +554,8 @@ module.exports = {
 &lt;p&gt;&lt;img src=&quot;/uploads/mypictures/xsstomyzhifubao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 06 Mar 2016 04:28:39 +0800</pubDate>
-        <link>http://xsstomy/articles/16-electron.html</link>
-        <guid isPermaLink="true">http://xsstomy/articles/16-electron.html</guid>
+        <link>http://xsstomy/articles/16.html</link>
+        <guid isPermaLink="true">http://xsstomy/articles/16.html</guid>
         
         <category>electron</category>
         

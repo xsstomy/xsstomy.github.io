@@ -247,14 +247,14 @@ a:focus {
 }
 
 .post {
-	padding: 25px 0 15px;
+	padding: 2px 0 10px;
 }
 
 .post .post-title {
 	margin: 0;
 	color: #666;
 	text-align: left;
-	font-size: 25px;
+	font-size: 15px;
 	font-weight: normal;
 	/*line-height: 1.4;*/
 }

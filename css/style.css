@@ -256,7 +256,7 @@ a:focus {
 	text-align: left;
 	font-size: 25px;
 	font-weight: normal;
-	line-height: 1.4;
+	/*line-height: 1.4;*/
 }
 
 .post .post-title a {
